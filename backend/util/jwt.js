@@ -30,3 +30,5 @@ async function decodeJWT(token){
         return null;
     }
 }
+
+module.exports = authenticateToken;
