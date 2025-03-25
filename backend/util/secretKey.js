@@ -1,7 +1,13 @@
 const { SSMClient, GetParameterCommand } = require('@aws-sdk/client-ssm');
 require("dotenv").config();
 
-const ssmClient = new SSMClient({ region: process.env.AWS_REGION });
+const ssmClient = new SSMClient({ 
+    region: process.env.AWS_REGION,
+    credentials: {
+        accessKeyId: process.env.ACCESS_KEY_ID,
+        secretAccessKey: process.env.SECRET_ACCESS_KEY
+    }
+});
 
 let cachedKey = null;
 async function getJwtSecret() {

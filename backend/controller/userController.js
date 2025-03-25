@@ -9,7 +9,7 @@ const validateLoginMiddleware = require("../middleware/loginMiddleware");
 
 router.post("/login", validateLoginMiddleware, async (req, res) => {
     const { username, password } = req.body;
-    console.log(username, password);
+    // console.log(username, password);
     secretKey = await getJwtSecret();
 
     const data = await userService.getUser(username);
