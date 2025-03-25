@@ -38,24 +38,18 @@ router.post("/logout", authenticateToken, (req, res) => {
 router.post("/register", async (req, res) => {
     try {
         const { username, password } = req.body;
-
-        // if username already exists
         const existingUser = await userService.getUser(username);
         if (existingUser) {
             return res.status(400).json({ message: "Username already taken" });
         }
 
-        // Hash the password
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Create user in the database
-        const newUser = await userService.createUser(username, hashedPassword);
-
-        res.status(201).json({ message: "User registered successfully", user_id: newUser.user_id });
+        const newUser = await userService.createUser(username, password);
+        res.status(201).json({ message: "User registered successfully", user_id: newUser.username });
     } catch (error) {
         console.error("Registration error:", error);
         res.status(500).json({ message: "Internal server error" });
     }
 });
+
 
 module.exports = router;

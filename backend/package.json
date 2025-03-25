@@ -10,14 +10,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.774.0",
-    "@aws-sdk/client-ssm": "^3.774.0",
+    "@aws-sdk/client-dynamodb": "^3.775.0",
+    "@aws-sdk/client-ssm": "^3.775.0",
     "@aws-sdk/lib-dynamodb": "^3.774.0",
     "aws-sdk": "^2.1692.0",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^11.1.0"
   }
 }
