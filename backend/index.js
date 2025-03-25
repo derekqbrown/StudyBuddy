@@ -1,14 +1,24 @@
 const express = require('express');
 const app = express();
+const userController = require("./controller/userController");
+const cors = require("cors");
+
 const port = 3000;
 
 app.use(express.json());
+app.use(cors);
 
-app.get('/', (req, res) => {
-  res.send('Welcome to StudyBuddy!');
-});
+// app.get('/', (req, res) => {
+//   res.send('Welcome to StudyBuddy!');
+// });
+
+app.use('/users', userController);
+
+
 
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
+
+module.exports = app;
