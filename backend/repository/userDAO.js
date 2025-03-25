@@ -24,15 +24,16 @@ async function getUser(username){
     });
 
     try{
-        const result = documentClient.send(command);
-        if(result.Items.length > 0){
+        const result = await documentClient.send(command);
+        console.log("result: ", result)
+        if(result.Items || result.Items.length > 0){
             return result.Items[0];
         }
         else{
             return null;
         }
     }  
-    catch(error){
+    catch(err){
         console.error(err);
         return null;
     }
