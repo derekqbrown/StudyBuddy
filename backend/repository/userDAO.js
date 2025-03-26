@@ -7,8 +7,8 @@ const { v4: uuidv4 } = require('uuid');
 const client = new DynamoDBClient({
     region: process.env.AWS_REGION,
     credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+        accessKeyId: process.env.ACCESS_KEY_ID,
+        secretAccessKey: process.env.SECRET_ACCESS_KEY
     },
 });
 
@@ -27,7 +27,7 @@ async function getUser(username){
 
     try{
         const result = await documentClient.send(command);
-        console.log("result: ", result)
+        // console.log("result: ", result)
         if(result.Items || result.Items.length > 0){
             return result.Items[0];
         }

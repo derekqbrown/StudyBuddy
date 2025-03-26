@@ -8,6 +8,15 @@ const { getJwtSecret } = require("../util/secretKey");
 const validateLoginMiddleware = require("../middleware/loginMiddleware");
 const bcrypt = require("bcrypt");
 
+
+router.get("/", authenticateToken, async (req, res) => {
+    const user = req.user;
+
+    res.status(201).json(user);
+})
+
+
+// login endpoint
 router.post("/login", validateLoginMiddleware, async (req, res) => {
     const { username, password } = req.body;
     // console.log(username, password);
@@ -28,6 +37,8 @@ router.post("/login", validateLoginMiddleware, async (req, res) => {
     res.status(200).json({message: "You have logged in!", token, user_id: data.user_id});
 })
 
+
+// logout endpoint
 router.post("/logout", authenticateToken, (req, res) => {
     console.log("logging out");
 
