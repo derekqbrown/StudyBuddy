@@ -11,4 +11,9 @@ async function getUser(username){
     return result;
 }
 
-module.exports = { getUser };
+async function createUser(username, password) {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    return await userDAO.createUser(username, hashedPassword);
+}
+
+module.exports = { getUser, createUser };
