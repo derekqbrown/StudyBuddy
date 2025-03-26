@@ -27,7 +27,7 @@ async function getUser(username){
 
     try{
         const result = await documentClient.send(command);
-        console.log("result: ", result)
+        // console.log("result: ", result)
         if(result.Items || result.Items.length > 0){
             return result.Items[0];
         }
@@ -43,8 +43,10 @@ async function getUser(username){
 
 
 async function createUser(username, password) {
+
     const userId = `USER#${uuidv4()}`; 
     const sortKey = "PROFILE"; 
+
 
     const command = new PutCommand({
         TableName: "StudyData",
@@ -65,6 +67,7 @@ async function createUser(username, password) {
         throw new Error("User creation failed");
     }
 }
+
 
 async function updateUser(userId, newUsername, newPassword) {
     if (!userId) {

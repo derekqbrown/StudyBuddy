@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const { getJwtSecret } = require("./secretKey");
 
 async function authenticateToken(req, res, next){
-    const authHeader = req.headers("authorization");
+    const authHeader = req.headers["authorization"];
     const token = authHeader && authHeader.split(" ")[1];
 
     console.log("Received Token: ", token);
