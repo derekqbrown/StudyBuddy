@@ -63,4 +63,26 @@ router.post("/register", async (req, res) => {
 });
 
 
+router.put("/update", authenticateToken, async (req, res) => {
+    try {
+        const userId = req.user.user_id; 
+        const { username, password } = req.body;
+
+        if (!userId) { // should only be thrown if there's a server error parsing token
+            throw new Error("Unable to retrieve user_id");
+        }
+        if (!username && !password) {
+            return res.status(400).json({ message: "A new username or password is required" });
+        }
+
+        const updatedUser = await userService.updateUser(userId, username || null, password || null); //if null, it won't be updated
+        res.status(201).json({ message: "User updated successfully", user_id: updatedUser.username });
+    } catch (error) {
+        console.error("Update error:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+
+
 module.exports = router;
