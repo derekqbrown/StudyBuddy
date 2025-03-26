@@ -1,15 +1,17 @@
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const { DynamoDBDocumentClient, UpdateCommand, GetCommand, ScanCommand, QueryCommand } = require("@aws-sdk/lib-dynamodb");
+const { DynamoDBDocumentClient, UpdateCommand, GetCommand, ScanCommand, QueryCommand, PutCommand } = require("@aws-sdk/lib-dynamodb");
 const AWS = require("aws-sdk");
 require("dotenv").config();
+const { v4: uuidv4 } = require('uuid');
 
 const client = new DynamoDBClient({
     region: process.env.AWS_REGION,
     credentials: {
-        accessKeyId: process.env.ACCESS_KEY_ID,
-        secretAccessKey: process.env.SECRET_ACCESS_KEY
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     },
 });
+
 
 const documentClient = DynamoDBDocumentClient.from(client);
 
@@ -40,4 +42,77 @@ async function getUser(username){
 }
 
 
-module.exports = { getUser };
+async function createUser(username, password) {
+    const userId = `USER#${uuidv4()}`; 
+    const sortKey = "PROFILE"; 
+
+    const command = new PutCommand({
+        TableName: "StudyData",
+        Item: {
+            user_id: userId,
+            sort_key: sortKey,
+            username: username,
+            password: password
+        }
+    });
+
+    try {
+        await documentClient.send(command);
+        console.log(`User ${username} created successfully.`);
+        return { username };
+    } catch (err) {
+        console.error("Error creating user: ", err);
+        throw new Error("User creation failed");
+    }
+}
+
+async function updateUser(userId, newUsername, newPassword) {
+    if (!userId) {
+      throw new Error("User ID is required for updating.");
+    }
+  
+    const sortKey = "PROFILE"; 
+  
+    const updateExpression = [];
+    const expressionAttributeValues = {};
+  
+    if (newUsername) {
+      updateExpression.push("username = :username");
+      expressionAttributeValues[":username"] = { S: newUsername };
+    }
+  
+    if (newPassword) {
+      updateExpression.push("password = :password");
+      expressionAttributeValues[":password"] = { S: newPassword };
+    }
+  
+    if (updateExpression.length === 0) {
+      console.log("No fields to update provided.");
+      return { message: "No fields to update provided." };
+    }
+  
+    const params = {
+      TableName: "StudyData",
+      Key: marshall({
+        user_id: userId,
+        sort_key: sortKey,
+      }),
+      UpdateExpression: "SET " + updateExpression.join(", "),
+      ExpressionAttributeValues: expressionAttributeValues,
+      ReturnValues: "ALL_NEW", 
+    };
+  
+    const command = new UpdateCommand(params);
+  
+    try {
+      const data = await documentClient.send(command);
+      console.log(`User with ID ${userId} updated successfully.`);
+      return unmarshall(data.Attributes);
+    } catch (err) {
+      console.error("Error updating user: ", err);
+      throw new Error("User update failed");
+    }
+}
+
+
+module.exports = { getUser, createUser, updateUser };
