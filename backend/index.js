@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const userController = require("./controller/userController");
+const geminiController = require("./controller/geminiController");
 const cors = require("cors");
 
 const port = 3000;
@@ -13,6 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/users', userController);
+app.use('/chat', geminiController);
 
 
 
