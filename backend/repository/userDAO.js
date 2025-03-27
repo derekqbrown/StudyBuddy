@@ -1,5 +1,5 @@
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const { DynamoDBDocumentClient, UpdateCommand, GetCommand, ScanCommand, QueryCommand, PutCommand } = require("@aws-sdk/lib-dynamodb");
+const { DynamoDBDocumentClient, UpdateCommand, GetCommand, ScanCommand, QueryCommand, PutCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb");
 const AWS = require("aws-sdk");
 require("dotenv").config();
 const { v4: uuidv4 } = require('uuid');
@@ -118,4 +118,26 @@ async function updateUser(userId, newUsername, newPassword) {
 }
 
 
-module.exports = { getUser, createUser, updateUser };
+async function deleteUser(userId) {
+    const command = new DeleteCommand({
+        TableName: "StudyData",
+        Key: {
+            user_id: userId,     
+            sort_key: "PROFILE"
+        }
+    });
+
+    try {
+        await documentClient.send(command);
+        console.log(`User with ID ${userId} deleted successfully.`);
+        return { message: "User deleted successfully." };
+    } catch (err) {
+        console.error("Error deleting user: ", err);
+        throw new Error("User deletion failed");
+    }
+}
+
+
+
+
+module.exports = { getUser, createUser, updateUser, deleteUser};

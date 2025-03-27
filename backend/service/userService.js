@@ -31,5 +31,9 @@ async function updateUser(userId, username, password){
     return result;
 }
 
-module.exports = { getUser, createUser, updateUser };
+async function deleteUser(user_id) {
+    return await userDAO.deleteUser(user_id);
+}
+
+module.exports = { getUser, createUser, updateUser, deleteUser};
 
