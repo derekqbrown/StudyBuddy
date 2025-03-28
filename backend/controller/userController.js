@@ -9,7 +9,7 @@ const validateLoginMiddleware = require("../middleware/loginMiddleware");
 const bcrypt = require("bcrypt");
 
 
-router.get("/", authenticateToken, async (req, res) => {
+router.get("/profile", authenticateToken, async (req, res) => {
     const user = req.user;
 
     res.status(201).json(user);
