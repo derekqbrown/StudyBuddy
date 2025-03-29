@@ -8,8 +8,10 @@ const { getJwtSecret } = require("../util/secretKey");
 const validateLoginMiddleware = require("../middleware/loginMiddleware");
 const bcrypt = require("bcrypt");
 
+const multer = require("multer");
+const upload = multer({ storage: multer.memoryStorage() });
 
-router.get("/profile", authenticateToken, async (req, res) => {
+router.get("/", authenticateToken, async (req, res) => {
     const user = req.user;
 
     res.status(201).json(user);
@@ -111,5 +113,51 @@ router.delete("/delete", authenticateToken, async (req, res) => {
 });
 
 
+
+router.post("/upload-profile-pic", authenticateToken, upload.single("profilePic"), async (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(400).json({ message: "No file uploaded" });
+        }
+
+        const userId = req.user.id;
+        const fileType = req.file.mimetype;
+
+        const fileKey = await userService.uploadUserProfilePictureToS3(userId, req.file.buffer, fileType);
+
+        await userService.updateUserProfilePicture(userId, fileKey);
+
+        res.status(200).json({ message: "Profile picture uploaded successfully", fileKey });
+    } catch (error) {
+        console.error("Upload error:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+router.get("/profile-pic", authenticateToken, async (req, res) => {
+    try {
+        const { username } = req.user;
+
+        if (!username) {
+            return res.status(400).json({ message: "Username is required" });
+        }
+
+        const existingUser = await userService.getUser(username);
+        if (!existingUser) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        if (!existingUser.profilePic) {
+            return res.status(404).json({ message: "Profile picture not found" });
+        }
+
+        const signedUrl = await userService.getProfilePicture(existingUser.profilePic);
+
+        res.status(200).json({ url: signedUrl });
+    } catch (error) {
+        console.error("Get profile picture error:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
 
 module.exports = router;

@@ -35,5 +35,17 @@ async function deleteUser(user_id) {
     return await userDAO.deleteUser(user_id);
 }
 
-module.exports = { getUser, createUser, updateUser, deleteUser};
+async function updateUserProfilePicture(userId, fileKey) {
+    const result = await userDAO.updateUserProfilePicture(userId, fileKey);
+    return result;
+}
+async function uploadUserProfilePictureToS3(userId, fileBuffer, fileType) {
+    return await userDAO.uploadProfilePictureToS3(userId, fileBuffer, fileType);
+}
+
+async function getProfilePicture(fileKey) {
+    return await userDAO.getProfilePictureFromS3(fileKey);
+}
+module.exports = { getUser, createUser, updateUser, deleteUser,getProfilePicture, updateUserProfilePicture,
+    uploadUserProfilePictureToS3};
 

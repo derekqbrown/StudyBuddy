@@ -4,6 +4,9 @@ const AWS = require("aws-sdk");
 require("dotenv").config();
 const { v4: uuidv4 } = require('uuid');
 
+const { s3, BUCKET_NAME, getSignedUrl } = require("../util/s3Client");
+const { PutObjectCommand, GetObjectCommand } = require("@aws-sdk/client-s3");
+
 const client = new DynamoDBClient({
     region: process.env.AWS_REGION,
     credentials: {
@@ -46,7 +49,7 @@ async function createUser(username, password) {
 
     const userId = `USER#${uuidv4()}`; 
     const sortKey = "PROFILE"; 
-
+    const profilePic = "null";
 
     const command = new PutCommand({
         TableName: "StudyData",
@@ -54,7 +57,8 @@ async function createUser(username, password) {
             user_id: userId,
             sort_key: sortKey,
             username: username,
-            password: password
+            password: password,
+            profilePic: profilePic
         }
     });
 
@@ -137,7 +141,52 @@ async function deleteUser(userId) {
     }
 }
 
+async function updateUserProfilePicture(userId, fileKey) {
+    const command = new UpdateCommand({
+        TableName: "StudyData",
+        Key: { user_id: userId, sort_key: "PROFILE" },
+        UpdateExpression: "SET profilePic = :fileKey",
+        ExpressionAttributeValues: { ":fileKey": fileKey }
+    });
+
+    await documentClient.send(command);
+}
+
+async function uploadProfilePictureToS3(userId, fileBuffer, fileType) {
+    const fileKey = `profile-pictures/${userId}.jpg`;
+
+    const command = new PutObjectCommand({
+        Bucket: BUCKET_NAME,
+        Key: fileKey,
+        Body: fileBuffer,
+        ContentType: fileType
+    });
+
+    try {
+        await s3.send(command);
+        return fileKey; //return the file key
+    } catch (err) {
+        console.error("Error uploading profile picture to S3: ", err);
+        throw new Error("Profile picture upload to S3 failed");
+    }
+}
 
 
+async function getProfilePictureFromS3(fileKey) {
+    const command = new GetObjectCommand({
+        Bucket: BUCKET_NAME,
+        Key: fileKey
+    });
 
-module.exports = { getUser, createUser, updateUser, deleteUser};
+    try {
+        const signedUrl = await getSignedUrl(s3, command, { expiresIn: 3600 }); //generate signed URL
+        return signedUrl; // return the signed URL
+    } catch (err) {
+        console.error("Error retrieving profile picture from S3: ", err);
+        throw new Error("Profile picture retrieval from S3 failed");
+    }
+}
+
+
+module.exports = { getUser, createUser, updateUser, deleteUser, updateUserProfilePicture, getProfilePictureFromS3, 
+    uploadProfilePictureToS3 }; 
