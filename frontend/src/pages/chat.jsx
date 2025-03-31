@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../styles/ChatPage.css';
+import ReactMarkdown from 'react-markdown';
 
 const CHAT_URL = 'http://localhost:3000/chat';
 
@@ -41,25 +43,25 @@ function ChatPage(){
 
     return (
         <div>
-          <h2>Ask a Question</h2>
+          <h2 id="question-heading">Ask a Question</h2>
           <form onSubmit={handleSubmit}>
-            <textarea
+            <textarea id="prompt-area"
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              rows={4}
+              rows={1}
               cols={50}
               placeholder="Type your question here..."
               required
             />
             <br />
-            <button type="submit" >
+            <button id="submit-prompt" type="submit" >Submit
             </button>
           </form>
     
           {reply && (
-            <div>
-              <h3>StudyBuddy Says: </h3>
-              <p>{reply}</p>
+            <div id="reply-container">
+              <h3 id="reply-block">StudyBuddy Says: </h3>
+              <ReactMarkdown>{reply}</ReactMarkdown>
             </div>
           )}
     

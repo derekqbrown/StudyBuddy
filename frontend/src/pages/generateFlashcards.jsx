@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../styles/generateFlashcards.css';
 
 const GENERATE_URL = 'http://localhost:3000/chat//flashcards';
 
@@ -29,7 +30,14 @@ function GenerateFlashcardsPage(){
                 }
             );
 
-            setReply(response.data.reply);
+            let rawData = response.data.reply;
+            // console.log("raw: ", rawData);
+            const jsonMatch = rawData.match(/```json([\s\S]*?)```/);
+
+            const parsed = JSON.parse(jsonMatch[1].trim());
+            setReply(parsed); 
+            // setReply(response.data.reply);
+
         }
         catch(err){
             setError(err);
@@ -38,9 +46,9 @@ function GenerateFlashcardsPage(){
 
     return (
         <div>
-            <h2>Paste in Your Notes</h2>
+            <h2 id="question-heading">Paste in Your Notes</h2>
             <form onSubmit={handleSubmit}>
-                <textarea
+                <textarea id="prompt-area"
                     value = { prompt }
                     onChange={(e) => setPrompt(e.target.value)}
                     rows = {4}
@@ -49,15 +57,20 @@ function GenerateFlashcardsPage(){
                     required
                 />
                 <br/>
-                <button type='submit'></button>
+                <button id="submit-prompt" type='submit'>Submit</button>
             </form>
 
-            {reply && (
-                <div>
-                    <h3> StudyBuddy Says: </h3>
-                    <p>{reply}</p>
+            {Array.isArray(reply) && (
+                <div className="flashcard-container">
+                    {reply.map((item, index) => (
+                    <div key={index} className="flashcard-block">
+                        <h4 className="question">Q: {item.question}</h4>
+                        <p className="answer">A: {item.answer}</p>
+                    </div>
+                    ))}
                 </div>
             )}
+
 
             {error && <p style={{color: 'red'}}>{error}</p>}
         </div>
