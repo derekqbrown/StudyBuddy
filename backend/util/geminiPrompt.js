@@ -1,8 +1,13 @@
 
 const promptifyFlashCards = (userInput) => {
 
-    let prompt = `Please provide a set of flash cards based on the following notes: "${userInput}" \n
-Please follow the format below when creating the flash cards (should be in JSON format)
+    let prompt = `
+Based on the following notes, generate flashcards in **valid JSON array format only**. 
+Do not include any explanations, markdown, or additional text — just the JSON array.
+
+Notes: "${userInput}"
+
+Example format:
 [
   {
     "question": "What is the smallest prime number?",
@@ -16,7 +21,8 @@ Please follow the format below when creating the flash cards (should be in JSON 
     "question": "What is the chemical symbol for gold?",
     "answer": "Au, derived from the Latin word 'aurum'."
   }
-]`;
+]
+`;
 
     return prompt;
 }
