@@ -58,7 +58,7 @@ function ChatPage(){
     
           {reply && (
             <div>
-              <h3>Gemini says:</h3>
+              <h3>StudyBuddy Says: </h3>
               <p>{reply}</p>
             </div>
           )}
