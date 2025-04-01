@@ -57,9 +57,29 @@ router.post("/save", authenticateToken, async (req, res) => {
 router.get("/all-flashcards", authenticateToken, async (req, res) => {
     const userId = req.user.id;
     
-    const result = await flashcardService.getAllFlashcards(userId);
+    const result = await flashcardService.getAllFlashcardSets(userId);
+
+    if(!result){
+      res.status(400).json({ message: "Failed to get all flashcards"});
+    }
 
     res.status(200).json(result);
+})
+
+
+router.get("/:setid", authenticateToken, async (req, res) => {
+  const userId = req.user.id;
+  const userSetId = req.params.setid;
+
+  console.log("User set Id: ", userSetId);
+
+  const result = await flashcardService.getSetById(userId, userSetId);
+
+  if(!result){
+    res.status(400).json({ message: "Failed to get all flashcards"});
+  }
+
+  res.status(200).json(result);
 })
 
 

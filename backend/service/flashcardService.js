@@ -15,12 +15,26 @@ async function saveFlashcards(userId, flashcardSetName, flashcards) {
   return setId;
 }
 
-async function getAllFlashcards(userId){
-  const allFlashcards = flashcardDAO.getAllFlashcards(userId);
+async function getAllFlashcardSets(userId){
+  const allFlashcards = await flashcardDAO.getAllFlashcardSets(userId);
+
+  if(!allFlashcards){
+    return false;
+  }
 
   return allFlashcards;
 }
 
 
+async function getSetById(userId, setId){
+  const flashcardSet = await flashcardDAO.getSetById(userId, setId);
 
-module.exports = { saveFlashcards, getAllFlashcards };
+  if(!flashcardSet){
+    return false;
+  }
+
+  return flashcardSet;
+}
+
+
+module.exports = { saveFlashcards, getAllFlashcardSets, getSetById };
