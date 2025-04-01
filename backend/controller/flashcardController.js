@@ -4,7 +4,10 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const authenticateToken = require("../util/jwt");
 const { promptifyFlashCards } = require("../util/geminiPrompt");
 const flashcardService = require('../service/flashcardService');
-require('dotenv').config();
+
+
+const ai = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
+
 
 router.post("/", authenticateToken, async (req, res) => {
     try {
@@ -21,10 +24,8 @@ router.post("/", authenticateToken, async (req, res) => {
         const result = await model.generateContent(newUserPrompt);
         const response = await result.response;
         const text = response.text();
-  
-        const flashcardSetId = await flashcardService.saveFlashcards(userId, flashcardSetName, response);
         
-        res.json({ reply: text, flashcardSetId:flashcardSetId});
+        res.json({ reply: text });
       } catch (error) {
         console.error("Gemini error:", error);
         res.status(500).json({ error: "Failed to generate response from Gemini" });
@@ -32,13 +33,35 @@ router.post("/", authenticateToken, async (req, res) => {
 })
 
 
-router.get("/", authenticateToken, async (req, res) => {
-    try{
+router.post("/save", authenticateToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const flashcardSetName = req.body.name;
+    const flashcards = req.body.flashcards;
 
+    if (!flashcardSetName || !flashcards) {
+      return res.status(400).json({ message: "Set name and flashcards are required" });
     }
-    catch (err){
-        console.error("Gemini error:", error);
-        res.status(500).json({ error: "Failed to generate response from Gemini" });
-    }
+
+    const flashcardSetId = await flashcardService.saveFlashcards(userId, flashcardSetName, flashcards);
+
+    res.json({ flashcardSetId });
+  } 
+  catch (error) {
+    console.error("Error saving flashcards:", error);
+    res.status(500).json({ message: "Failed to save flashcards" });
+  }
 })
+
+
+router.get("/all-flashcards", authenticateToken, async (req, res) => {
+    const userId = req.user.id;
+    
+    const result = await flashcardService.getAllFlashcards(userId);
+
+    res.status(200).json(result);
+})
+
+
+
 module.exports = router;

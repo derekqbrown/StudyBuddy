@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const userController = require("./controller/userController");
 const geminiController = require("./controller/geminiController");
-const flashcardsController = require("./controller/flashcardsController");
+const flashcardsController = require("./controller/flashcardController");
 const cors = require("cors");
 
 const port = 3000;
