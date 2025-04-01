@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/login';
 import ProfilePage from './pages/profile';
 import ChatPage from './pages/chat';
-import GenerateFlashcardsPage from './pages/generateFlashcards';
+import GenerateFlashcardsPage from './pages/generateFlashcards'; 
+import Homepage from "./pages/homepage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/chat" element={<ChatPage />} />
         <Route path="/generateflashcards" element={<GenerateFlashcardsPage />} />
+        <Route path="/" element={<Homepage />} />
       </Routes>
     </Router>
   );
