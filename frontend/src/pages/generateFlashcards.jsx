@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/generateFlashcards.css';
 
-const GENERATE_URL = 'http://localhost:3000/chat//flashcards';
+const GENERATE_URL = 'http://localhost:3000/flashcards';
 
 function GenerateFlashcardsPage(){
     const [prompt, setPrompt] = useState('');
