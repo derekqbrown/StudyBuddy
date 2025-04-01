@@ -1,3 +1,4 @@
+const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const AWS = require('aws-sdk'); 
 
 const client = new DynamoDBClient({
