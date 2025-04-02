@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../styles/generateFlashcards.css';
 
 const GENERATE_URL = 'http://localhost:3000/flashcards';
 
 function GenerateFlashcardsPage(){
-    const [prompt, setPrompt] = useState('');
-    const [reply, setReply] = useState('');
-    const [error, setError] = useState('');
+    const [prompt, setPrompt] = useState<string>('');
+    const [reply, setReply] = useState<string>('');
+    const [error, setError] = useState<string | null>(null);
 
     const handleSubmit = async (event) => {
         const token = localStorage.getItem('token');
@@ -59,6 +58,7 @@ function GenerateFlashcardsPage(){
                 <br/>
                 <button id="submit-prompt" type='submit'>Submit</button>
             </form>
+            {error && <p className="text-red-500 font-bold mt-2">{error}</p>}
 
             {Array.isArray(reply) && (
                 <div className="flashcard-container">
@@ -70,9 +70,7 @@ function GenerateFlashcardsPage(){
                     ))}
                 </div>
             )}
-
-
-            {error && <p style={{color: 'red'}}>{error}</p>}
+            
         </div>
     );
 }

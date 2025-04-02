@@ -3,9 +3,14 @@ import axios from 'axios';
 
 const PROFILE_URL = 'http://localhost:3000/users/profile'; // the endpoint to retrieve the user profile
 
+interface Profile {
+  profilePicture: string;
+  username: string;
+}
+
 function ProfilePage() {
-  const [profile, setProfile] = useState(null);
-  const [error, setError] = useState(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
+  const [error, setError] = useState<string| null>(null);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -31,7 +36,7 @@ function ProfilePage() {
   }, []);
 
   if (error) {
-    return <p style={{ color: 'red' }}>{error}</p>;
+    return <p className="text-red-500 font-bold mt-2">{error}</p>;
   }
 
   if (!profile) {
@@ -41,8 +46,8 @@ function ProfilePage() {
   return (
     <div>
       <h2>Profile</h2>
-      <img src={profile.profilePicture} alt="Profile" />
-      <p>Username: {profile.username}</p>
+      <img src={profile?.profilePicture} alt="Profile" />
+      <p>Username: {profile?.username}</p>
     </div>
   );
 }
