@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/login.tsx';
+import RegisterPage from './pages/register.tsx';
 import ProfilePage from './pages/profile.tsx';
 import ChatPage from './pages/chat.tsx';
 import GenerateFlashcardsPage from './pages/generateFlashcards.tsx'; 
@@ -12,6 +13,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/chat" element={<ChatPage />} />
         <Route path="/generateflashcards" element={<GenerateFlashcardsPage />} />

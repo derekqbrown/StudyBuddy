@@ -19,10 +19,13 @@ function Homepage() {
     <div className="flex flex-col items-center justify-center h-screen space-y-4">
       {isLoggedIn ? (
         <>
+          <button className={buttonClasses} onClick={() => navigate('/profile')}>
+            Profile
+          </button>
           <button className={buttonClasses} onClick={() => navigate('/chat')}>
             Chat
           </button>
-          <button className={buttonClasses} onClick={() => navigate('/flashcards')}>
+          <button className={buttonClasses} onClick={() => navigate('/generateflashcards')}>
             Flashcard
           </button>
         </>

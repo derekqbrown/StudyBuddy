@@ -160,4 +160,15 @@ router.get("/profile-pic", authenticateToken, async (req, res) => {
     }
 });
 
+router.post("create-set", authenticateToken, async (req, res) => {
+    try{
+        
+    }
+    catch(err){
+        console.error("Could not create set:", error);
+        res.status(500).json({ message: "Internal server error" });
+
+    }
+})
+
 module.exports = router;

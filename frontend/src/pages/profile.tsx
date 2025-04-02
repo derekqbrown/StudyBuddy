@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const PROFILE_URL = 'http://localhost:3000/users/profile'; // the endpoint to retrieve the user profile
+const PROFILE_URL = 'http://localhost:3000/users'; // the endpoint to retrieve the user profile
 
 interface Profile {
   profilePicture: string;
