@@ -4,6 +4,9 @@ const { v4: uuidv4 } = require('uuid');
 async function saveFlashcards(userId, flashcardSetName, flashcards) {
   const setId = uuidv4();
   const flashcardSetJson = JSON.stringify({ flashcards }); // Assuming flashcards is an array
+  console.log("userId: ", userId);
+  console.log("SetName: ", flashcardSetName);
+  console.log("flashcards:  ", flashcards);
 
   await flashcardDAO.saveFlashcardSetToS3(userId, setId, flashcardSetJson);
 
@@ -12,4 +15,26 @@ async function saveFlashcards(userId, flashcardSetName, flashcards) {
   return setId;
 }
 
-module.exports = { saveFlashcards };
+async function getAllFlashcardSets(userId){
+  const allFlashcards = await flashcardDAO.getAllFlashcardSets(userId);
+
+  if(!allFlashcards){
+    return false;
+  }
+
+  return allFlashcards;
+}
+
+
+async function getSetById(userId, setId){
+  const flashcardSet = await flashcardDAO.getSetById(userId, setId);
+
+  if(!flashcardSet){
+    return false;
+  }
+
+  return flashcardSet;
+}
+
+
+module.exports = { saveFlashcards, getAllFlashcardSets, getSetById };

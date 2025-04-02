@@ -1,6 +1,6 @@
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const { DynamoDBDocumentClient, UpdateCommand, GetCommand, ScanCommand, QueryCommand, PutCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb");
-const AWS = require("aws-sdk");
+// const AWS = require("aws-sdk");
 require("dotenv").config();
 const { v4: uuidv4 } = require('uuid');
 

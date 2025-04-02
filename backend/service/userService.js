@@ -47,5 +47,5 @@ async function getProfilePicture(fileKey) {
     return await userDAO.getProfilePictureFromS3(fileKey);
 }
 module.exports = { getUser, createUser, updateUser, deleteUser,getProfilePicture, updateUserProfilePicture,
-    uploadUserProfilePictureToS3};
+    uploadUserProfilePictureToS3 };
 
