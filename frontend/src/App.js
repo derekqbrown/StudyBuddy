@@ -1,11 +1,11 @@
 // frontend/src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoginPage from './pages/login';
-import ProfilePage from './pages/profile';
-import ChatPage from './pages/chat';
-import GenerateFlashcardsPage from './pages/generateFlashcards'; 
-import Homepage from "./pages/homepage";
+import LoginPage from './pages/login.tsx';
+import ProfilePage from './pages/profile.tsx';
+import ChatPage from './pages/chat.tsx';
+import GenerateFlashcardsPage from './pages/generateFlashcards.tsx'; 
+import Homepage from "./pages/homepage.tsx";
 
 function App() {
   return (

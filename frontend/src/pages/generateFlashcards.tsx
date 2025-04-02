@@ -17,7 +17,7 @@ function GenerateFlashcardsPage(){
         }
 
         event.preventDefault();
-        setError(null);
+        setError('');
 
         try{
             const response = await axios.post(
