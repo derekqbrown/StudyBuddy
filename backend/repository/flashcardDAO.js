@@ -1,20 +1,12 @@
-const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const { DynamoDBDocumentClient, PutCommand, QueryCommand } = require("@aws-sdk/lib-dynamodb");
+const { s3, BUCKET_NAME, getSignedUrl, client } = require("../util/awsClient");
 
 const AWS = require('aws-sdk'); 
 
-const baseClient = new DynamoDBClient({
-  region: process.env.AWS_REGION,
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-  },
-});
-
-const documentClient = DynamoDBDocumentClient.from(baseClient);
+const documentClient = DynamoDBDocumentClient.from(client);
 
 
-const s3 = new AWS.S3();
+const s3Client = new AWS.S3();
 
 async function saveFlashcardSetMetadata(userId, setId, setName) {
   const command = new PutCommand({
@@ -36,7 +28,7 @@ async function saveFlashcardSetToS3(userId, setId, flashcardSetJson) {
     Body: flashcardSetJson,
   };
 
-  await s3.putObject(params).promise();
+  await s3Client.putObject(params).promise();
 }
 
 
@@ -77,7 +69,7 @@ async function getSetById(userId, setId){
   };
 
   try{
-    const result = await s3.getObject(params).promise();
+    const result = await s3Client.getObject(params).promise();
 
     const jsonData = JSON.parse(result.Body.toString('utf-8'));
 

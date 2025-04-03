@@ -46,6 +46,18 @@ async function uploadUserProfilePictureToS3(userId, fileBuffer, fileType) {
 async function getProfilePicture(fileKey) {
     return await userDAO.getProfilePictureFromS3(fileKey);
 }
+
+async function createSet(userName, newSet){
+    const result = await userDAO.createSet(userName, newSet);
+
+    if(!result){
+        return false;
+    }
+
+    return result;
+}
+
+
 module.exports = { getUser, createUser, updateUser, deleteUser,getProfilePicture, updateUserProfilePicture,
-    uploadUserProfilePictureToS3 };
+    uploadUserProfilePictureToS3, createSet };
 

@@ -1,26 +1,16 @@
-const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const { DynamoDBDocumentClient, UpdateCommand, GetCommand, ScanCommand, QueryCommand, PutCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb");
 // const AWS = require("aws-sdk");
 require("dotenv").config();
 const { v4: uuidv4 } = require('uuid');
-
-const { s3, BUCKET_NAME, getSignedUrl } = require("../util/s3Client");
+const { s3, BUCKET_NAME, getSignedUrl, client, TABLE_NAME } = require("../util/awsClient");
 const { PutObjectCommand, GetObjectCommand } = require("@aws-sdk/client-s3");
-
-const client = new DynamoDBClient({
-    region: process.env.AWS_REGION,
-    credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-    },
-});
 
 
 const documentClient = DynamoDBDocumentClient.from(client);
 
 async function getUser(username){
     const command = new QueryCommand({
-        TableName: "StudyData",
+        TableName: TABLE_NAME,
         IndexName: "username-index",
         KeyConditionExpression: "username = :username",
         ExpressionAttributeValues: {
@@ -52,7 +42,7 @@ async function createUser(username, password) {
     const profilePic = "null";
 
     const command = new PutCommand({
-        TableName: "StudyData",
+        TableName: TABLE_NAME,
         Item: {
             user_id: userId,
             sort_key: sortKey,
@@ -99,7 +89,7 @@ async function updateUser(userId, newUsername, newPassword) {
     }
   
     const params = {
-      TableName: "StudyData",
+      TableName: TABLE_NAME,
       Key: marshall({
         user_id: userId,
         sort_key: sortKey,
@@ -124,7 +114,7 @@ async function updateUser(userId, newUsername, newPassword) {
 
 async function deleteUser(userId) {
     const command = new DeleteCommand({
-        TableName: "StudyData",
+        TableName: TABLE_NAME,
         Key: {
             user_id: userId,     
             sort_key: "PROFILE"
@@ -143,7 +133,7 @@ async function deleteUser(userId) {
 
 async function updateUserProfilePicture(userId, fileKey) {
     const command = new UpdateCommand({
-        TableName: "StudyData",
+        TableName: TABLE_NAME,
         Key: { user_id: userId, sort_key: "PROFILE" },
         UpdateExpression: "SET profilePic = :fileKey",
         ExpressionAttributeValues: { ":fileKey": fileKey }
@@ -188,5 +178,27 @@ async function getProfilePictureFromS3(fileKey) {
 }
 
 
+async function createSet(userName, newSet){
+    const user = await getUser(userName);
+    const userId = user.user_id;
+
+    const command = new PutObjectCommand({
+        Bucket: BUCKET_NAME,
+        Key: `flashcards/${userId}/${newSet}/`,
+        Body: ""
+    });
+
+    try{
+        const result = await s3.send(command);
+        // console.log("result: ", result);
+        return result;
+    }
+    catch(err){
+        console.error("Failed to create a new set: ", err);
+        return false;
+    }
+}
+
+
 module.exports = { getUser, createUser, updateUser, deleteUser, updateUserProfilePicture, getProfilePictureFromS3, 
-    uploadProfilePictureToS3 }; 
+    uploadProfilePictureToS3, createSet }; 

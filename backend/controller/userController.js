@@ -160,12 +160,21 @@ router.get("/profile-pic", authenticateToken, async (req, res) => {
     }
 });
 
-router.post("create-set", authenticateToken, async (req, res) => {
+router.post("/create-set", authenticateToken, async (req, res) => {
     try{
+        const userName = req.user.username;
+        const newSet = req.body.newSet;
         
+        const result = await userService.createSet(userName, newSet);
+
+        if(!result){
+            res.status(400).json({Message: "Failed to create set"});
+        }
+
+        res.status(200).json({Message: "New Set Created!", newSet});
     }
     catch(err){
-        console.error("Could not create set:", error);
+        console.error("Could not create set:", err);
         res.status(500).json({ message: "Internal server error" });
 
     }
