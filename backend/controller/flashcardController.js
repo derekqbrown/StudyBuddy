@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const authenticateToken = require("../util/jwt");
-const { promptifyFlashCards } = require("../util/geminiPrompt");
+const promptifyFlashCards = require("../util/geminiPrompt");
 const flashcardService = require('../service/flashcardService');
 
 
@@ -20,7 +20,7 @@ router.post("/", authenticateToken, async (req, res) => {
         return res.status(400).json({ error: "Prompt is required." });
         }
   
-        let newUserPrompt = promptifyFlashCards(userPrompt);
+        let newUserPrompt = await promptifyFlashCards(userPrompt);
         const result = await model.generateContent(newUserPrompt);
         const response = await result.response;
         const text = response.text();
@@ -70,10 +70,11 @@ router.get("/all-flashcards", authenticateToken, async (req, res) => {
 router.get("/:setid", authenticateToken, async (req, res) => {
   const userId = req.user.id;
   const userSetId = req.params.setid;
+  const selectedSet = req.body.flashcardSet;
 
-  console.log("User set Id: ", userSetId);
+  // console.log("User set Id: ", userSetId);
 
-  const result = await flashcardService.getSetById(userId, userSetId);
+  const result = await flashcardService.getSetById(userId, selectedSet, userSetId);
 
   if(!result){
     res.status(400).json({ message: "Failed to get all flashcards"});

@@ -21,10 +21,10 @@ async function saveFlashcardSetMetadata(userId, setId, setName) {
   await documentClient.send(command);
 }
 
-async function saveFlashcardSetToS3(userId, setId, flashcardSetJson) {
+async function saveFlashcardSetToS3(userId, setId, flashcardSetName, flashcardSetJson) {
   const params = {
     Bucket: 'study-buddy-s3-bucket', 
-    Key: `flashcards/${userId}/${setId}.json`,
+    Key: `flashcards/${userId}/${flashcardSetName}/${setId}.json`,
     Body: flashcardSetJson,
   };
 
@@ -59,13 +59,13 @@ async function getAllFlashcardSets(userId) {
 
 
 
-async function getSetById(userId, setId){
+async function getSetById(userId, selectedSet, setId){
   // console.log("userId: ", userId);
   // console.log("setId", setId);
 
   const params = {
     Bucket: 'study-buddy-s3-bucket',
-    Key: `flashcards/${userId}/${setId}.json`
+    Key: `flashcards/${userId}/${selectedSet}/${setId}.json`
   };
 
   try{

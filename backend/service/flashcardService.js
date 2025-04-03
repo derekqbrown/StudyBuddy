@@ -8,7 +8,7 @@ async function saveFlashcards(userId, flashcardSetName, flashcards) {
   console.log("SetName: ", flashcardSetName);
   console.log("flashcards:  ", flashcards);
 
-  await flashcardDAO.saveFlashcardSetToS3(userId, setId, flashcardSetJson);
+  await flashcardDAO.saveFlashcardSetToS3(userId, setId, flashcardSetName, flashcardSetJson);
 
   await flashcardDAO.saveFlashcardSetMetadata(userId, setId, flashcardSetName);
 
@@ -26,8 +26,8 @@ async function getAllFlashcardSets(userId){
 }
 
 
-async function getSetById(userId, setId){
-  const flashcardSet = await flashcardDAO.getSetById(userId, setId);
+async function getSetById(userId, selectedSet, setId){
+  const flashcardSet = await flashcardDAO.getSetById(userId, selectedSet,setId);
 
   if(!flashcardSet){
     return false;

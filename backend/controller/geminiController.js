@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const authenticateToken = require("../util/jwt");
-const { promptifyFlashCards } = require("../util/geminiPrompt");
-const flashcardService = require('../service/flashcardService');
 require('dotenv').config();
 
 const geminiAPIKey = process.env.GOOGLE_GEMINI_API_KEY;
