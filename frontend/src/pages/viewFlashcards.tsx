@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const FLASHCARD_SET_URL = "http://localhost:3000/flashcards"; 
+const FLASHCARD_SET_URL = "http://localhost:3000/flashcards";
 
 const ViewFlashcardsPage: React.FC = () => {
   const { setid } = useParams<{ setid: string }>();
+  const navigate = useNavigate();
   const [flashcards, setFlashcards] = useState<{ question: string; answer: string }[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -40,43 +41,71 @@ const ViewFlashcardsPage: React.FC = () => {
   const toggleFlip = (index: number) => {
     setFlipped((prev) => ({ ...prev, [index]: !prev[index] }));
   };
+  
+  const handleDeleteSet = async () => {
+    const confirmed = window.confirm("Are you sure you want to delete this flashcard set?");
+    if (!confirmed) return;
+  
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("You need to be logged in to delete sets");
+      navigate("/login");
+      return;
+    }
+  
+    try {
+      await axios.delete(`${FLASHCARD_SET_URL}/${setid}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+  
+      navigate("/dashboard", { state: { message: "Flashcard set deleted successfully!" } });
+    } catch (err) {
+      const errorMessage = axios.isAxiosError(err) 
+        ? err.response?.data?.message || "Failed to delete flashcard set"
+        : "An unexpected error occurred";
+      
+      alert(errorMessage);
+      console.error("Delete error:", err);
+    }
+  };
 
   if (loading) return <p>Loading flashcards...</p>;
   if (error) return <p style={{ color: "red" }}>{error}</p>;
 
   return (
-<div style={styles.container}>
-  <h2>Flashcard Set</h2>
-  {flashcards.length === 0 ? (
-    <p>No flashcards found.</p>
-  ) : (
-    <div style={styles.flashcardContainer}>
-      {flashcards.map((card, index) => (
-        <div
-          key={index}
-          onClick={() => toggleFlip(index)}
-          style={styles.flashcard}
-        >
-          <div style={{
-            ...styles.flashcardInner,
-            transform: flipped[index] ? "rotateY(180deg)" : "rotateY(0deg)"
-          }}>
-            <div style={styles.flashcardFront}>
-              <p><strong>Q:</strong> {card.question}</p>
+    <div style={styles.container}>
+      <h2>Flashcard Set</h2>
+      <button onClick={handleDeleteSet} style={styles.deleteButton}>Delete Set</button>
+  
+      {flashcards.length === 0 ? (
+        <p>No flashcards found.</p>
+      ) : (
+        <div style={styles.flashcardContainer}>
+          {flashcards.map((card, index) => (
+            <div
+              key={index}
+              onClick={() => toggleFlip(index)}
+              style={styles.flashcard} // Removed transform from outer div
+            >
+              <div style={{ 
+                ...styles.flashcardInner, 
+                transform: flipped[index] ? "rotateY(180deg)" : "rotateY(0deg)" 
+              }}>
+                <div style={styles.flashcardFront}>
+                  <p><strong>Q:</strong> {card.question}</p>
+                </div>
+                <div style={styles.flashcardBack}>
+                  <p><strong>A:</strong> {card.answer}</p>
+                </div>
+              </div>
             </div>
-            <div style={styles.flashcardBack}>
-              <p><strong>A:</strong> {card.answer}</p>
-            </div>
-          </div>
+          ))}
         </div>
-      ))}
+      )}
     </div>
-  )}
-</div>
   );
 };
 
-// Inline styles
 const styles: { [key: string]: React.CSSProperties } = {
   container: {
     textAlign: "center",
@@ -116,7 +145,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     backgroundColor: "#3498db",
     color: "white",
     padding: "10px",
-    fontSize: "18px", 
+    fontSize: "18px",
   },
   flashcardBack: {
     width: "100%",
@@ -133,6 +162,15 @@ const styles: { [key: string]: React.CSSProperties } = {
     padding: "10px",
     fontSize: "18px",
     transform: "rotateY(180deg)",
+  },
+  deleteButton: {
+    backgroundColor: "#e74c3c",
+    color: "white",
+    border: "none",
+    padding: "10px 15px",
+    cursor: "pointer",
+    borderRadius: "5px",
+    marginBottom: "20px",
   },
 };
 
