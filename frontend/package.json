@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.21",
     "axios": "^1.8.4",
+    "is-plain-obj": "^4.1.0",
     "jiti": "^2.4.2",
     "postcss": "^8.5.3",
     "postcss-cli": "^11.0.1",
@@ -28,7 +29,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  
   "browserslist": {
     "production": [
       ">0.2%",

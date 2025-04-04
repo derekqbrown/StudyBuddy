@@ -4,6 +4,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const authenticateToken = require("../util/jwt");
 const promptifyFlashCards = require("../util/geminiPrompt");
 const flashcardService = require('../service/flashcardService');
+const validateSetMiddleware = require('../middleware/flashcardSetMiddleware');
 
 
 const ai = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
@@ -33,7 +34,7 @@ router.post("/", authenticateToken, async (req, res) => {
 })
 
 
-router.post("/save", authenticateToken, async (req, res) => {
+router.post("/save", authenticateToken, validateSetMiddleware, async (req, res) => {
   try {
     const userId = req.user.id;
     const flashcardSetName = req.body.name;
