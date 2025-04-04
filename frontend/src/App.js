@@ -20,7 +20,7 @@ function App() {
         <Route path="/generateflashcards" element={<GenerateFlashcardsPage />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/flashcards/:setid" element={<ViewFlashcards />} />
-        {/* <Route path="/flashcardSets" element={<ViewFlashcardSets />} /> */}
+        <Route path="/flashcardSets" element={<ViewFlashcardSets />} />
         </Routes>
     </Router>
   );
