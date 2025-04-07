@@ -33,7 +33,7 @@ router.post("/login", validateLoginMiddleware, async (req, res) => {
         },
             secretKey,
         {
-            expiresIn: "15m"
+            expiresIn: "45m"
         }
     );
     res.status(200).json({message: "You have logged in!", token, user_id: data.user_id});

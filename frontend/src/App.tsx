@@ -8,6 +8,7 @@ import ChatPage from './pages/chat.tsx';
 import GenerateFlashcardsPage from './pages/generateFlashcards.tsx'; 
 import Homepage from "./pages/homepage.tsx";
 import ViewFlashcards from "./pages/viewFlashcards.tsx";
+import ViewFlashcardSets from "./pages/viewFlashcardSets.tsx";
 function App() {
   return (
     <Router>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/generateflashcards" element={<GenerateFlashcardsPage />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/flashcards/:setid" element={<ViewFlashcards />} />
+        <Route path="/flashcardSets" element={<ViewFlashcardSets />} />
         </Routes>
     </Router>
   );

@@ -2,18 +2,21 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const GENERATE_URL = 'http://localhost:3000/flashcards';
+const SAVE_URL = 'http://localhost:3000/flashcards/save';
 
 function GenerateFlashcardsPage(){
     const [prompt, setPrompt] = useState<string>('');
     const [reply, setReply] = useState<string>('');
+    const [flashcardSet, setFlashcardSet] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
 
+    const token = localStorage.getItem('token');
+    if(!token) {
+        setError('You are not logged in!');
+        return;
+    }
+
     const handleSubmit = async (event) => {
-        const token = localStorage.getItem('token');
-        if(!token) {
-            setError('You are not logged in!');
-            return;
-        }
 
         event.preventDefault();
         setError('');
@@ -43,6 +46,30 @@ function GenerateFlashcardsPage(){
         }
     }
 
+    function userSetInput(event: React.ChangeEvent<HTMLInputElement>){
+        setFlashcardSet(event.target.value);
+    }
+
+
+    async function saveFlashcards(){
+        try{
+            await axios.post(
+                SAVE_URL,
+                { 
+                    name: flashcardSet,
+                    flashcards: reply
+                },
+                {
+                    headers:{ Authorization: `Bearer ${token}`}
+                }
+            );
+        }
+        catch (err: any) {
+            console.error(err);
+            setError(err?.response?.data?.message || err.message || "An error occurred.");
+        }
+    }
+
     return (
         <div>
             <h2 id="question-heading">Paste in Your Notes</h2>
@@ -58,7 +85,6 @@ function GenerateFlashcardsPage(){
                 <br/>
                 <button id="submit-prompt" type='submit'>Submit</button>
             </form>
-            {error && <p className="text-red-500 font-bold mt-2">{error}</p>}
 
             {Array.isArray(reply) && (
                 <div className="flashcard-container">
@@ -70,7 +96,13 @@ function GenerateFlashcardsPage(){
                     ))}
                 </div>
             )}
-            
+
+            <label>
+                Save To: <input type="text" onChange={userSetInput} />
+            </label>
+            <button onClick={saveFlashcards}>Save</button>
+
+            {error && <p className="text-red-500 font-bold mt-2">{error || String(error)}</p>}
         </div>
     );
 }
