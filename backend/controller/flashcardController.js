@@ -68,10 +68,24 @@ router.get("/all-flashcards", authenticateToken, async (req, res) => {
 })
 
 
-router.get("/:setid", authenticateToken, async (req, res) => {
+router.get("/flashcardSet/:setid", authenticateToken, async (req, res) => {
+  const userId = req.user.id;
+  const selectedSetId = req.params.setid;
+
+  const result = await flashcardService.getDetailedSet(userId, selectedSetId);
+
+  if(!result){
+    return res.status(400).json({Message: "Failed to open set!"});
+  }
+
+  return res.status(200).json(result);
+})
+
+
+router.get("/:flashcardSet/:setid", authenticateToken, async (req, res) => {
   const userId = req.user.id;
   const userSetId = req.params.setid;
-  const selectedSet = req.body.flashcardSet;
+  const selectedSet = req.params.flashcardSet;
 
   // console.log("User set Id: ", userSetId);
 

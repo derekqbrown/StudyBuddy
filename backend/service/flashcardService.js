@@ -25,9 +25,18 @@ async function getAllFlashcardSets(userId){
   return allFlashcards;
 }
 
+async function getDetailedSet(userId, setId){
+  const detailedSet = await flashcardDAO.getDetailedSet(userId, setId);
+
+  if(!detailedSet){
+    return false;
+  }
+
+  return detailedSet
+}
 
 async function getSetById(userId, selectedSet, setId){
-  const flashcardSet = await flashcardDAO.getSetById(userId, selectedSet,setId);
+  const flashcardSet = await flashcardDAO.getSetById(userId, selectedSet, setId);
 
   if(!flashcardSet){
     return false;
@@ -37,4 +46,4 @@ async function getSetById(userId, selectedSet, setId){
 }
 
 
-module.exports = { saveFlashcards, getAllFlashcardSets, getSetById };
+module.exports = { saveFlashcards, getAllFlashcardSets, getDetailedSet, getSetById };
