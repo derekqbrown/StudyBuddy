@@ -33,7 +33,8 @@ function ProfilePage() {
 
         setProfile(response.data);
       } catch (err) {
-        setError(err.message || 'Failed to fetch profile');
+        console.log(err);
+        setError('Failed to fetch profile');
       }
     };
 
@@ -48,7 +49,8 @@ function ProfilePage() {
         setProfilePic(response.data.url);
       }
       catch(err){
-        setError(err.message || 'Failed to fetch profile picture');
+        console.log(err);
+        setError('Failed to fetch profile picture');
       }
     }
 
