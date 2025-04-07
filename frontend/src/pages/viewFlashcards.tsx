@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const FLASHCARD_SET_URL = "http://localhost:3000/flashcards"; 
+const FLASHCARD_URL = "http://localhost:3000/flashcards"; 
 
 const ViewFlashcardsPage: React.FC = () => {
-  const { setid } = useParams<{ setid: string }>();
+  const { setName, setid } = useParams<{ setName: string; setid: string }>();
   const [flashcards, setFlashcards] = useState<{ question: string; answer: string }[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [flipped, setFlipped] = useState<{ [key: number]: boolean }>({});
+
 
   useEffect(() => {
     const fetchFlashcards = async () => {
@@ -21,7 +22,7 @@ const ViewFlashcardsPage: React.FC = () => {
       }
 
       try {
-        const response = await axios.get(`${FLASHCARD_SET_URL}/${setid}`, {
+        const response = await axios.get(`${FLASHCARD_URL}/${setName}/${setid}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

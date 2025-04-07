@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import viewDetailedSet from './viewDetailedFlashcardSet';
 
 const VIEW_FLASHCARD_SET_URL = 'http://localhost:3000/flashcards/all-flashcards';
 
 function ViewFlashcardSet(){
-    interface FlashcardSet {
-        setName: string;
-    }
+    // interface FlashcardSet {
+    //     setName: string;
+    // }
 
-    const [flashcardSets, setFlashcardSets] = useState<FlashcardSet[]>([]);
+    const [flashcardSets, setFlashcardSets] = useState<[]>([]);
     const [error, setError] = useState('');
 
     useEffect(() => {
@@ -26,7 +28,9 @@ function ViewFlashcardSet(){
                         headers: {Authorization: `Bearer ${token}`}
                     }
                 );
-        
+                
+                console.log("response: ", response.data);
+
                 setFlashcardSets(response.data);
             }
             catch(err){
@@ -48,7 +52,7 @@ function ViewFlashcardSet(){
                 <ul>
                     {flashcardSets.map((set,index) => (
                         <li key={index} className="mb-2">
-                            <strong>{set.setName}</strong>
+                            <Link to={`/flashcardSets/${set}`}>{set}</Link>
                         </li>
                     ))}
                 </ul>
