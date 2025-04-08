@@ -9,6 +9,10 @@ describe('Login', () => {
     });
   
     it('should show error for invalid credentials', () => {
+      cy.intercept('POST', 'http://localhost:3000/users/login', {
+        statusCode: 400,
+        body: { message: 'Invalid username or password!' },
+      }).as('failedRegister');
       cy.get('input#username').type('wronguser');
       cy.get('input#password').type('wrongpass');
       cy.get('button[type="submit"]').click();
@@ -16,6 +20,10 @@ describe('Login', () => {
     });
   
     it('should login successfully with correct credentials', () => {
+      cy.intercept('POST', 'http://localhost:3000/users/login', {
+        statusCode: 200,
+        body: { message: 'You have logged in!!', token:"FakeToken", user_id:"FakeUserId" },
+      }).as('failedRegister');
       cy.get('input#username').type('test3');
       cy.get('input#password').type('password'); 
       cy.get('button[type="submit"]').click();
@@ -25,4 +33,3 @@ describe('Login', () => {
       });
     });
   });
-  

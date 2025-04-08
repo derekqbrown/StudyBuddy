@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 
@@ -10,9 +10,10 @@ function ChatPage(){
     const [error, setError] = useState<string | null>(null);
 
 
-    const handleSubmit = async (event)=> {
+    const handleSubmit = async (event: { preventDefault: () => void; })=> {
 
         const token = localStorage.getItem('token');
+        
         if (!token) {
             setError('Not logged in');
             return;
@@ -24,6 +25,9 @@ function ChatPage(){
         setError('');
 
         try{
+            if(!prompt){
+              throw new Error("Prompt is required");
+            }
             const response = await axios.post(
                 CHAT_URL,
                 { prompt },
