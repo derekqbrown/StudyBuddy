@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import '../index.css';
+
 
 const PROFILE_URL = 'http://localhost:3000/users'; // the endpoint to retrieve the user profile
 const PROFILE_PIC_URL = 'http://localhost:3000/users/profile-pic';
@@ -44,7 +45,7 @@ function ProfilePage() {
           headers: { Authorization: `Bearer ${token}`}
         });
 
-        console.log("Profile picture: ", response);
+        console.log("Profile picture: ", response.data.url);
 
         setProfilePic(response.data.url);
       }
@@ -58,6 +59,10 @@ function ProfilePage() {
     fetchProfilePic();
   }, []);
 
+  const handleViewFlashcards = () => {
+    window.location.href = '/flashcardSets';
+  }
+
   if (error) {
     return <p className="text-red-500 font-bold mt-2">{error}</p>;
   }
@@ -67,27 +72,38 @@ function ProfilePage() {
   }
 
   return (
-    
-    <div className="flex flex-col justify-center items-center">
-      <h2 className="text-2xl font-bold left-0">Profile</h2>
+    <div className="min-h-screen bg-purple-500">
+      <div className="top-0 left-0 w-full p-4 bg-purple-500 z-10 flex justify-between items-center shadow-md">
+        <h2 className="text-2xl font-bold text-white">Profile</h2>
+      </div>
 
       {profilePic && (
-        <img
-          style={{ height: '80px', width: '80px' }}
-          src={profilePic}
-          alt="Profile"
-        />
+        <div className="flex justify-center mt-6">
+          <img
+            src={profilePic}
+            alt="Profile"
+            style={{
+              width: '300px',
+              height: '300px',
+              borderRadius: '50%',
+              margin: '30px'
+            }}
+          />
+        </div>
+      
       )}
+      <p className="text-white text-center rounded text-2xl" style={{margin: '50px'}}>
+        Username: {profile?.username}
+      </p>
 
-      <p>Username: {profile?.username}</p>
-
-      <Link to="/flashcardSets">
-        <button>
-          View Flashcard Sets
-        </button>
-      </Link>
+      <button
+        onClick={handleViewFlashcards}
+        className="px-4 py-2 bg-white text-purple-600 rounded shadow"
+        style={{display: 'block', margin:'auto'}}
+      >
+        View Flashcard Sets
+      </button>
     </div>
-
   );
 }
 

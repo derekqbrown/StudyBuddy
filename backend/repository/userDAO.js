@@ -169,7 +169,7 @@ async function getProfilePictureFromS3(fileKey) {
     });
 
     try {
-        const signedUrl = await getSignedUrl(s3, command, { expiresIn: 3600 }); //generate signed URL
+        const signedUrl = await getSignedUrl(s3, command); //generate signed URL
         return signedUrl; // return the signed URL
     } catch (err) {
         console.error("Error retrieving profile picture from S3: ", err);
