@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -67,16 +67,27 @@ function ProfilePage() {
   }
 
   return (
-    <div>
-      <h2>Profile</h2>
-      {profilePic ? (
-        <img src={profilePic} alt="Profile" style={{width: 100, height: 100}}/>
-      ) : null}
+    
+    <div className="flex flex-col justify-center items-center">
+      <h2 className="text-2xl font-bold left-0">Profile</h2>
+
+      {profilePic && (
+        <img
+          style={{ height: '80px', width: '80px' }}
+          src={profilePic}
+          alt="Profile"
+        />
+      )}
+
       <p>Username: {profile?.username}</p>
+
       <Link to="/flashcardSets">
-        <button>View Flashcard Sets</button>
+        <button>
+          View Flashcard Sets
+        </button>
       </Link>
     </div>
+
   );
 }
 
