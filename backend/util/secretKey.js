@@ -2,7 +2,7 @@ const { SSMClient, GetParameterCommand } = require('@aws-sdk/client-ssm');
 require("dotenv").config();
 
 const ssmClient = new SSMClient({ 
-    region: process.env.AWS_REGION,
+    region: process.env.AWS_REGION || "us-west-2",
     credentials: {
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
