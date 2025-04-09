@@ -37,7 +37,7 @@
   "devDependencies": {
     "@types/react": "^19.0.12",
     "@vitejs/plugin-react": "^4.3.4",
-    "cypress": "^14.2.1",
+    "cypress": "^14.3.0",
     "eslintrc": "^1.0.6",
     "tailwindcss": "^4.1.2",
     "vite": "^6.2.5"

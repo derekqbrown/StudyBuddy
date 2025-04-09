@@ -90,8 +90,8 @@ function ProfilePage() {
             }}
           />
         </div>
-      
       )}
+      
       <p className="text-white text-center rounded text-2xl" style={{margin: '50px'}}>
         Username: {profile?.username}
       </p>

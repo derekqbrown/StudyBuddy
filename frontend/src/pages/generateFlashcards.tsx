@@ -42,7 +42,7 @@ function GenerateFlashcardsPage(){
 
         }
         catch(err){
-            setError(err);
+            setError("Failed to generate");
         }
     }
 
