@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const authenticateToken = require("../util/jwt");
+const logger = require("../util/logger");
 require('dotenv').config();
 
 const geminiAPIKey = process.env.GOOGLE_GEMINI_API_KEY;
-
 const ai = new GoogleGenerativeAI(geminiAPIKey);
 
 router.post("/", authenticateToken, async (req, res) => {
@@ -14,18 +14,21 @@ router.post("/", authenticateToken, async (req, res) => {
 
         const userPrompt = req.body.prompt;
         if (!userPrompt) {
-        return res.status(400).json({ error: "Prompt is required." });
+            logger.warn("Prompt is required for flashcard generation.");
+            return res.status(400).json({ error: "Prompt is required." });
         }
+
+        logger.info(`Generating flashcards for prompt: "${userPrompt}"`);
         const result = await model.generateContent(userPrompt);
         const response = await result.response;
         const text = response.text();
-    
+        
+        logger.info("Flashcards generated successfully.");
         res.json({ reply: text });
-      } catch (error) {
-        console.error("Gemini error:", error);
+    } catch (error) {
+        logger.error("Gemini error:", error);
         res.status(500).json({ error: "Failed to generate response from Gemini" });
-      }
-})
-
+    }
+});
 
 module.exports = router;
