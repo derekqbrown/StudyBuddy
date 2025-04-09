@@ -1,8 +1,5 @@
 describe('Profile Display', () => {
     beforeEach(() => {
-        // cy.intercept('POST', 'http://localhost:3000/users/login', {
-        //     statusCode: 200
-        // })
 
         cy.visit('http://localhost:5173/login');
         cy.get('input#username').type('test5');
