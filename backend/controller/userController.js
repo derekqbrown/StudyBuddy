@@ -7,80 +7,85 @@ const authenticateToken = require("../util/jwt");
 const { getJwtSecret } = require("../util/secretKey");
 const validateLoginMiddleware = require("../middleware/loginMiddleware");
 const bcrypt = require("bcrypt");
+const logger = require("../util/logger");
 
 const multer = require("multer");
 const upload = multer({ storage: multer.memoryStorage() });
 
 router.get("/", authenticateToken, async (req, res) => {
     const user = req.user;
-
+    logger.info(`User fetched: ${user.username}`);
     res.status(201).json(user);
-})
-
+});
 
 // login endpoint
 router.post("/login", validateLoginMiddleware, async (req, res) => {
     const { username, password } = req.body;
-    // console.log(username, password);
-    secretKey = await getJwtSecret();
-
+    const secretKey = await getJwtSecret();
     const data = await userService.getUser(username);
+
+    if (!data) {
+        logger.warn(`Login attempt failed for username: ${username}`);
+        return res.status(401).json({ message: "Invalid credentials" });
+    }
 
     const token = jwt.sign(
         {
             id: data.user_id,
             username
         },
-            secretKey,
+        secretKey,
         {
             expiresIn: "45m"
         }
     );
-    res.status(200).json({message: "You have logged in!", token, user_id: data.user_id});
-})
-
+    logger.info(`User logged in: ${username}`);
+    res.status(200).json({ message: "You have logged in!", token, user_id: data.user_id });
+});
 
 // logout endpoint
 router.post("/logout", authenticateToken, (req, res) => {
-    console.log("logging out");
+    logger.info(`User logged out: ${req.user.username}`);
+    res.status(200).json({ message: "You have logged out!" });
+});
 
-    res.status(200).json({message: "You have logged out!"});
-})
-
-//registration endpoint
+// registration endpoint
 router.post("/register", async (req, res) => {
     try {
         const { username, password } = req.body;
         const existingUser = await userService.getUser(username);
         if (existingUser) {
+            logger.warn(`Registration attempt failed: username already taken - ${username}`);
             return res.status(400).json({ message: "Username already taken" });
         }
 
         const newUser = await userService.createUser(username, password);
+        logger.info(`User registered successfully: ${newUser.username}`);
         res.status(201).json({ message: "User registered successfully", user_id: newUser.username });
     } catch (error) {
-        console.error("Registration error:", error);
+        logger.error("Registration error:", error);
         res.status(500).json({ message: "Internal server error" });
     }
 });
-
 
 router.put("/update", authenticateToken, async (req, res) => {
     try {
         const userId = req.user.user_id; 
         const { username, password } = req.body;
 
-        if (!userId) { // should only be thrown if there's a server error parsing token
+        if (!userId) {
             throw new Error("Unable to retrieve user_id");
         }
+
         if (!username && !password) {
             return res.status(400).json({ message: "A new username or password is required" });
         }
 
-        const updatedUser = await userService.updateUser(userId, username || null, password || null); //if null, it won't be updated
+        const updatedUser = await userService.updateUser(userId, username || null, password || null);
+        logger.info(`User updated successfully: ${userId}`);
         res.status(201).json({ message: "User updated successfully", user_id: updatedUser.username });
     } catch (error) {
-        console.error("Update error:", error);
+        logger.error("Update error:", error);
         res.status(500).json({ message: "Internal server error" });
     }
 });
@@ -95,6 +100,7 @@ router.delete("/delete", authenticateToken, async (req, res) => {
 
         const existingUser = await userService.getUser(username); // Check if the user exists
         if (!existingUser) {
+            logger.warn(`Deletion attempt failed: User does not exist - ${username}`);
             return res.status(400).json({ message: "User does not exist" });
         }
 
@@ -105,18 +111,18 @@ router.delete("/delete", authenticateToken, async (req, res) => {
         }
 
         await userService.deleteUser(id);
+        logger.info(`User deleted successfully: ${username}`);
         res.status(200).json({ message: "User deleted successfully" });
     } catch (error) {
-        console.error("Delete error:", error);
+        logger.error("Delete error:", error);
         res.status(500).json({ message: "Internal server error" });
     }
 });
 
-
-
 router.post("/upload-profile-pic", authenticateToken, upload.single("profilePic"), async (req, res) => {
     try {
         if (!req.file) {
+            logger.warn("No file uploaded");
             return res.status(400).json({ message: "No file uploaded" });
         }
 
@@ -124,12 +130,12 @@ router.post("/upload-profile-pic", authenticateToken, upload.single("profilePic"
         const fileType = req.file.mimetype;
 
         const fileKey = await userService.uploadUserProfilePictureToS3(userId, req.file.buffer, fileType);
-
         await userService.updateUserProfilePicture(userId, fileKey);
 
+        logger.info(`Profile picture uploaded successfully for user: ${userId}`);
         res.status(200).json({ message: "Profile picture uploaded successfully", fileKey });
     } catch (error) {
-        console.error("Upload error:", error);
+        logger.error("Upload error:", error);
         res.status(500).json({ message: "Internal server error" });
     }
 });
@@ -139,45 +145,48 @@ router.get("/profile-pic", authenticateToken, async (req, res) => {
         const { username } = req.user;
 
         if (!username) {
+            logger.warn("Username is required to fetch profile picture");
             return res.status(400).json({ message: "Username is required" });
         }
 
         const existingUser = await userService.getUser(username);
         if (!existingUser) {
+            logger.warn(`User not found for profile picture: ${username}`);
             return res.status(404).json({ message: "User not found" });
         }
 
         if (!existingUser.profilePic) {
+            logger.warn(`Profile picture not found for user: ${username}`);
             return res.status(404).json({ message: "Profile picture not found" });
         }
 
         const signedUrl = await userService.getProfilePicture(existingUser.profilePic);
-
+        logger.info(`Profile picture retrieved successfully for user: ${username}`);
         res.status(200).json({ url: signedUrl });
     } catch (error) {
-        console.error("Get profile picture error:", error);
+        logger.error("Get profile picture error:", error);
         res.status(500).json({ message: "Internal server error" });
     }
 });
 
 router.post("/create-set", authenticateToken, async (req, res) => {
-    try{
+    try {
         const userName = req.user.username;
         const newSet = req.body.newSet;
         
         const result = await userService.createSet(userName, newSet);
 
         if(!result){
-            res.status(400).json({Message: "Failed to create set"});
+            logger.warn(`Failed to create set for user: ${userName}`);
+            return res.status(400).json({ Message: "Failed to create set" });
         }
 
-        res.status(200).json({Message: "New Set Created!", newSet});
-    }
-    catch(err){
-        console.error("Could not create set:", err);
+        logger.info(`New set created successfully: ${newSet} for user: ${userName}`);
+        res.status(200).json({ Message: "New Set Created!", newSet });
+    } catch (err) {
+        logger.error("Could not create set:", err);
         res.status(500).json({ message: "Internal server error" });
-
     }
-})
+});
 
 module.exports = router;
