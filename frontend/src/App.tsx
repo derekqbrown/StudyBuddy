@@ -8,10 +8,12 @@ import Homepage from "./pages/homepage.tsx";
 import ViewFlashcards from "./pages/viewFlashcards.tsx";
 import ViewFlashcardSets from "./pages/viewFlashcardSets.tsx";
 import ViewDetailedSet from './pages/viewDetailedFlashcardSet.tsx';
+import LoggedInNavbar from './components/navigation.tsx';
 
 function App() {
   return (
     <Router>
+      <LoggedInNavbar />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
