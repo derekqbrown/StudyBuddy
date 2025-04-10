@@ -1,4 +1,10 @@
 {
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "types": ["jest", "node"]
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
