@@ -5,10 +5,9 @@ const { ListObjectV2Command, ListObjectsCommand } = require("@aws-sdk/client-s3"
 async function validateSetMiddleware(req, res, next){
     const userId = req.user.id;
     const targetSet = req.body.name;
-    const prefix = `flashcards/${userId}/${targetSet}`
+    const prefix = `flashcards/${userId}/${targetSet}`;
 
     // console.log("prefix: ", prefix);
-
     const command = new ListObjectsCommand({
         Bucket: BUCKET_NAME,
         Prefix: prefix
@@ -20,10 +19,13 @@ async function validateSetMiddleware(req, res, next){
             next();
         }
         else{
-            return res.status(400).json({Message: "Set does not exist!"});
+            console.log("Set does not exist");
+            // return res.status(400).json({Message: "Set does not exist!"});
+            next();
         }
     }
     catch(err){
+
         console.error(err);
         return res.status(400).json({Message: "Failed to find the target bucket!", err});
     }
