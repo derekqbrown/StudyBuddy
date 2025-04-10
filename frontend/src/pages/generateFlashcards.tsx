@@ -10,13 +10,12 @@ function GenerateFlashcardsPage(){
     const [flashcardSet, setFlashcardSet] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
 
-    const token = localStorage.getItem('token');
-    if(!token) {
-        setError('You are not logged in!');
-        return;
-    }
-
     const handleSubmit = async (event) => {
+        const token = localStorage.getItem('token');
+        if(!token) {
+            setError('Not logged in!');
+            return;
+        }
 
         event.preventDefault();
 

@@ -406,3 +406,20 @@
 [2025-04-09T18:20:26.539Z] INFO: Retrieved all flashcard sets for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
 [2025-04-09T18:20:26.641Z] INFO: Fetched detailed contents of set Biology 5 for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
 [2025-04-09T18:20:26.641Z] INFO: Flashcard set retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set ID: Biology 5
+[2025-04-10T18:42:36.111Z] INFO: Fetching user with username: test5
+[2025-04-10T18:42:36.462Z] INFO: Fetching user with username: test5
+[2025-04-10T18:42:36.629Z] INFO: Fetching user with username: test5
+[2025-04-10T18:42:36.735Z] INFO: User logged in: test5
+[2025-04-10T18:42:37.511Z] INFO: User fetched: test5
+[2025-04-10T18:42:37.519Z] INFO: Fetching user with username: test5
+[2025-04-10T18:42:37.948Z] INFO: Fetching profile picture with key: profile-pictures/USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.jpg
+[2025-04-10T18:42:37.960Z] INFO: Profile picture retrieved successfully for user: test5
+[2025-04-10T18:42:50.388Z] INFO: Generating flashcards for prompt: "what is react"
+[2025-04-10T18:42:55.940Z] INFO: Flashcards generated successfully.
+[2025-04-10T19:17:45.761Z] INFO: User fetched: test5
+[2025-04-10T19:17:45.781Z] INFO: Fetching user with username: test5
+[2025-04-10T19:17:46.186Z] INFO: Fetching profile picture with key: profile-pictures/USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.jpg
+[2025-04-10T19:17:46.198Z] INFO: Profile picture retrieved successfully for user: test5
+[2025-04-10T19:17:58.201Z] INFO: Generating flashcards for prompt: "what is react
+"
+[2025-04-10T19:18:05.767Z] INFO: Flashcards generated successfully.

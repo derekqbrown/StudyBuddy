@@ -77,25 +77,25 @@ describe('Profile page', () => {
         localStorage.setItem('token', 'fake-token');
     
         mockedAxios.get.mockImplementation((url) => {
-        if (url === 'http://localhost:3000/users') {
-            return Promise.resolve({
-            data: {
-                username: 'testuser',
-            },
-            });
-        }
-    
-        if (url === 'http://localhost:3000/users/profile-pic') {
-            return Promise.reject(new Error('Picture fetch failed'));
-        }
-    
-        return Promise.reject(new Error('unknown endpoint'));
+            if (url === 'http://localhost:3000/users') {
+                return Promise.resolve({
+                    data: {
+                        username: 'testuser',
+                    },
+                });
+            }
+        
+            if (url === 'http://localhost:3000/users/profile-pic') {
+                return Promise.reject(new Error('Picture fetch failed'));
+            }
+        
+            return Promise.reject(new Error('unknown endpoint'));
         });
     
         render(<ProfilePage />);
     
         await waitFor(() => {
-        expect(screen.getByText(/Failed to fetch profile picture/i)).toBeInTheDocument();
+            expect(screen.getByText(/Failed to fetch profile picture/i)).toBeInTheDocument();
         });
     });
 
