@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../index.css';
+// import '../index.css';
 
 
 const PROFILE_URL = 'http://localhost:3000/users'; // the endpoint to retrieve the user profile
