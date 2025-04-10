@@ -5,8 +5,6 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.1.1",
     "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.8.4",
     "is-plain-obj": "^4.1.0",
@@ -20,6 +18,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "test": "jest",
     "preview": "vite preview"
   },
   "browserslist": {
@@ -34,12 +33,33 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest",
+      "^.+\\.tsx?$": "babel-jest"
+    },
+    "moduleFileExtensions": ["js", "jsx", "ts", "tsx", "json", "node"]
+  },
   "devDependencies": {
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.27.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^29.5.14",
     "@types/react": "^19.0.12",
     "@vitejs/plugin-react": "^4.3.4",
+    "babel-jest": "^29.7.0",
     "cypress": "^14.3.0",
     "eslintrc": "^1.0.6",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "tailwindcss": "^4.1.2",
+    "ts-jest": "^29.3.1",
+    "util": "^0.12.5",
     "vite": "^6.2.5"
   }
 }
