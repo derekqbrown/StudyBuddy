@@ -5,6 +5,7 @@ import axios from 'axios';
 
 const PROFILE_URL = 'http://localhost:3000/users'; // the endpoint to retrieve the user profile
 const PROFILE_PIC_URL = 'http://localhost:3000/users/profile-pic';
+const CREATE_SET_URL = 'http://localhost:3000/users/create-set';
 
 interface Profile {
   profilePicture: string;
@@ -14,6 +15,7 @@ interface Profile {
 function ProfilePage() {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [profilePic, setProfilePic] = useState<string>('');
+  const [newSet, setNewSet] = useState('');
   const [error, setError] = useState<string| null>(null);
 
   useEffect(() => {
@@ -63,6 +65,31 @@ function ProfilePage() {
     window.location.href = '/flashcardSets';
   }
 
+
+  const handleCreateFlashcardSet = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      setError('Not logged in');
+      return;
+    }
+
+    try{
+      await axios.post(
+        CREATE_SET_URL,
+        { newSet }, 
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+    }
+    catch(err){
+      console.error(err);
+    }
+  }
+
   if (error) {
     return <p className="text-red-500 font-bold mt-2">{error}</p>;
   }
@@ -103,6 +130,30 @@ function ProfilePage() {
       >
         View Flashcard Sets
       </button>
+
+      <div className="flex justify-center mt-6 p-6 bg-white rounded shadow w-fit mx-auto" style={{background: "gray", width: "360px", margin: "40px auto 0"}}>
+        <div className="flex flex-col gap-4 p-6 bg-purple-700 rounded-lg shadow-lg">
+          <label className="text-white text-lg font-semibold" style={{margin: "10px"}}>
+            Create New Flashcard Set
+          </label>
+
+          <input
+            type="text"
+            onChange={(e) => setNewSet(e.target.value)}
+            className="border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            style={{margin: "10px"}}
+          />
+
+          <button
+            type="button"
+            onClick={handleCreateFlashcardSet}
+            className="bg-white text-purple-600 rounded-md shadow hover:bg-gray-100 transition"
+            style={{margin: "10px"}}
+          >
+            Create
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
