@@ -5,7 +5,6 @@ import ProfilePage from './pages/profile.tsx';
 import ChatPage from './pages/chat.tsx';
 import GenerateFlashcardsPage from './pages/generateFlashcards.tsx'; 
 import Homepage from "./pages/homepage.tsx";
-import ViewFlashcards from "./pages/viewFlashcards.tsx";
 import ViewFlashcardSets from "./pages/viewFlashcardSets.tsx";
 import ViewDetailedSet from './pages/viewDetailedFlashcardSet.tsx';
 import LoggedInNavbar from './components/navigation.tsx';
@@ -21,7 +20,6 @@ function App() {
         <Route path="/chat" element={<ChatPage />} />
         <Route path="/generateflashcards" element={<GenerateFlashcardsPage />} />
         <Route path="/" element={<Homepage />} />
-        <Route path="/flashcards/:setName/:setid" element={<ViewFlashcards />} />
         <Route path="/flashcardSets" element={<ViewFlashcardSets />} />
         <Route path="/flashcardSets/:setName" element={<ViewDetailedSet />} />
         </Routes>

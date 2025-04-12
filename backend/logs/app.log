@@ -735,3 +735,98 @@
 [2025-04-12T00:06:45.177Z] INFO: Retrieved all flashcard sets for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
 [2025-04-12T00:06:45.180Z] INFO: Fetched flashcard set names for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0: , Biology 4, Biology 5, Biology 6, Biology 7, biology 6
 [2025-04-12T00:06:45.180Z] INFO: Retrieved all flashcard sets for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:09:28.871Z] INFO: Fetching user with username: test5
+[2025-04-12T18:09:29.172Z] INFO: Fetching user with username: test5
+[2025-04-12T18:09:29.787Z] INFO: Fetching user with username: test5
+[2025-04-12T18:09:29.876Z] INFO: User logged in: test5
+[2025-04-12T18:09:38.862Z] ERROR: Failed to retrieve flashcard set (Biology 5) for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0 s3.listObjectsV2 is not a function
+[2025-04-12T18:11:32.268Z] ERROR: Failed to retrieve flashcard set (Biology 5) for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0 s3.listObjectsV2 is not a function
+[2025-04-12T18:11:32.269Z] WARN: Flashcard set not found: user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, selectedSet Biology 5.
+[2025-04-12T18:11:32.270Z] WARN: Failed to retrieve flashcards for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:13:09.729Z] ERROR: Failed to retrieve flashcard set (Biology 5) for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0 s3.listObjectsV2 is not a function
+[2025-04-12T18:13:09.731Z] WARN: Flashcard set not found: user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, selectedSet Biology 5.
+[2025-04-12T18:13:09.731Z] WARN: Failed to retrieve flashcards for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:16:28.411Z] ERROR: Failed to retrieve flashcard set (Biology 5) for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0 s3.listObjectsV2 is not a function
+[2025-04-12T18:16:28.413Z] WARN: Flashcard set not found: user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, selectedSet Biology 5.
+[2025-04-12T18:16:28.413Z] WARN: Failed to retrieve flashcards for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:17:50.531Z] ERROR: Failed to retrieve flashcard set (Biology 5) for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0 Unexpected end of JSON input
+[2025-04-12T18:17:50.534Z] WARN: Flashcard set not found: user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, selectedSet Biology 5.
+[2025-04-12T18:17:50.534Z] WARN: Failed to retrieve flashcards for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:19:25.359Z] WARN: Empty file encountered in set 'Biology 5' for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0. Skipping.
+[2025-04-12T18:19:25.361Z] INFO: Flashcards retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:20:19.111Z] INFO: Fetching user with username: test5
+[2025-04-12T18:20:19.649Z] INFO: Fetching user with username: test5
+[2025-04-12T18:20:19.734Z] INFO: Fetching user with username: test5
+[2025-04-12T18:20:19.824Z] INFO: User logged in: test5
+[2025-04-12T18:20:20.871Z] INFO: User fetched: test5
+[2025-04-12T18:20:20.876Z] INFO: Fetching user with username: test5
+[2025-04-12T18:20:20.977Z] INFO: Fetching profile picture with key: profile-pictures/USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.jpg
+[2025-04-12T18:20:20.986Z] INFO: Profile picture retrieved successfully for user: test5
+[2025-04-12T18:20:24.545Z] INFO: Fetched flashcard set names for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0: , Biology 4, Biology 5, Biology 6, Biology 7, biology 6
+[2025-04-12T18:20:24.545Z] INFO: Retrieved all flashcard sets for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:20:27.412Z] INFO: Fetched detailed contents of set Biology 5 for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:20:27.412Z] INFO: Flashcard set retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set ID: Biology 5
+[2025-04-12T18:20:31.667Z] INFO: Fetched detailed contents of set Biology 5 for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:20:31.668Z] INFO: Flashcard set retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set ID: Biology 5
+[2025-04-12T18:20:31.674Z] INFO: Fetched detailed contents of set Biology 5 for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:20:31.674Z] INFO: Flashcard set retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set ID: Biology 5
+[2025-04-12T18:21:09.824Z] INFO: Fetched flashcard set names for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0: , Biology 4, Biology 5, Biology 6, Biology 7, biology 6
+[2025-04-12T18:21:09.825Z] INFO: Retrieved all flashcard sets for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:21:09.828Z] INFO: Fetched flashcard set names for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0: , Biology 4, Biology 5, Biology 6, Biology 7, biology 6
+[2025-04-12T18:21:09.828Z] INFO: Retrieved all flashcard sets for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:21:19.159Z] INFO: Fetched detailed contents of set Biology 5 for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:21:19.160Z] INFO: Flashcard set retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set ID: Biology 5
+[2025-04-12T18:21:19.164Z] INFO: Fetched detailed contents of set Biology 5 for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:21:19.164Z] INFO: Flashcard set retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set ID: Biology 5
+[2025-04-12T18:24:13.280Z] INFO: Fetched flashcard set names for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0: , Biology 4, Biology 5, Biology 6, Biology 7, biology 6
+[2025-04-12T18:24:13.281Z] INFO: Retrieved all flashcard sets for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:24:13.286Z] INFO: Fetched flashcard set names for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0: , Biology 4, Biology 5, Biology 6, Biology 7, biology 6
+[2025-04-12T18:24:13.286Z] INFO: Retrieved all flashcard sets for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:24:16.081Z] INFO: Fetched detailed contents of set Biology 6 for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:24:16.081Z] INFO: Flashcard set retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set ID: Biology 6
+[2025-04-12T18:24:17.996Z] INFO: Fetched flashcard set names for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0: , Biology 4, Biology 5, Biology 6, Biology 7, biology 6
+[2025-04-12T18:24:17.997Z] INFO: Retrieved all flashcard sets for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:24:18.064Z] INFO: Fetched flashcard set names for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0: , Biology 4, Biology 5, Biology 6, Biology 7, biology 6
+[2025-04-12T18:24:18.064Z] INFO: Retrieved all flashcard sets for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:24:19.122Z] INFO: Fetched detailed contents of set Biology 5 for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:24:19.123Z] INFO: Flashcard set retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set ID: Biology 5
+[2025-04-12T18:24:19.125Z] INFO: Fetched detailed contents of set Biology 5 for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:24:19.125Z] INFO: Flashcard set retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set ID: Biology 5
+[2025-04-12T18:24:20.530Z] WARN: Empty file encountered in set 'Biology 5' for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0. Skipping.
+[2025-04-12T18:24:20.530Z] INFO: Flashcards retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:24:27.554Z] INFO: User fetched: test5
+[2025-04-12T18:24:27.557Z] INFO: User fetched: test5
+[2025-04-12T18:24:27.559Z] INFO: Fetching user with username: test5
+[2025-04-12T18:24:27.568Z] INFO: Fetching user with username: test5
+[2025-04-12T18:24:27.935Z] INFO: Fetching profile picture with key: profile-pictures/USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.jpg
+[2025-04-12T18:24:27.938Z] INFO: Profile picture retrieved successfully for user: test5
+[2025-04-12T18:24:27.942Z] INFO: Fetching profile picture with key: profile-pictures/USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.jpg
+[2025-04-12T18:24:27.946Z] INFO: Profile picture retrieved successfully for user: test5
+[2025-04-12T18:24:29.211Z] INFO: Fetched flashcard set names for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0: , Biology 4, Biology 5, Biology 6, Biology 7, biology 6
+[2025-04-12T18:24:29.211Z] INFO: Retrieved all flashcard sets for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:24:29.218Z] INFO: Fetched flashcard set names for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0: , Biology 4, Biology 5, Biology 6, Biology 7, biology 6
+[2025-04-12T18:24:29.219Z] INFO: Retrieved all flashcard sets for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:27:44.212Z] INFO: Fetched flashcard set names for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0: , Biology 4, Biology 5, Biology 6, Biology 7, biology 6
+[2025-04-12T18:27:44.213Z] INFO: Retrieved all flashcard sets for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:27:44.214Z] INFO: Fetched flashcard set names for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0: , Biology 4, Biology 5, Biology 6, Biology 7, biology 6
+[2025-04-12T18:27:44.214Z] INFO: Retrieved all flashcard sets for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-12T18:27:46.204Z] WARN: Empty file encountered in set 'Biology 5' for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0. Skipping.
+[2025-04-12T18:27:46.204Z] INFO: Flashcards retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:27:46.205Z] WARN: Empty file encountered in set 'Biology 5' for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0. Skipping.
+[2025-04-12T18:27:46.205Z] INFO: Flashcards retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:32:06.511Z] WARN: Empty file encountered in set 'Biology 5' for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0. Skipping.
+[2025-04-12T18:32:06.512Z] INFO: Flashcards retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:32:06.512Z] WARN: Empty file encountered in set 'Biology 5' for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0. Skipping.
+[2025-04-12T18:32:06.512Z] INFO: Flashcards retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:32:16.766Z] WARN: Empty file encountered in set 'Biology 5' for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0. Skipping.
+[2025-04-12T18:32:16.766Z] INFO: Flashcards retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:32:16.767Z] WARN: Empty file encountered in set 'Biology 5' for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0. Skipping.
+[2025-04-12T18:32:16.767Z] INFO: Flashcards retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:33:02.427Z] WARN: Empty file encountered in set 'Biology 5' for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0. Skipping.
+[2025-04-12T18:33:02.427Z] INFO: Flashcards retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:33:02.436Z] WARN: Empty file encountered in set 'Biology 5' for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0. Skipping.
+[2025-04-12T18:33:02.436Z] INFO: Flashcards retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:33:56.709Z] WARN: Empty file encountered in set 'Biology 5' for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0. Skipping.
+[2025-04-12T18:33:56.709Z] INFO: Flashcards retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5
+[2025-04-12T18:33:56.710Z] WARN: Empty file encountered in set 'Biology 5' for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0. Skipping.
+[2025-04-12T18:33:56.710Z] INFO: Flashcards retrieved successfully for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0, set: Biology 5

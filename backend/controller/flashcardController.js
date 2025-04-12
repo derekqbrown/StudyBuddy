@@ -69,6 +69,8 @@ router.get("/all-flashcards", authenticateToken, async (req, res) => {
     res.status(200).json(result);
 });
 
+
+// get an individual set
 router.get("/flashcardSet/:setid", authenticateToken, async (req, res) => {
     const userId = req.user.id;
     const selectedSetId = req.params.setid;
@@ -84,19 +86,20 @@ router.get("/flashcardSet/:setid", authenticateToken, async (req, res) => {
     return res.status(200).json(result);
 });
 
-router.get("/:flashcardSet/:setid", authenticateToken, async (req, res) => {
+
+// get a specific file within a set
+router.get("/:flashcardSet", authenticateToken, async (req, res) => {
     const userId = req.user.id;
-    const userSetId = req.params.setid;
     const selectedSet = req.params.flashcardSet;
 
-    const result = await flashcardService.getSetById(userId, selectedSet, userSetId);
+    const result = await flashcardService.getSetById(userId, selectedSet);
 
     if (!result) {
-        logger.warn(`Failed to retrieve flashcards for user: ${userId}, set ID: ${userSetId}`);
+        logger.warn(`Failed to retrieve flashcards for user: ${userId}, set: ${selectedSet}`);
         return res.status(400).json({ message: "Failed to get all flashcards" });
     }
 
-    logger.info(`Flashcards retrieved successfully for user: ${userId}, set ID: ${userSetId}`);
+    logger.info(`Flashcards retrieved successfully for user: ${userId}, set: ${selectedSet}`);
     res.status(200).json(result);
 });
 
