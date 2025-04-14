@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const GENERATE_URL = 'http://localhost:3000/flashcards';
-const SAVE_URL = 'http://localhost:3000/flashcards/save';
+const GENERATE_EXAM_URL = 'http://localhost:3000/exams/create-exam';
+const SAVE_EXAM_URL = 'http://localhost:3000/exams/save';
 
-function GenerateFlashcardsPage(){
-    const [prompt, setPrompt] = useState<string>('');
-    const [reply, setReply] = useState<string>('');
-    const [flashcardSet, setFlashcardSet] = useState<string>('');
-    const [error, setError] = useState<string | null>(null);
+type ExamQuestion = {
+    question: string;
+    answers: {
+      text: string;
+      isCorrect: boolean;
+    }[];
+  };
 
+  
+function GenerateExamPage() {
+    const [prompt, setPrompt] = useState('');
+    const [reply, setReply] = useState<ExamQuestion[]>([]);
+    const [examSet, setExamSet] = useState<string>('');
+    const [error, setError] = useState<string | null>('');
+    
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
@@ -20,13 +29,12 @@ function GenerateFlashcardsPage(){
         }
 
         try{
-            const response = await axios.post(
-                GENERATE_URL,
-                { prompt },
+            const response = await axios.post(GENERATE_EXAM_URL,
                 {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    }
+                    prompt: prompt
+                },
+                {
+                    headers: {Authorization: `Bearer ${token}`}
                 }
             );
 
@@ -37,20 +45,17 @@ function GenerateFlashcardsPage(){
             const parsed = JSON.parse(jsonMatch[1].trim());
             setReply(parsed); 
             setPrompt('');
-            // setReply(response.data.reply);
-            setError('');
-        }
-        catch(err){
-            setError("Failed to generate");
+        }catch(err){
+            console.error(err);
+            setError("Failed to generate a response")
         }
     }
 
-    function userSetInput(event: React.ChangeEvent<HTMLInputElement>){
-        setFlashcardSet(event.target.value);
+    async function userSetInput(event: React.ChangeEvent<HTMLInputElement>){
+        setExamSet(event.target.value);
     }
 
-
-    async function saveFlashcards(){
+    async function saveExam(){
         const token = localStorage.getItem('token');
         if(!token) {
             setError('Not logged in!');
@@ -58,32 +63,30 @@ function GenerateFlashcardsPage(){
         }
 
         try{
-            await axios.post(
-                SAVE_URL,
-                { 
-                    name: flashcardSet,
-                    flashcards: reply
+            await axios.post(SAVE_EXAM_URL,
+                {
+                    name: examSet,
+                    exam: reply
                 },
                 {
-                    headers:{ Authorization: `Bearer ${token}`}
+                    headers: {Authorization: `Bearer ${token}`}
                 }
             );
-            setError('');
-        }
-        catch (err: any) {
+
+
+        }catch(err){
             console.error(err);
-            setError(err?.response?.data?.message || err.message || "An error occurred.");
+            setError("Failed to save exam");
         }
     }
-
-    return (
+    return(
         <div className="flex flex-col items-center justify-center min-h-screen bg-blue-400 py-6">
             <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-md space-y-6">
                 <h2 id="question-heading" className="text-3xl font-semibold text-gray-800 text-center">
-                    Generate Flashcards
+                    Generate Exams
                 </h2>
                 <p className="text-lg text-gray-700 text-center">
-                    Paste your notes below to generate flashcards.
+                    Paste your notes below to generate exams.
                 </p>
                 <form className="flex flex-col items-center space-y-4" onSubmit={handleSubmit}>
                     <textarea
@@ -100,20 +103,27 @@ function GenerateFlashcardsPage(){
                         type="submit"
                         className="bg-blue-500 hover:bg-blue-700 m-3 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline transition duration-300"
                     >
-                        Generate Flashcards
+                        Generate Exam
                     </button>
                 </form>
 
                 {Array.isArray(reply) && reply.length > 0 && (
                     <div className="mt-6 space-y-4">
-                        <h3 className="text-xl font-semibold text-gray-800 text-center">Generated Flashcards</h3>
+                        <h3 className="text-xl font-semibold text-gray-800 text-center">Generated Exam</h3>
                         <div className="rounded-md shadow-sm divide-y divide-gray-200">
-                            {reply.map((item, index) => (
-                                <div key={index} className="p-4">
-                                    <h4 className="font-semibold text-blue-600">Q: {item.question}</h4>
-                                    <p className="text-gray-700 mt-1">A: {item.answer}</p>
-                                </div>
-                            ))}
+                        {reply.map((item, index) => (
+                            <div key={index} className="p-4">
+                                <h4 className="font-semibold text-blue-600">Q: {item.question}</h4>
+                                <ul className="mt-2 list-disc list-inside text-gray-700">
+                                {item.answers.map((ans, i) => (
+                                    <li key={i} className={ans.isCorrect ? "font-bold text-green-700" : ""}>
+                                    {ans.text}
+                                    </li>
+                                ))}
+                                </ul>
+                            </div>
+                        ))}
+
                         </div>
                         <div className="flex items-center space-x-4 mt-4">
                             <label htmlFor="set-name" className="block text-gray-700 text-sm font-bold">
@@ -127,7 +137,7 @@ function GenerateFlashcardsPage(){
                                 placeholder="Set Name"
                             />
                             <button
-                                onClick={saveFlashcards}
+                                onClick={saveExam}
                                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
                             >
                                 Save
@@ -142,4 +152,4 @@ function GenerateFlashcardsPage(){
     );
 }
 
-export default GenerateFlashcardsPage
+export default GenerateExamPage

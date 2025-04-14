@@ -11,7 +11,7 @@ async function saveFlashcardSetMetadata(userId, setId, setName) {
     TableName: TABLE_NAME,
     Item: {
       user_id: `${userId}`,
-      sort_key: `SET#${setId}`,
+      sort_key: `FLASHCARDSET#${setId}`,
       setName,
     },
   });

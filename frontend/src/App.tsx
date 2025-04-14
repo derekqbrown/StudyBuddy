@@ -7,6 +7,7 @@ import GenerateFlashcardsPage from './pages/generateFlashcards.tsx';
 import Homepage from "./pages/homepage.tsx";
 import ViewFlashcardSets from "./pages/viewFlashcardSets.tsx";
 import ViewDetailedSet from './pages/viewDetailedFlashcardSet.tsx';
+import GenerateExamPage from './pages/generateExams.tsx';
 import LoggedInNavbar from './components/navigation.tsx';
 
 function AppRoutes() {
@@ -23,6 +24,7 @@ function AppRoutes() {
         <Route path="/" element={<Homepage />} />
         <Route path="/flashcardSets" element={<ViewFlashcardSets />} />
         <Route path="/flashcardSets/:setName" element={<ViewDetailedSet />} />
+        <Route path="/generateExam" element={<GenerateExamPage/>}/>
       </Routes>
     </>
   );

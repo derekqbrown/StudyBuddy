@@ -63,7 +63,9 @@ const promptifyExams = (userInput) => {
                       { "text": "Southern Ocean", "isCorrect": false }
                     ]
                   }
-                ]`
+                ]`;
+
+    return prompt;
 }
 
 // If/when we implement exams, we will need to create a similar 
