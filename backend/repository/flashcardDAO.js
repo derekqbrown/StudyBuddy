@@ -81,22 +81,48 @@ async function getDetailedSet(userId, setId) {
   }
 }
 
-async function getSetById(userId, selectedSet, setId) {
-  const params = {
-    Bucket: BUCKET_NAME,
-    Key: `flashcards/${userId}/${selectedSet}/${setId}.json`
-  };
-
+async function getSetById(userId, selectedSet) {
   try {
-    const result = await s3Client.getObject(params).promise();
-    const jsonData = JSON.parse(result.Body.toString('utf-8'));
-    logger.info(`Successfully retrieved flashcard set ${setId} (${selectedSet}) for user ${userId}`);
-    return jsonData;
+    const listedObjects = await s3Client.listObjectsV2({
+      Bucket: BUCKET_NAME,
+      Prefix: `flashcards/${userId}/${selectedSet}/`,
+    }).promise(); 
+
+    const files = listedObjects.Contents || [];
+
+    const fetchPromises = files.map(file =>
+      s3Client.getObject({
+        Bucket: BUCKET_NAME,
+        Key: file.Key,
+      }).promise()
+    );
+
+    const results = await Promise.all(fetchPromises);
+
+    const allData = [];
+
+    for (const result of results) {
+      const body = result.Body.toString('utf-8').trim();
+      if (!body) {
+        logger.warn(`Empty file encountered in set '${selectedSet}' for user ${userId}. Skipping.`);
+        continue;
+      }
+
+      try {
+        const json = JSON.parse(body);
+        allData.push(json);
+      } catch (parseErr) {
+        logger.warn(`Invalid JSON in file for set '${selectedSet}' for user ${userId}. Skipping.`, parseErr);
+      }
+    }
+
+    return allData;
   } catch (err) {
-    logger.error(`Failed to retrieve flashcard set ${setId} (${selectedSet}) for user ${userId}`, err);
+    logger.error(`Failed to retrieve flashcard set (${selectedSet}) for user ${userId}`, err);
     return false;
   }
 }
+
 
 module.exports = {
   saveFlashcardSetMetadata,
