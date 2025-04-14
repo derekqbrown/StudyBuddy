@@ -5,14 +5,10 @@ phases:
     runtime-versions:
       nodejs: 18  
     commands:
-      - echo "Changing to frontend directory..."
-      - cd frontend
       - echo "Installing dependencies?"
       - npm install
   build:
     commands:
-      - echo "Changing to frontend directory..."
-      - cd frontend
       - echo "Building the React application with Vite..."
       - npm run build
   post_build:
