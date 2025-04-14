@@ -6,7 +6,7 @@ phases:
       nodejs: 18  
     commands:
       - echo "Listing contents of the source directory..."
-      - ls -al /codebuild/output/src* 
+      - cd frontend
       - echo "Installing dependencies..."
       - npm install
   build:
