@@ -27,6 +27,45 @@ Example format:
     return prompt;
 }
 
+
+const promptifyExams = (userInput) => {
+  let prompt = `Based on the following notes, generate an exam/quiz in **valid JSON array format only** with 3 wrong answers and 1 correct answer. 
+                Do not include any explanations, markdown, or additional text — just the JSON array.
+
+                Notes: "${userInput}"
+
+                Example format:
+                [
+                  {
+                    "question": "What is the capital of Australia?",
+                    "answers": [
+                      { "text": "Sydney", "isCorrect": false },
+                      { "text": "Melbourne", "isCorrect": false },
+                      { "text": "Canberra", "isCorrect": true },
+                      { "text": "Perth", "isCorrect": false }
+                    ]
+                  },
+                  {
+                    "question": "Which of these elements is a noble gas?",
+                    "answers": [
+                      { "text": "Oxygen", "isCorrect": false },
+                      { "text": "Nitrogen", "isCorrect": false },
+                      { "text": "Argon", "isCorrect": true },
+                      { "text": "Carbon", "isCorrect": false }
+                    ]
+                  },
+                  {
+                    "question": "What is the largest ocean on Earth?",
+                    "answers": [
+                      { "text": "Atlantic Ocean", "isCorrect": false },
+                      { "text": "Indian Ocean", "isCorrect": false },
+                      { "text": "Pacific Ocean", "isCorrect": true },
+                      { "text": "Southern Ocean", "isCorrect": false }
+                    ]
+                  }
+                ]`
+}
+
 // If/when we implement exams, we will need to create a similar 
 // function to the one above, but include 3 wrong answers, 
 // and a boolean "isCorrect" for each answer.
@@ -62,4 +101,4 @@ Example format:
 ]
 */
 
-module.exports = promptifyFlashCards;
+module.exports = { promptifyFlashCards, promptifyExams };
