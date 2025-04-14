@@ -1,89 +1,34 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const GENERATE_URL = 'http://localhost:3000/flashcards';
-const SAVE_URL = 'http://localhost:3000/flashcards/save';
+const GENERATE_EXAM_URL = 'http://localhost:3000/exams/create-exam';
+const SAVE_EXAM_URL = 'http://localhost:3000/exams/save';
 
-function GenerateFlashcardsPage(){
-    const [prompt, setPrompt] = useState<string>('');
+function GenerateExamPage() {
+    const [prompt, setPrompt] = useState('');
     const [reply, setReply] = useState<string>('');
-    const [flashcardSet, setFlashcardSet] = useState<string>('');
-    const [error, setError] = useState<string | null>(null);
-
+    const [examSet, setExamSet] = useState<string>('');
+    const [error, setError] = useState<string | null>('');
+    
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        const token = localStorage.getItem('token');
-        if(!token) {
-            setError('Not logged in!');
-            return;
-        }
 
-        event.preventDefault();
-
-        try{
-            const response = await axios.post(
-                GENERATE_URL,
-                { prompt },
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    }
-                }
-            );
-
-            let rawData = response.data.reply;
-            // console.log("raw: ", rawData);
-            const jsonMatch = rawData.match(/```json([\s\S]*?)```/);
-
-            const parsed = JSON.parse(jsonMatch[1].trim());
-            setReply(parsed); 
-            setPrompt('');
-            // setReply(response.data.reply);
-            setError('');
-        }
-        catch(err){
-            setError("Failed to generate");
-        }
     }
 
-    function userSetInput(event: React.ChangeEvent<HTMLInputElement>){
-        setFlashcardSet(event.target.value);
+    async function userSetInput(){
+
     }
 
+    async function saveExam(){
 
-    async function saveFlashcards(){
-        const token = localStorage.getItem('token');
-        if(!token) {
-            setError('Not logged in!');
-            return;
-        }
-        
-        try{
-            await axios.post(
-                SAVE_URL,
-                { 
-                    name: flashcardSet,
-                    flashcards: reply
-                },
-                {
-                    headers:{ Authorization: `Bearer ${token}`}
-                }
-            );
-            setError('');
-        }
-        catch (err: any) {
-            console.error(err);
-            setError(err?.response?.data?.message || err.message || "An error occurred.");
-        }
     }
-
-    return (
+    return(
         <div className="flex flex-col items-center justify-center min-h-screen bg-blue-400 py-6">
             <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-md space-y-6">
                 <h2 id="question-heading" className="text-3xl font-semibold text-gray-800 text-center">
-                    Generate Flashcards
+                    Generate Exams
                 </h2>
                 <p className="text-lg text-gray-700 text-center">
-                    Paste your notes below to generate flashcards.
+                    Paste your notes below to generate exams.
                 </p>
                 <form className="flex flex-col items-center space-y-4" onSubmit={handleSubmit}>
                     <textarea
@@ -100,13 +45,13 @@ function GenerateFlashcardsPage(){
                         type="submit"
                         className="bg-blue-500 hover:bg-blue-700 m-3 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline transition duration-300"
                     >
-                        Generate Flashcards
+                        Generate Exam
                     </button>
                 </form>
 
                 {Array.isArray(reply) && reply.length > 0 && (
                     <div className="mt-6 space-y-4">
-                        <h3 className="text-xl font-semibold text-gray-800 text-center">Generated Flashcards</h3>
+                        <h3 className="text-xl font-semibold text-gray-800 text-center">Generated Exam</h3>
                         <div className="rounded-md shadow-sm divide-y divide-gray-200">
                             {reply.map((item, index) => (
                                 <div key={index} className="p-4">
@@ -127,7 +72,7 @@ function GenerateFlashcardsPage(){
                                 placeholder="Set Name"
                             />
                             <button
-                                onClick={saveFlashcards}
+                                onClick={saveExam}
                                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
                             >
                                 Save
@@ -142,4 +87,4 @@ function GenerateFlashcardsPage(){
     );
 }
 
-export default GenerateFlashcardsPage
+export default GenerateExamPage
