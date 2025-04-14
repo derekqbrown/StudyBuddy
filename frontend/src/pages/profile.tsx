@@ -90,6 +90,33 @@ function ProfilePage() {
     }
   }
 
+  const handleDeleteProfile = async () => {
+    const confirmed = window.confirm('Are you sure you want to delete your profile? This action cannot be undone.');
+    if (!confirmed) return;
+  
+    const token = localStorage.getItem('token');
+    if (!token) {
+      setError('Not logged in');
+      return;
+    }
+  
+    try {
+      await axios.delete('http://localhost:3000/users/delete', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+  
+      localStorage.removeItem('token');
+      window.location.href = '/';
+    } catch (err) {
+      console.error(err);
+      setError('Failed to delete profile');
+    }
+  };
+  
+  
+
   if (error) {
     return <p className="text-red-500 font-bold mt-2">{error}</p>;
   }
@@ -152,9 +179,18 @@ function ProfilePage() {
           >
             Create
           </button>
+          <button
+            type="button"
+            onClick={handleDeleteProfile}
+            className="bg-red-600 text-white rounded-md shadow hover:bg-red-700 transition"
+            style={{margin: "10px"}}
+          >
+            Delete Profile
+          </button>
         </div>
       </div>
     </div>
+    
   );
 }
 
