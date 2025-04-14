@@ -17,6 +17,7 @@ phases:
     commands:
       - echo "Build completed successfully."
 artifacts:
+  base-directory: frontend/dist
   files:
-    - frontend/dist/**/* 
+    - '**/*'
   discard-paths: yes 
