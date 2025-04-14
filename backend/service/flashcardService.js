@@ -37,11 +37,11 @@ async function getDetailedSet(userId, setId) {
   return detailedSet;
 }
 
-async function getSetById(userId, selectedSet, setId) {
-  const flashcardSet = await flashcardDAO.getSetById(userId, selectedSet, setId);
+async function getSetById(userId, selectedSet) {
+  const flashcardSet = await flashcardDAO.getSetById(userId, selectedSet);
 
   if (!flashcardSet) {
-    logger.warn(`Flashcard set not found: user ${userId}, selectedSet ${selectedSet}, setId ${setId}.`);
+    logger.warn(`Flashcard set not found: user ${userId}, selectedSet ${selectedSet}.`);
     return false;
   }
 
