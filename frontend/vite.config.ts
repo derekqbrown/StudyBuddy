@@ -9,15 +9,10 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       output: {
-        entryFileNames: 'assets/[name].js',
-        chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
-            return 'assets/[name][extname]'
-          }
-          return 'assets/[name]-[hash][extname]'
-        }
-      }
-    }
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        // chunkFileNames: 'assets/js/[name]-[hash].js', // Optional: Control the output of code chunks
+        // entryFileNames: 'assets/js/[name]-[hash].js', // Optional: Control the output of entry points
+      },
+    },
   }
 })
