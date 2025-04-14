@@ -870,3 +870,13 @@
 [2025-04-14T20:15:14.679Z] INFO: Flashcard set file saved to S3 at exams/USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0/Space 2/d0eb918d-ee76-45de-b65e-70739ee64e42.json
 [2025-04-14T20:15:15.002Z] INFO: Metadata for flashcard set 'Space 2' (ID: d0eb918d-ee76-45de-b65e-70739ee64e42) saved for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.
 [2025-04-14T20:15:15.003Z] INFO: Exam set 'Space 2' saved successfully for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.
+[2025-04-14T20:30:43.892Z] INFO: Fetching user with username: test5
+[2025-04-14T20:30:44.378Z] INFO: Fetching user with username: test5
+[2025-04-14T20:30:45.111Z] INFO: Fetching user with username: test5
+[2025-04-14T20:30:45.199Z] INFO: User logged in: test5
+[2025-04-14T20:32:23.612Z] INFO: Examss generated for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-14T20:35:51.539Z] INFO: Examss generated for user: USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0
+[2025-04-14T20:36:05.875Z] INFO: Saving exam set 'biology 1' for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.
+[2025-04-14T20:36:06.586Z] INFO: Flashcard set file saved to S3 at exams/USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0/biology 1/13d58752-9275-4b60-bd61-e8a8240971f5.json
+[2025-04-14T20:36:06.949Z] INFO: Metadata for flashcard set 'biology 1' (ID: 13d58752-9275-4b60-bd61-e8a8240971f5) saved for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.
+[2025-04-14T20:36:06.950Z] INFO: Exam set 'biology 1' saved successfully for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.

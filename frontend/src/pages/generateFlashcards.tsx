@@ -11,13 +11,13 @@ function GenerateFlashcardsPage(){
     const [error, setError] = useState<string | null>(null);
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
         const token = localStorage.getItem('token');
         if(!token) {
             setError('Not logged in!');
             return;
         }
-
-        event.preventDefault();
 
         try{
             const response = await axios.post(
@@ -56,7 +56,7 @@ function GenerateFlashcardsPage(){
             setError('Not logged in!');
             return;
         }
-        
+
         try{
             await axios.post(
                 SAVE_URL,

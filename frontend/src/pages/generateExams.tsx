@@ -4,22 +4,80 @@ import axios from 'axios';
 const GENERATE_EXAM_URL = 'http://localhost:3000/exams/create-exam';
 const SAVE_EXAM_URL = 'http://localhost:3000/exams/save';
 
+type ExamQuestion = {
+    question: string;
+    answers: {
+      text: string;
+      isCorrect: boolean;
+    }[];
+  };
+
+  
 function GenerateExamPage() {
     const [prompt, setPrompt] = useState('');
-    const [reply, setReply] = useState<string>('');
+    const [reply, setReply] = useState<ExamQuestion[]>([]);
     const [examSet, setExamSet] = useState<string>('');
     const [error, setError] = useState<string | null>('');
     
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
 
+        const token = localStorage.getItem('token');
+        if(!token) {
+            setError('Not logged in!');
+            return;
+        }
+
+        try{
+            const response = await axios.post(GENERATE_EXAM_URL,
+                {
+                    prompt: prompt
+                },
+                {
+                    headers: {Authorization: `Bearer ${token}`}
+                }
+            );
+
+            let rawData = response.data.reply;
+            // console.log("raw: ", rawData);
+            const jsonMatch = rawData.match(/```json([\s\S]*?)```/);
+
+            const parsed = JSON.parse(jsonMatch[1].trim());
+            setReply(parsed); 
+            setPrompt('');
+        }catch(err){
+            console.error(err);
+            setError("Failed to generate a response")
+        }
     }
 
-    async function userSetInput(){
-
+    async function userSetInput(event: React.ChangeEvent<HTMLInputElement>){
+        setExamSet(event.target.value);
     }
 
     async function saveExam(){
+        const token = localStorage.getItem('token');
+        if(!token) {
+            setError('Not logged in!');
+            return;
+        }
 
+        try{
+            await axios.post(SAVE_EXAM_URL,
+                {
+                    name: examSet,
+                    exam: reply
+                },
+                {
+                    headers: {Authorization: `Bearer ${token}`}
+                }
+            );
+
+
+        }catch(err){
+            console.error(err);
+            setError("Failed to save exam");
+        }
     }
     return(
         <div className="flex flex-col items-center justify-center min-h-screen bg-blue-400 py-6">
@@ -53,12 +111,19 @@ function GenerateExamPage() {
                     <div className="mt-6 space-y-4">
                         <h3 className="text-xl font-semibold text-gray-800 text-center">Generated Exam</h3>
                         <div className="rounded-md shadow-sm divide-y divide-gray-200">
-                            {reply.map((item, index) => (
-                                <div key={index} className="p-4">
-                                    <h4 className="font-semibold text-blue-600">Q: {item.question}</h4>
-                                    <p className="text-gray-700 mt-1">A: {item.answer}</p>
-                                </div>
-                            ))}
+                        {reply.map((item, index) => (
+                            <div key={index} className="p-4">
+                                <h4 className="font-semibold text-blue-600">Q: {item.question}</h4>
+                                <ul className="mt-2 list-disc list-inside text-gray-700">
+                                {item.answers.map((ans, i) => (
+                                    <li key={i} className={ans.isCorrect ? "font-bold text-green-700" : ""}>
+                                    {ans.text}
+                                    </li>
+                                ))}
+                                </ul>
+                            </div>
+                        ))}
+
                         </div>
                         <div className="flex items-center space-x-4 mt-4">
                             <label htmlFor="set-name" className="block text-gray-700 text-sm font-bold">
