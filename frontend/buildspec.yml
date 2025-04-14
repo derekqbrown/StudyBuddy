@@ -5,7 +5,9 @@ phases:
     runtime-versions:
       nodejs: 18  
     commands:
-      - echo "Installing dependencies?"
+      - echo "Listing contents of the source directory..."
+      - ls -al /codebuild/output/src* 
+      - echo "Installing dependencies..."
       - npm install
   build:
     commands:
