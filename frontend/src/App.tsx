@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation  } from 'react-router-dom';
 import LoginPage from './pages/login.tsx';
 import RegisterPage from './pages/register.tsx';
 import ProfilePage from './pages/profile.tsx';
@@ -9,10 +9,11 @@ import ViewFlashcardSets from "./pages/viewFlashcardSets.tsx";
 import ViewDetailedSet from './pages/viewDetailedFlashcardSet.tsx';
 import LoggedInNavbar from './components/navigation.tsx';
 
-function App() {
+function AppRoutes() {
+  const location = useLocation();
   return (
-    <Router>
-      <LoggedInNavbar />
+    <>
+      {location.pathname !== '/' && <LoggedInNavbar />}
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
@@ -22,7 +23,15 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/flashcardSets" element={<ViewFlashcardSets />} />
         <Route path="/flashcardSets/:setName" element={<ViewDetailedSet />} />
-        </Routes>
+      </Routes>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppRoutes />
     </Router>
   );
 }
