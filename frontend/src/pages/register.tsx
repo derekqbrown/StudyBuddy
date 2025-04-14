@@ -32,7 +32,7 @@ function RegisterPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-purple-500">
+    <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-blue-500">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
         <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
           Register
