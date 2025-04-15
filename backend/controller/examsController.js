@@ -62,4 +62,22 @@ router.post('/save', authenticateToken, async (req, res) => {
     }
 })
 
+router.post('/score', authenticateToken, async (req, res) => {
+    try {
+      const userId = req.user.id;
+      const { setId, examSetName, answers } = req.body;
+  
+      if (!setId || !examSetName || !answers) {
+        return res.status(400).json({ error: "setId, examSetName, and answers are required." });
+      }
+  
+      const result = await examsService.scoreExam(userId, setId, examSetName, answers);
+      res.status(200).json(result);
+    } catch (err) {
+      logger.error("Failed to score exam:", err);
+      res.status(500).json({ error: "Failed to score exam." });
+    }
+  });
+  
+
 module.exports = router;
