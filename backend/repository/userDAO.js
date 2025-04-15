@@ -64,29 +64,36 @@ async function updateUser(userId, newUsername, newPassword) {
         throw new Error("User ID is required for updating.");
     }
 
-    const sortKey = "PROFILE";
-    const updateExpression = [];
+    const updates = {};
+    let updateExpression = "SET";
     const expressionAttributeValues = {};
 
     if (newUsername) {
-        updateExpression.push("username = :username");
-        expressionAttributeValues[":username"] = { S: newUsername };
+        updateExpression += " username = :username,";
+        expressionAttributeValues[":username"] = newUsername;
+        updates.username = newUsername;
     }
 
     if (newPassword) {
-        updateExpression.push("password = :password");
-        expressionAttributeValues[":password"] = { S: newPassword };
+        updateExpression += " password = :password,";
+        expressionAttributeValues[":password"] = newPassword;
+        updates.password = newPassword;
     }
 
-    if (updateExpression.length === 0) {
+    updateExpression = updateExpression.slice(0, -1);
+
+    if (Object.keys(updates).length === 0) {
         logger.warn("No fields to update provided.");
         return { message: "No fields to update provided." };
     }
 
     const params = {
         TableName: TABLE_NAME,
-        Key: marshall({ user_id: userId, sort_key: sortKey }),
-        UpdateExpression: "SET " + updateExpression.join(", "),
+        Key: {
+            user_id: userId,
+            sort_key: "PROFILE"
+        },
+        UpdateExpression: updateExpression,
         ExpressionAttributeValues: expressionAttributeValues,
         ReturnValues: "ALL_NEW",
     };
@@ -96,12 +103,14 @@ async function updateUser(userId, newUsername, newPassword) {
     try {
         const data = await documentClient.send(command);
         logger.info(`User with ID ${userId} updated successfully.`);
-        return unmarshall(data.Attributes);
+        return data.Attributes;
     } catch (err) {
         logger.error("Error updating user:", err);
         throw new Error("User update failed");
     }
 }
+
+
 
 async function deleteUser(userId) {
     const command = new DeleteCommand({

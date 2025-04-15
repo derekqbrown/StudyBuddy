@@ -15,5 +15,28 @@ async function saveExams(userId, examSetName, exam) {
   return setId;
 }
 
+async function scoreExam(userId, setId, examSetName, userAnswers) {
+  const examData = await examDAO.getExamSetFromS3(userId, setId, examSetName);
+  const originalExam = examData.exam;
 
-module.exports = { saveExams };
+  let correctCount = 0;
+  const totalQuestions = originalExam.length;
+
+  for (let i = 0; i < totalQuestions; i++) {
+    const originalQuestion = originalExam[i];
+    const correctOption = originalQuestion.answers.find(ans => ans.isCorrect)?.text;
+    const userAnswer = userAnswers[i];
+
+    if (userAnswer === correctOption) {
+      correctCount++;
+    }
+  }
+
+  return {
+    score: correctCount,
+    total: totalQuestions,
+    percentage: ((correctCount / totalQuestions) * 100).toFixed(2)
+  };
+}
+
+module.exports = { saveExams, scoreExam };
