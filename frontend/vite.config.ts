@@ -3,6 +3,10 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    port: 5173, // Port for the Vite dev server
+    open: true, // Automatically open the browser when server starts
+  },
   plugins: [react()],
   base: './',
   build:{
