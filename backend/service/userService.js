@@ -35,11 +35,6 @@ async function updateUser(userId, username, password){
     const hashedPassword = await bcrypt.hash(password, saltNumber);
     const result = await userDAO.updateUser(userId, username, hashedPassword);
 
-    if(!result){
-        logger.warn(`Failed to update user with ID: ${userId}`);
-        return null;
-    }
-
     logger.info(`User with ID ${userId} updated successfully`);
     return result;
 }

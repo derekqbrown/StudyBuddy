@@ -70,25 +70,21 @@ router.post("/register", async (req, res) => {
 
 router.put("/update", authenticateToken, async (req, res) => {
     try {
-        const userId = req.user.user_id; 
+        const { id } = req.user;
         const { username, password } = req.body;
 
-        if (!userId) {
-            throw new Error("Unable to retrieve user_id");
-        }
-
         if (!username && !password) {
-            return res.status(400).json({ message: "A new username or password is required" });
+            return res.status(400).json({ message: "No fields provided to update." });
         }
 
-        const updatedUser = await userService.updateUser(userId, username || null, password || null);
-        logger.info(`User updated successfully: ${userId}`);
-        res.status(201).json({ message: "User updated successfully", user_id: updatedUser.username });
+        const updatedUser = await userService.updateUser(id, username, password);
+        res.status(200).json({ message: "User updated successfully", user: updatedUser });
     } catch (error) {
-        logger.error("Update error:", error);
+        logger.error("Update user error:", error);
         res.status(500).json({ message: "Internal server error" });
     }
 });
+
 
 router.delete("/delete", authenticateToken, async (req, res) => {
     try {
