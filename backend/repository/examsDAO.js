@@ -41,9 +41,24 @@ async function saveExamSetToS3(userId, setId, examSetName, examSetJson) {
   }
 }
 
+async function getExamSetFromS3(userId, setId, examSetName) {
+  const params = {
+    Bucket: BUCKET_NAME,
+    Key: `exams/${userId}/${examSetName}/${setId}.json`
+  };
+
+  try {
+    const data = await s3Client.getObject(params).promise();
+    return JSON.parse(data.Body.toString());
+  } catch (err) {
+    logger.error(`Failed to retrieve exam set from S3 at ${params.Key}`, err);
+    throw err;
+  }
+}
 
 module.exports = {
     saveExamSetMetadata,
-    saveExamSetToS3
+    saveExamSetToS3,
+    getExamSetFromS3
   };
   
