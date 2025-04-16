@@ -52,12 +52,12 @@ router.post('/save', authenticateToken, async (req, res) => {
         const response = await examsService.saveExams(userId, examSetName, exam);
 
         if(!response){
-            res.status(400).json("Failed to receive response");
+            return res.status(400).json({ err: "Failed to receive response" });
         }
 
         res.status(200).json({Message: "Exam saved"});
     }catch(err){
-        console.error(err);
+        // console.error(err);
         res.status(500).json({ err: "Failed to save exam from Gemini" });
     }
 })
