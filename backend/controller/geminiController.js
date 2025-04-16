@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const authenticateToken = require("../util/jwt");
-const getGeminiKey = require("../util/secretKey");
+const { getGeminiKey } = require("../util/secretKey");
 const logger = require("../util/logger");
 require('dotenv').config();
 
