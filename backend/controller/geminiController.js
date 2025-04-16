@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const authenticateToken = require("../util/jwt");
+const getGeminiKey = require("../util/secretKey");
 const logger = require("../util/logger");
 require('dotenv').config();
 
-const geminiAPIKey = process.env.GOOGLE_GEMINI_API_KEY;
+const geminiAPIKey = getGeminiKey(); //process.env.GOOGLE_GEMINI_API_KEY;
 const ai = new GoogleGenerativeAI(geminiAPIKey);
 
 router.post("/", authenticateToken, async (req, res) => {
