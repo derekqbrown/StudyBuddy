@@ -56,9 +56,50 @@ async function getExamSetFromS3(userId, setId, examSetName) {
   }
 }
 
+
+async function getExamSet(setName, userId){
+    const params = {
+        Bucket: BUCKET_NAME,
+        Prefix: `exams/${userId}/${setName}`
+    }
+
+    try{
+        const data = await s3Client.listObjectsV2(params).promise();
+        return data.Contents;
+    }catch(err){
+        logger.error(`Failed to retrieve exam set ${params.Key}`, err);
+        throw err;
+    }
+}
+
+async function assignExam(examSet, examId, teacherId, studentId) {
+    const getParams = {
+      Bucket: BUCKET_NAME,
+      Key: `exams/${teacherId}/${examSet}/${examId}.json`
+    };
+  
+    try {
+      await s3Client.getObject(getParams).promise();
+
+      const copyParams = {
+        Bucket: BUCKET_NAME,
+        CopySource: `${BUCKET_NAME}/exams/${teacherId}/${examSet}/${examId}.json`,
+        Key: `assigned-exams/${studentId}/${examSet}/${examId}.json`
+      }
+
+      const result = await s3Client.copyObject(copyParams).promise();
+      return result;
+    } catch (err) {
+      logger.error(`Failed to assign exam set from S3 at ${getParams.Key}`, err);
+      throw err;
+    }
+}
+
 module.exports = {
     saveExamSetMetadata,
     saveExamSetToS3,
-    getExamSetFromS3
+    getExamSetFromS3,
+    getExamSet,
+    assignExam
   };
   

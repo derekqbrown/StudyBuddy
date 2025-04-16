@@ -32,7 +32,8 @@ router.post("/login", validateLoginMiddleware, async (req, res) => {
     const token = jwt.sign(
         {
             id: data.user_id,
-            username
+            username,
+            role: data.role
         },
         secretKey,
         {

@@ -90,7 +90,7 @@ try {
     const exam = await examsService.takeExam(userId, examid, examSetName);
 
     if (!exam) {
-    return res.status(404).json({ error: "Exam not found." });
+        return res.status(404).json({ error: "Exam not found." });
     }
 
     res.status(200).json(exam);
@@ -99,6 +99,49 @@ try {
     res.status(500).json({ error: "Failed to retrieve exam." });
 }
 });
+
+
+router.get('/:examset', authenticateToken, async (req, res) => {
+    try{
+        const setName = req.params.examset;
+        const userId = req.user.id;
+
+        const examSet = await examsService.getExamSet(setName, userId);
+
+        if (!examSet) {
+            return res.status(404).json({ error: "Exam not found." });
+        }
+
+        res.status(200).json(examSet);
+    }catch(err){
+        res.status(400).json({Message: "Failed to get exam sets", err});
+    }
+})
+
+
+router.post('/assign/:examset/:examid', authenticateToken, async (req, res) => {
+    
+    try{
+        const examSet = req.params.examset;
+        const examId = req.params.examid;
+        const studentId = req.body.studentId;
+        const teacherId = req.user.id;
+        console.log("student Id: ", studentId);
+
+        const exam = await examsService.assignExam(examSet, examId, teacherId, studentId);
+
+        console.log("assigned exam: ", exam)
+
+        if(!exam){
+            return res.status(400).json({Message: "Failed to assign exam!"})
+        }
+
+        res.status(200).json({Message: `Exam ${examId} is assigned to ${studentId}`})
+    }catch(err){
+        console.log(err);
+        return res.status(400).json({err});
+    }
+})
 
 
 module.exports = router;
