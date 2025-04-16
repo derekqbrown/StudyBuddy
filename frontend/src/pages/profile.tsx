@@ -224,8 +224,8 @@ function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-purple-500">
-      <div className="top-0 left-0 w-full p-4 bg-purple-500 z-10 flex justify-between items-center shadow-md">
+    <div className="min-h-screen bg-blue-500">
+      <div className="top-0 left-0 w-full p-4 bg-blue-500 z-10 flex justify-between items-center shadow-md">
         <h2 className="text-2xl font-bold text-white">Profile</h2>
       </div>
 
@@ -259,7 +259,7 @@ function ProfilePage() {
       {isEditing &&
       <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isEditing ? 'max-h-96' : 'max-h-0'}`}>
         <div className="flex justify-center mt-6 p-6 bg-white rounded shadow w-fit mx-auto" style={{background: "gray", width: "360px", margin: "20px auto 0"}}>
-          <div className="flex flex-col gap-4 p-6 bg-purple-700 rounded-lg shadow-lg">
+          <div className="flex flex-col gap-4 p-6 bg-blue-700 rounded-lg shadow-lg">
             <label className="text-white text-lg font-semibold" style={{margin: "10px"}}>
               Update Username
             </label>
@@ -293,7 +293,7 @@ function ProfilePage() {
       </div>
       }
       <div className="flex justify-center mt-6 p-6 bg-white rounded shadow w-fit mx-auto" style={{background: "gray", width: "360px", margin: "40px auto 0"}}>
-        <div className="flex flex-col gap-4 p-6 bg-purple-700 rounded-lg shadow-lg">
+        <div className="flex flex-col gap-4 p-6 bg-blue-700 rounded-lg shadow-lg">
           <label className="text-white text-lg font-semibold" style={{margin: "10px"}}>
             Create New Flashcard Set
           </label>

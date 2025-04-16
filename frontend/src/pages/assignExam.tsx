@@ -3,7 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 
-const EXAM_SET_URL = 'http://localhost:3000/exams';
+const EXAM_SET_URL = 'http://34.217.210.224:3000/exams';
 
 
 function AssignExamPage(){
