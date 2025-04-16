@@ -5,12 +5,10 @@ phases:
     runtime-versions:
       nodejs: 18  
     commands:
-      - echo "Listing all files and directories:"
-      - ls -al
       - cd backend
       - echo "Installing dependencies..."
       - npm install
   
 artifacts:
   files:
-    - '**/*'
+    - 'backend/**/*'
