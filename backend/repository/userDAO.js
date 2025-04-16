@@ -33,7 +33,7 @@ async function getUser(username) {
     }
 }
 
-async function createUser(username, password) {
+async function createUser(username, password, role) {
     const userId = `USER#${uuidv4()}`;
     const sortKey = "PROFILE";
     const profilePic = "null";
@@ -45,6 +45,7 @@ async function createUser(username, password) {
             sort_key: sortKey,
             username: username,
             password: password,
+            role: role,
             profilePic: profilePic
         }
     });

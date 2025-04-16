@@ -16,12 +16,12 @@ async function getUser(username){
     return result;
 }
 
-async function createUser(username, password) {
+async function createUser(username, password, role) {
     logger.info(`Creating user: ${username}`);
     const hashedPassword = await bcrypt.hash(password, saltNumber);
 
     try {
-        const result = await userDAO.createUser(username, hashedPassword);
+        const result = await userDAO.createUser(username, hashedPassword, role);
         logger.info(`User created successfully: ${username}`);
         return result;
     } catch (err) {

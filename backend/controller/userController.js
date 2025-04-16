@@ -52,14 +52,14 @@ router.post("/logout", authenticateToken, (req, res) => {
 // registration endpoint
 router.post("/register", async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { username, password, role } = req.body;
         const existingUser = await userService.getUser(username);
         if (existingUser) {
             logger.warn(`Registration attempt failed: username already taken - ${username}`);
             return res.status(400).json({ message: "Username already taken" });
         }
 
-        const newUser = await userService.createUser(username, password);
+        const newUser = await userService.createUser(username, password, role);
         logger.info(`User registered successfully: ${newUser.username}`);
         res.status(201).json({ message: "User registered successfully", user_id: newUser.username });
     } catch (error) {

@@ -75,30 +75,30 @@ router.post('/score', authenticateToken, async (req, res) => {
       logger.error("Failed to score exam:", err);
       res.status(500).json({ error: "Failed to score exam." });
     }
-  });
+});
   
-  router.post('/take/:examid', authenticateToken, async (req, res) => {
-    try {
-      const userId = req.user.id;
-      const { examid } = req.params;
-      const { examSetName } = req.body;
-  
-      if (!examSetName) {
-        return res.status(400).json({ error: "Exam set name is required." });
-      }
-  
-      const exam = await examsService.takeExam(userId, examid, examSetName);
-  
-      if (!exam) {
-        return res.status(404).json({ error: "Exam not found." });
-      }
-  
-      res.status(200).json(exam);
-    } catch (err) {
-      console.error("Failed to retrieve exam:", err);
-      res.status(500).json({ error: "Failed to retrieve exam." });
+router.post('/take/:examid', authenticateToken, async (req, res) => {
+try {
+    const userId = req.user.id;
+    const { examid } = req.params;
+    const { examSetName } = req.body;
+
+    if (!examSetName) {
+    return res.status(400).json({ error: "Exam set name is required." });
     }
-  });
+
+    const exam = await examsService.takeExam(userId, examid, examSetName);
+
+    if (!exam) {
+    return res.status(404).json({ error: "Exam not found." });
+    }
+
+    res.status(200).json(exam);
+} catch (err) {
+    console.error("Failed to retrieve exam:", err);
+    res.status(500).json({ error: "Failed to retrieve exam." });
+}
+});
 
 
 module.exports = router;

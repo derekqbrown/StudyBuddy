@@ -880,3 +880,9 @@
 [2025-04-14T20:36:06.586Z] INFO: Flashcard set file saved to S3 at exams/USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0/biology 1/13d58752-9275-4b60-bd61-e8a8240971f5.json
 [2025-04-14T20:36:06.949Z] INFO: Metadata for flashcard set 'biology 1' (ID: 13d58752-9275-4b60-bd61-e8a8240971f5) saved for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.
 [2025-04-14T20:36:06.950Z] INFO: Exam set 'biology 1' saved successfully for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.
+[2025-04-16T14:41:02.155Z] INFO: Fetching user with username: teacher1
+[2025-04-16T14:41:02.560Z] WARN: User not found: teacher1
+[2025-04-16T14:41:02.561Z] INFO: Creating user: teacher1
+[2025-04-16T14:41:02.704Z] INFO: User teacher1 created successfully.
+[2025-04-16T14:41:02.705Z] INFO: User created successfully: teacher1
+[2025-04-16T14:41:02.705Z] INFO: User registered successfully: teacher1

@@ -7,6 +7,7 @@ const REGISTER_URL = 'http://localhost:3000/users/register';
 function RegisterPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -64,6 +65,15 @@ function RegisterPage() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+          </div>
+          <div>
+            <select 
+              id="role" 
+              value={role}
+              onChange={(e) => setRole(e.target.value)}>
+              <option value="Teacher">Teacher</option>
+              <option value="Student">Student</option>
+            </select>
           </div>
           <button
             className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-2 focus:ring-2 text-white transition-colors duration-200 rounded-md"
