@@ -880,3 +880,75 @@
 [2025-04-14T20:36:06.586Z] INFO: Flashcard set file saved to S3 at exams/USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0/biology 1/13d58752-9275-4b60-bd61-e8a8240971f5.json
 [2025-04-14T20:36:06.949Z] INFO: Metadata for flashcard set 'biology 1' (ID: 13d58752-9275-4b60-bd61-e8a8240971f5) saved for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.
 [2025-04-14T20:36:06.950Z] INFO: Exam set 'biology 1' saved successfully for user USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.
+[2025-04-16T14:41:02.155Z] INFO: Fetching user with username: teacher1
+[2025-04-16T14:41:02.560Z] WARN: User not found: teacher1
+[2025-04-16T14:41:02.561Z] INFO: Creating user: teacher1
+[2025-04-16T14:41:02.704Z] INFO: User teacher1 created successfully.
+[2025-04-16T14:41:02.705Z] INFO: User created successfully: teacher1
+[2025-04-16T14:41:02.705Z] INFO: User registered successfully: teacher1
+[2025-04-16T15:21:23.965Z] INFO: Fetching user with username: teacher1
+[2025-04-16T15:21:24.424Z] INFO: Fetching user with username: teacher1
+[2025-04-16T15:21:25.266Z] INFO: Fetching user with username: teacher1
+[2025-04-16T15:21:25.342Z] INFO: User logged in: teacher1
+[2025-04-16T15:21:37.457Z] INFO: Saving exam set 'Space 2' for user USER#db224149-9124-4b90-a743-4a432b1dd940.
+[2025-04-16T15:21:38.169Z] INFO: Flashcard set file saved to S3 at exams/USER#db224149-9124-4b90-a743-4a432b1dd940/Space 2/6107f2ad-713d-45d7-8495-1c5815d52c18.json
+[2025-04-16T15:21:38.262Z] INFO: Metadata for flashcard set 'Space 2' (ID: 6107f2ad-713d-45d7-8495-1c5815d52c18) saved for user USER#db224149-9124-4b90-a743-4a432b1dd940.
+[2025-04-16T15:21:38.263Z] INFO: Exam set 'Space 2' saved successfully for user USER#db224149-9124-4b90-a743-4a432b1dd940.
+[2025-04-16T15:27:04.552Z] INFO: Fetching user with username: teacher1
+[2025-04-16T15:27:04.984Z] INFO: Fetching user with username: teacher1
+[2025-04-16T15:27:05.145Z] INFO: Fetching user with username: teacher1
+[2025-04-16T15:27:05.212Z] INFO: User logged in: teacher1
+[2025-04-16T15:27:26.755Z] INFO: Fetching user with username: teacher1
+[2025-04-16T15:27:26.824Z] INFO: Fetching user with username: teacher1
+[2025-04-16T15:27:26.978Z] INFO: Fetching user with username: teacher1
+[2025-04-16T15:27:27.053Z] INFO: User logged in: teacher1
+[2025-04-16T15:28:06.013Z] ERROR: Failed to retrieve exam set from S3 at exams/USER#db224149-9124-4b90-a743-4a432b1dd940/space 2/EXAMSET.json The specified key does not exist.
+[2025-04-16T17:43:02.336Z] INFO: Fetching user with username: teacher1
+[2025-04-16T17:43:02.594Z] INFO: Fetching user with username: teacher1
+[2025-04-16T17:43:03.096Z] INFO: Fetching user with username: teacher1
+[2025-04-16T17:43:03.136Z] INFO: User logged in: teacher1
+[2025-04-16T17:43:06.951Z] INFO: User fetched: teacher1
+[2025-04-16T17:43:06.957Z] INFO: User fetched: teacher1
+[2025-04-16T17:43:06.963Z] INFO: Fetching user with username: teacher1
+[2025-04-16T17:43:07.150Z] INFO: Fetching profile picture with key: null
+[2025-04-16T17:43:07.155Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-16T17:43:07.157Z] INFO: Fetching user with username: teacher1
+[2025-04-16T17:43:07.192Z] INFO: Fetching profile picture with key: null
+[2025-04-16T17:43:07.193Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-16T17:43:19.970Z] INFO: User fetched: teacher1
+[2025-04-16T17:43:19.974Z] INFO: Fetching user with username: teacher1
+[2025-04-16T17:43:19.982Z] INFO: User fetched: teacher1
+[2025-04-16T17:43:20.102Z] INFO: Fetching profile picture with key: null
+[2025-04-16T17:43:20.104Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-16T17:43:20.106Z] INFO: Fetching user with username: teacher1
+[2025-04-16T17:43:20.311Z] INFO: Fetching profile picture with key: null
+[2025-04-16T17:43:20.319Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-16T17:46:43.276Z] INFO: User fetched: teacher1
+[2025-04-16T17:46:43.279Z] INFO: Fetching user with username: teacher1
+[2025-04-16T17:46:43.296Z] INFO: User fetched: teacher1
+[2025-04-16T17:46:43.780Z] INFO: Fetching profile picture with key: null
+[2025-04-16T17:46:43.785Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-16T17:46:43.790Z] INFO: Fetching user with username: teacher1
+[2025-04-16T17:46:43.830Z] INFO: Fetching profile picture with key: null
+[2025-04-16T17:46:43.831Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-16T17:53:10.133Z] INFO: User fetched: teacher1
+[2025-04-16T17:53:10.145Z] INFO: User fetched: teacher1
+[2025-04-16T17:53:10.177Z] INFO: Fetching user with username: teacher1
+[2025-04-16T17:53:11.435Z] INFO: Fetching profile picture with key: null
+[2025-04-16T17:53:11.437Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-16T17:53:11.439Z] INFO: Fetching user with username: teacher1
+[2025-04-16T17:53:11.668Z] INFO: Fetching profile picture with key: null
+[2025-04-16T17:53:11.669Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-16T18:12:21.478Z] INFO: User fetched: teacher1
+[2025-04-16T18:12:21.488Z] INFO: Fetching user with username: teacher1
+[2025-04-16T18:12:21.501Z] INFO: User fetched: teacher1
+[2025-04-16T18:12:21.756Z] INFO: Fetching profile picture with key: null
+[2025-04-16T18:12:21.767Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-16T18:12:21.770Z] INFO: Fetching user with username: teacher1
+[2025-04-16T18:12:21.800Z] INFO: Fetching profile picture with key: null
+[2025-04-16T18:12:21.802Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-16T18:26:21.137Z] INFO: Fetching user with username: teacher1
+[2025-04-16T18:26:21.520Z] INFO: Fetching user with username: teacher1
+[2025-04-16T18:26:21.641Z] INFO: Fetching user with username: teacher1
+[2025-04-16T18:26:21.700Z] INFO: User logged in: teacher1
+[2025-04-16T18:26:46.721Z] ERROR: Failed to retrieve exam set undefined s3.listObjectsV2 is not a function

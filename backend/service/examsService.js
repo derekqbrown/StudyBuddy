@@ -51,4 +51,17 @@ async function takeExam(userId, examId, examSetName) {
   return { exam: maskedExam };
 }
 
-module.exports = { saveExams, scoreExam, takeExam };
+async function assignExam(examSet, examId, teacherId, studentId) {
+    const assignedExam = await examDAO.assignExam(examSet, examId, teacherId, studentId);
+  
+    return assignedExam;
+}
+
+
+async function getExamSet(setName, userId){
+    const examSet = await examDAO.getExamSet(setName, userId);
+
+    return examSet;
+}
+
+module.exports = { saveExams, scoreExam, takeExam, assignExam, getExamSet };

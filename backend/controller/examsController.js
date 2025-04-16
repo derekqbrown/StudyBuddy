@@ -75,30 +75,73 @@ router.post('/score', authenticateToken, async (req, res) => {
       logger.error("Failed to score exam:", err);
       res.status(500).json({ error: "Failed to score exam." });
     }
-  });
+});
   
-  router.post('/take/:examid', authenticateToken, async (req, res) => {
-    try {
-      const userId = req.user.id;
-      const { examid } = req.params;
-      const { examSetName } = req.body;
-  
-      if (!examSetName) {
-        return res.status(400).json({ error: "Exam set name is required." });
-      }
-  
-      const exam = await examsService.takeExam(userId, examid, examSetName);
-  
-      if (!exam) {
-        return res.status(404).json({ error: "Exam not found." });
-      }
-  
-      res.status(200).json(exam);
-    } catch (err) {
-      console.error("Failed to retrieve exam:", err);
-      res.status(500).json({ error: "Failed to retrieve exam." });
+router.post('/take/:examid', authenticateToken, async (req, res) => {
+try {
+    const userId = req.user.id;
+    const { examid } = req.params;
+    const { examSetName } = req.body;
+
+    if (!examSetName) {
+    return res.status(400).json({ error: "Exam set name is required." });
     }
-  });
+
+    const exam = await examsService.takeExam(userId, examid, examSetName);
+
+    if (!exam) {
+        return res.status(404).json({ error: "Exam not found." });
+    }
+
+    res.status(200).json(exam);
+} catch (err) {
+    console.error("Failed to retrieve exam:", err);
+    res.status(500).json({ error: "Failed to retrieve exam." });
+}
+});
+
+
+router.get('/:examset', authenticateToken, async (req, res) => {
+    try{
+        const setName = req.params.examset;
+        const userId = req.user.id;
+
+        const examSet = await examsService.getExamSet(setName, userId);
+
+        if (!examSet) {
+            return res.status(404).json({ error: "Exam not found." });
+        }
+
+        res.status(200).json(examSet);
+    }catch(err){
+        res.status(400).json({Message: "Failed to get exam sets", err});
+    }
+})
+
+
+router.post('/assign/:examset/:examid', authenticateToken, async (req, res) => {
+    
+    try{
+        const examSet = req.params.examset;
+        const examId = req.params.examid;
+        const studentId = req.body.studentId;
+        const teacherId = req.user.id;
+        console.log("student Id: ", studentId);
+
+        const exam = await examsService.assignExam(examSet, examId, teacherId, studentId);
+
+        console.log("assigned exam: ", exam)
+
+        if(!exam){
+            return res.status(400).json({Message: "Failed to assign exam!"})
+        }
+
+        res.status(200).json({Message: `Exam ${examId} is assigned to ${studentId}`})
+    }catch(err){
+        console.log(err);
+        return res.status(400).json({err});
+    }
+})
 
 
 module.exports = router;

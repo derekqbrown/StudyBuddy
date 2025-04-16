@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { jwtDecode } from "jwt-decode";
 // import '../index.css';
 
 
@@ -15,10 +16,18 @@ interface Profile {
   password?: string;
 }
 
+interface UserTokenPayload {
+  id: string,
+  username: string,
+  role: string
+}
+
+
 function ProfilePage() {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [profilePic, setProfilePic] = useState<string>('');
   const [newSet, setNewSet] = useState('');
+  const [role, setRole] = useState('');
   const [error, setError] = useState<string| null>(null);
   const [, setSelectedFile] = useState<File | null>(null);
   const [newUsername, setNewUsername] = useState<string>('');
@@ -32,6 +41,16 @@ function ProfilePage() {
       return;
     }
 
+    try {
+      const decodedToken = jwtDecode(token) as UserTokenPayload;
+      const userRole = decodedToken.role;
+      console.log("User Role:", userRole);
+      
+      setRole(userRole);
+    } catch (error) {
+      console.error("Error decoding token:", error);
+      setError('Invalid token');
+    }
     
     const fetchProfile = async () => {
       try {
@@ -106,6 +125,10 @@ function ProfilePage() {
     window.location.href = '/flashcardSets';
   }
 
+  const handleAssignExam = () => {
+    window.location.href = '/assign-exam'
+  }
+
   const handleUpdateProfile = async () => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -128,7 +151,7 @@ function ProfilePage() {
           },
         }
       );
-      setProfile(response.data); // Update the profile state
+      setProfile(response.data); 
       setNewUsername('');
       setNewPassword('');
     } catch (err) {
@@ -200,132 +223,144 @@ function ProfilePage() {
     return <p>Loading profile...</p>;
   }
 
-return (
-  <div className="min-h-screen bg-purple-500">
-    <div className="top-0 left-0 w-full p-4 bg-purple-500 z-10 flex justify-between items-center shadow-md">
-      <h2 className="text-2xl font-bold text-white">Profile</h2>
-    </div>
-
-    {profilePic && (
-      <div className="flex justify-center mt-6">
-        <img
-          src={profilePic}
-          alt="Profile"
-          style={{
-            width: '300px',
-            height: '300px',
-            borderRadius: '50%',
-            margin: '30px'
-          }}
-        />
+  return (
+    <div className="min-h-screen bg-purple-500">
+      <div className="top-0 left-0 w-full p-4 bg-purple-500 z-10 flex justify-between items-center shadow-md">
+        <h2 className="text-2xl font-bold text-white">Profile</h2>
       </div>
-    )}
 
-    <p className="text-white text-center rounded text-2xl" style={{margin: '10px'}}>
-      Username: {profile?.username}
-    </p>
+      {profilePic && (
+        <div className="flex justify-center mt-6">
+          <img
+            src={profilePic}
+            alt="Profile"
+            style={{
+              width: '300px',
+              height: '300px',
+              borderRadius: '50%',
+              margin: '30px'
+            }}
+          />
+        </div>
+      )}
 
-    <div className="flex justify-center mt-4">
-      <button
-        onClick={() => setIsEditing(!isEditing)}
-        className="px-4 py-2 bg-white text-purple-600 rounded shadow hover:bg-blue-700 transition "
-      >
-        {isEditing ? 'Cancel Editing' : 'Edit Profile'}
-      </button>
-    </div>
-    {isEditing &&
-    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isEditing ? 'max-h-96' : 'max-h-0'}`}>
-      <div className="flex justify-center mt-6 p-6 bg-white rounded shadow w-fit mx-auto" style={{background: "gray", width: "360px", margin: "20px auto 0"}}>
-        <div className="flex flex-col gap-4 p-6 bg-purple-700 rounded-lg shadow-lg">
-          <label className="text-white text-lg font-semibold" style={{margin: "10px"}}>
-            Update Username
-          </label>
-          <input
-            type="text"
-            value={newUsername}
-            onChange={(e) => setNewUsername(e.target.value)}
-            className="border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            style={{margin: "10px"}}
-          />
-          <label className="text-white text-lg font-semibold" style={{margin: "10px"}}>
-            Update Password
-          </label>
-          <input
-            type="password"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-            className="border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            style={{margin: "10px"}}
-          />
-          <button
-            type="button"
-            onClick={handleUpdateProfile}
-            className="bg-white text-purple-600 rounded-md shadow hover:bg-blue-700 transition"
-            style={{margin: "10px"}}
-          >
-            Update Profile
-          </button>
+      <p className="text-white text-center rounded text-2xl" style={{margin: '10px'}}>
+        Username: {profile?.username}
+      </p>
+
+      <div className="flex justify-center mt-4">
+        <button
+          onClick={() => setIsEditing(!isEditing)}
+          className="px-4 py-2 bg-white text-purple-600 rounded shadow hover:bg-blue-700 transition "
+        >
+          {isEditing ? 'Cancel Editing' : 'Edit Profile'}
+        </button>
+      </div>
+      {isEditing &&
+      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isEditing ? 'max-h-96' : 'max-h-0'}`}>
+        <div className="flex justify-center mt-6 p-6 bg-white rounded shadow w-fit mx-auto" style={{background: "gray", width: "360px", margin: "20px auto 0"}}>
+          <div className="flex flex-col gap-4 p-6 bg-purple-700 rounded-lg shadow-lg">
+            <label className="text-white text-lg font-semibold" style={{margin: "10px"}}>
+              Update Username
+            </label>
+            <input
+              type="text"
+              value={newUsername}
+              onChange={(e) => setNewUsername(e.target.value)}
+              className="border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              style={{margin: "10px"}}
+            />
+            <label className="text-white text-lg font-semibold" style={{margin: "10px"}}>
+              Update Password
+            </label>
+            <input
+              type="password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              className="border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              style={{margin: "10px"}}
+            />
+            <button
+              type="button"
+              onClick={handleUpdateProfile}
+              className="bg-white text-purple-600 rounded-md shadow hover:bg-blue-700 transition"
+              style={{margin: "10px"}}
+            >
+              Update Profile
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-    }
-    <div className="flex justify-center mt-6">
-      <label
-        htmlFor="file-upload"
-        className="cursor-pointer bg-white text-purple-600 px-4 py-2 rounded shadow hover:bg-blue-700 transition "
-        style={{display: 'block', margin:'10px'}}
-      >
-        Upload Profile Picture
-      </label>
-      <input
-        id="file-upload"
-        type="file"
-        onChange={handleFileChange}
-        className="hidden"
-      />
-    </div>
-    <div>
-      <button
-        onClick={handleViewFlashcards}
-        className="px-4 py-2 bg-white text-purple-600 rounded shadow hover:bg-blue-700 transition"
-        style={{display: 'block', margin:'auto'}}
-      >
-        View Flashcard Sets
-      </button>
-    </div>
-    <div className="flex justify-center mt-6 p-6 bg-white rounded shadow w-fit mx-auto" style={{background: "gray", width: "360px", margin: "40px auto 0"}}>
-      <div className="flex flex-col gap-4 p-6 bg-purple-700 rounded-lg shadow-lg">
-        <label className="text-white text-lg font-semibold" style={{margin: "10px"}}>
-          Create New Flashcard Set
-        </label>
+      }
+      <div className="flex justify-center mt-6 p-6 bg-white rounded shadow w-fit mx-auto" style={{background: "gray", width: "360px", margin: "40px auto 0"}}>
+        <div className="flex flex-col gap-4 p-6 bg-purple-700 rounded-lg shadow-lg">
+          <label className="text-white text-lg font-semibold" style={{margin: "10px"}}>
+            Create New Flashcard Set
+          </label>
 
-        <input
-          type="text"
-          onChange={(e) => setNewSet(e.target.value)}
-          className="border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          style={{margin: "10px"}}
-        />
+          <input
+            type="text"
+            onChange={(e) => setNewSet(e.target.value)}
+            className="border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            style={{margin: "10px"}}
+          />
 
-        <button
-          type="button"
-          onClick={handleCreateFlashcardSet}
-          className="bg-white text-purple-600 rounded-md shadow hover:bg-gray-100 transition"
-          style={{margin: "10px"}}
-        >
-          Create
+          <button
+            type="button"
+            onClick={handleCreateFlashcardSet}
+            className="bg-white text-purple-600 rounded-md shadow hover:bg-gray-100 transition"
+            style={{margin: "10px"}}
+          >
+            Create
+          </button>
+
+        </div>
+      </div>
+      <div className="bg-red-600 flex justify-center" style={{margin: "20px"}}>
+        <button onClick={handleAssignExam} 
+          className="bg-red-600 text-white rounded-md shadow hover:bg-red-700 transition"
+          style={{ margin: "10px", backgroundColor: 'blue', width: "200px"}}>
+          Assign Exam
         </button>
+      </div>
+
+      <div className="flex justify-center mt-6">
+        <label
+          htmlFor="file-upload"
+          className="cursor-pointer bg-white text-purple-600 px-4 py-2 rounded shadow hover:bg-blue-700 transition "
+          style={{display: 'block', margin:'10px'}}
+        >
+          Upload Profile Picture
+        </label>
+        <input
+          id="file-upload"
+          type="file"
+          onChange={handleFileChange}
+          className="hidden"
+        />
+      </div>
+      <div>
+        <button
+          onClick={handleViewFlashcards}
+          className="px-4 py-2 bg-white text-purple-600 rounded shadow hover:bg-blue-700 transition"
+          style={{display: 'block', margin:'auto'}}
+        >
+          View Flashcard Sets
+        </button>
+      </div>
+
+      <div className="bg-red-600 flex justify-center" style={{margin: "20px"}}>
         <button
           type="button"
           onClick={handleDeleteProfile}
           className="bg-red-600 text-white rounded-md shadow hover:bg-red-700 transition"
-          style={{margin: "10px"}}
+          style={{ margin: "10px", backgroundColor: 'red', width: "200px"}}
         >
-          Delete Profile
+            Delete Profile
         </button>
       </div>
     </div>
-  </div>
-)
+  )
 }
 
 export default ProfilePage;

@@ -41,7 +41,7 @@ function ChatPage(){
 
             setReply(response.data.reply);
         }catch(err){
-            setError(err.message);
+            setError("Failed to generate a response");
         }
     }
 
