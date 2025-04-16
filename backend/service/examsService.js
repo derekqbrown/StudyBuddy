@@ -39,4 +39,16 @@ async function scoreExam(userId, setId, examSetName, userAnswers) {
   };
 }
 
-module.exports = { saveExams, scoreExam };
+async function takeExam(userId, examId, examSetName) {
+  const fullExam = await examDAO.getExamSetFromS3(userId, examId, examSetName);
+
+  // remove isCorrect for test-taking
+  const maskedExam = fullExam.exam.map(q => ({
+    question: q.question,
+    answers: q.answers.map(a => ({ text: a.text }))
+  }));
+
+  return { exam: maskedExam };
+}
+
+module.exports = { saveExams, scoreExam, takeExam };
