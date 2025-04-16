@@ -10,9 +10,7 @@ const ai = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
 
 
 // taking the exam
-// router.post('/:examid', authenticateToken, async (req, res) => {
 
-// })
 
 
 // creating the exam
@@ -52,12 +50,12 @@ router.post('/save', authenticateToken, async (req, res) => {
         const response = await examsService.saveExams(userId, examSetName, exam);
 
         if(!response){
-            res.status(400).json("Failed to receive response");
+            return res.status(400).json({ err: "Failed to receive response" });
         }
 
         res.status(200).json({Message: "Exam saved"});
     }catch(err){
-        console.error(err);
+        // console.error(err);
         res.status(500).json({ err: "Failed to save exam from Gemini" });
     }
 })
@@ -79,5 +77,28 @@ router.post('/score', authenticateToken, async (req, res) => {
     }
   });
   
+  router.post('/take/:examid', authenticateToken, async (req, res) => {
+    try {
+      const userId = req.user.id;
+      const { examid } = req.params;
+      const { examSetName } = req.body;
+  
+      if (!examSetName) {
+        return res.status(400).json({ error: "Exam set name is required." });
+      }
+  
+      const exam = await examsService.takeExam(userId, examid, examSetName);
+  
+      if (!exam) {
+        return res.status(404).json({ error: "Exam not found." });
+      }
+  
+      res.status(200).json(exam);
+    } catch (err) {
+      console.error("Failed to retrieve exam:", err);
+      res.status(500).json({ error: "Failed to retrieve exam." });
+    }
+  });
+
 
 module.exports = router;
