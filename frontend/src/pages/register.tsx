@@ -2,7 +2,7 @@ import React, { FormEvent, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const REGISTER_URL = 'http://localhost:3000/users/register';
+const REGISTER_URL = 'http://34.217.210.224:3000/users/register';
 
 function RegisterPage() {
   const [username, setUsername] = useState('');

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const GENERATE_URL = 'http://localhost:3000/flashcards';
-const SAVE_URL = 'http://localhost:3000/flashcards/save';
+const GENERATE_URL = 'http://34.217.210.224:3000/flashcards';
+const SAVE_URL = 'http://34.217.210.224:3000/flashcards/save';
 
 function GenerateFlashcardsPage(){
     const [prompt, setPrompt] = useState<string>('');

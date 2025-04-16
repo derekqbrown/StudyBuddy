@@ -3,11 +3,11 @@ import axios from 'axios';
 // import '../index.css';
 
 
-const PROFILE_URL = 'http://localhost:3000/users'; // the endpoint to retrieve the user profile
-const PROFILE_PIC_URL = 'http://localhost:3000/users/profile-pic';
-const CREATE_SET_URL = 'http://localhost:3000/users/create-set';
-const UPLOAD_PROFILE_PIC_URL = 'http://localhost:3000/users/upload-profile-pic'; // endpoint for profile pic upload
-const UPDATE_PROFILE_URL = 'http://localhost:3000/users/update'; // endpoint for updating user profile
+const PROFILE_URL = 'http://34.217.210.224:3000/users'; // the endpoint to retrieve the user profile
+const PROFILE_PIC_URL = 'http://34.217.210.224:3000/users/profile-pic';
+const CREATE_SET_URL = 'http://34.217.210.224:3000/users/create-set';
+const UPLOAD_PROFILE_PIC_URL = 'http://34.217.210.224:3000/users/upload-profile-pic'; // endpoint for profile pic upload
+const UPDATE_PROFILE_URL = 'http://34.217.210.224:3000/users/update'; // endpoint for updating user profile
 
 interface Profile {
   profilePicture: string;

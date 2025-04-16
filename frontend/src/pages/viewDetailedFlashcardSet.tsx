@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-const VIEW_DETAILED_SET_URL = 'http://localhost:3000/flashcards';
+const VIEW_DETAILED_SET_URL = 'http://34.217.210.224:3000/flashcards';
 
 interface Flashcard {
   question: string;
