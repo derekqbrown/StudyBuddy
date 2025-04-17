@@ -57,6 +57,11 @@ async function assignExam(examSet, examId, teacherId, studentId) {
     return assignedExam;
 }
 
+async function getAllSets(userId){
+    const result = await examDAO.getAllSets(userId);
+
+    return result;
+}
 
 async function getExamSet(setName, userId){
     const examSet = await examDAO.getExamSet(setName, userId);
@@ -64,4 +69,4 @@ async function getExamSet(setName, userId){
     return examSet;
 }
 
-module.exports = { saveExams, scoreExam, takeExam, assignExam, getExamSet };
+module.exports = { saveExams, scoreExam, takeExam, assignExam, getAllSets, getExamSet };

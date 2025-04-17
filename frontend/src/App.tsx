@@ -9,6 +9,7 @@ import ViewFlashcardSets from "./pages/viewFlashcardSets.tsx";
 import ViewDetailedSet from './pages/viewDetailedFlashcardSet.tsx';
 import GenerateExamPage from './pages/generateExams.tsx';
 import LoggedInNavbar from './components/navigation.tsx';
+import AssignExamSetPage from './pages/assignExamSet.tsx';
 import AssignExamPage from './pages/assignExam.tsx';
 import TakeExam from './pages/takeExam.tsx';
 
@@ -27,8 +28,9 @@ function AppRoutes() {
         <Route path="/flashcardSets" element={<ViewFlashcardSets />} />
         <Route path="/flashcardSets/:setName" element={<ViewDetailedSet />} />
         <Route path="/generateExam" element={<GenerateExamPage/>}/>
-        <Route path="/assign-exam" element={<AssignExamPage />}/>
+        <Route path="/assign-exam" element={<AssignExamSetPage />}/>
         <Route path="/exams/take/:examId/:examSetName" element={<TakeExam />} />
+        <Route path="/assign-exam/:setName" element={<AssignExamPage />} />
       </Routes>
     </>
   );

@@ -9,10 +9,6 @@ const logger = require("../util/logger");
 const ai = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
 
 
-// taking the exam
-
-
-
 // creating the exam
 router.post('/create-exam', authenticateToken, async (req, res) => {
     // logger.info("calling create exam");
@@ -101,6 +97,29 @@ try {
 });
 
 
+
+// get all sets for a user
+router.get('/all-sets', authenticateToken, async (req, res) => {
+    try{
+        const userId = req.user.id;
+
+        const allSets = await examsService.getAllSets(userId);
+
+        logger.info(`All Sets: ${allSets}`);
+
+        if(!allSets){
+            res.status(400).json({Message: "Failed to get sets!"});
+        }
+
+        res.status(200).json(allSets);
+
+    }catch(err){
+        console.log(err);
+        return res.status(400).json({err});
+    }
+})
+
+
 router.get('/:examset', authenticateToken, async (req, res) => {
     try{
         const setName = req.params.examset;
@@ -119,6 +138,7 @@ router.get('/:examset', authenticateToken, async (req, res) => {
 })
 
 
+// get specific set for a user
 router.post('/assign/:examset/:examid', authenticateToken, async (req, res) => {
     
     try{
@@ -136,7 +156,7 @@ router.post('/assign/:examset/:examid', authenticateToken, async (req, res) => {
             return res.status(400).json({Message: "Failed to assign exam!"})
         }
 
-        res.status(200).json({Message: `Exam ${examId} is assigned to ${studentId}`})
+        res.status(200).json(exam);
     }catch(err){
         console.log(err);
         return res.status(400).json({err});

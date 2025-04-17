@@ -72,6 +72,38 @@ async function getExamSet(setName, userId){
     }
 }
 
+
+async function getAllSets(userId){
+
+    const params = {
+        Bucket: BUCKET_NAME,
+        Prefix: `exams/${userId}`
+    }
+
+    try{    
+        const data = await s3Client.listObjectsV2(params).promise();
+        
+        if (data.Contents) {
+          const setNames = data.Contents.map(item => {
+              const parts = item.Key.split('/');
+             
+              if (parts.length > 2) {
+                  return parts[2];
+              }
+              return null;
+          }).filter(name => name !== null); 
+
+          logger.info("Extracted set names: ", setNames);
+          return setNames;
+        } else {
+          return [];
+      }
+    }catch(err){
+        logger.error(`Failed to get all sets for ${userId}`, err);
+        throw err;
+    }
+}
+
 async function assignExam(examSet, examId, teacherId, studentId) {
     const getParams = {
       Bucket: BUCKET_NAME,
@@ -100,6 +132,7 @@ module.exports = {
     saveExamSetToS3,
     getExamSetFromS3,
     getExamSet,
+    getAllSets,
     assignExam
   };
   

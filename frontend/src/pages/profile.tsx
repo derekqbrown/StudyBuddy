@@ -13,13 +13,14 @@ interface Profile {
   profilePicture: string;
   username: string;
   password?: string;
-}
-
-interface UserTokenPayload {
-  id: string;
-  username: string;
   role: string;
 }
+
+// interface UserTokenPayload {
+//   id: string;
+//   username: string;
+//   role: string;
+// }
 
 function ProfilePage() {
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -39,16 +40,16 @@ function ProfilePage() {
       return;
     }
 
-    try {
-      const decodedToken = jwtDecode(token) as UserTokenPayload;
-      const userRole = decodedToken.role;
-      console.log("User Role:", userRole);
+    // try {
+    //   const decodedToken = jwtDecode(token) as UserTokenPayload;
+    //   const userRole = decodedToken.role;
+    //   console.log("User Role:", userRole);
 
-      setRole(userRole);
-    } catch (error) {
-      console.error("Error decoding token:", error);
-      setError("Invalid token");
-    }
+    //   setRole(userRole);
+    // } catch (error) {
+    //   console.error("Error decoding token:", error);
+    //   setError("Invalid token");
+    // }
 
     const fetchProfile = async () => {
       try {
@@ -56,9 +57,10 @@ function ProfilePage() {
           headers: { Authorization: `Bearer ${token}` },
         });
 
-        // console.log("profile data: ", response.data);
+        console.log("profile data: ", response.data);
 
         setProfile(response.data);
+        setRole(response.data.role);
       } catch (err) {
         console.log(err);
         setError("Failed to fetch profile");
@@ -333,6 +335,7 @@ function ProfilePage() {
           </button>
         </div>
       </div>
+      {role ==='Teacher' &&
       <div
         className="bg-red-600 flex justify-center"
         style={{ margin: "20px" }}
@@ -345,7 +348,7 @@ function ProfilePage() {
           Assign Exam
         </button>
       </div>
-
+      }
       <div className="flex justify-center mt-6">
         <label
           htmlFor="file-upload"
