@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, Navigate } from "react-router-dom";
 import axios from 'axios';
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -11,14 +12,14 @@ function GenerateFlashcardsPage(){
     const [flashcardSet, setFlashcardSet] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
 
+    const token = localStorage.getItem('token');
+    if(!token) {
+        setError('Not logged in!');
+        return <Navigate to="/login"/>;
+    }
+
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
-        const token = localStorage.getItem('token');
-        if(!token) {
-            setError('Not logged in!');
-            return;
-        }
 
         try{
             const response = await axios.post(
@@ -50,7 +51,6 @@ function GenerateFlashcardsPage(){
         setFlashcardSet(event.target.value);
     }
 
-
     async function saveFlashcards(){
         const token = localStorage.getItem('token');
         if(!token) {
@@ -69,6 +69,10 @@ function GenerateFlashcardsPage(){
                     headers:{ Authorization: `Bearer ${token}`}
                 }
             );
+            alert("Flashcard Set Saved Successfully");
+            setFlashcardSet('');
+            setReply('');
+            setPrompt('');
             setError('');
         }
         catch (err: any) {
@@ -78,7 +82,21 @@ function GenerateFlashcardsPage(){
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-blue-400 py-6">
+        <div className="flex flex-col items-center justify-center py-6">
+            <div className="top-0 left-0 w-full p-4 z-10 text-center shadow-md">
+                <h2 className="text-2xl font-bold text-white">Flashcards</h2>
+            </div>
+            <div className="p-6">
+                <button
+                    className="px-4 py-2 bg-white text-purple-600 rounded shadow hover:bg-blue-300 transition"
+                >
+                    <Link
+                            to="/flashcardSets"
+                        >
+                        View Flashcard Sets
+                    </Link>
+                </button>
+            </div>
             <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-md space-y-6">
                 <h2 id="question-heading" className="text-3xl font-semibold text-gray-800 text-center">
                     Generate Flashcards

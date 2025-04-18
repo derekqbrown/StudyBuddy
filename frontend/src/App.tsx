@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation  } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import LoginPage from './pages/login.tsx';
 import RegisterPage from './pages/register.tsx';
 import ProfilePage from './pages/profile.tsx';
@@ -15,6 +16,20 @@ import TakeExam from './pages/takeExam.tsx';
 
 function AppRoutes() {
   const location = useLocation();
+
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      console.log('Window is closing or navigating away - removing token...');
+      localStorage.removeItem('token');
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []); 
+
   return (
     <>
       {location.pathname !== '/' && <LoggedInNavbar />}

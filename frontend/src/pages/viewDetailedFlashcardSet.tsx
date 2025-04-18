@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const VIEW_DETAILED_SET_URL = `${BASE_URL}/flashcards`;
@@ -16,12 +16,13 @@ function ViewFlashcardsPage() {
   const [flipped, setFlipped] = useState<boolean[]>([]);
   const [error, setError] = useState('');
 
+  const token = localStorage.getItem('token');
+  if(!token) {
+      setError('Not logged in!');
+      return <Navigate to="/login"/>;
+  }
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      setError('You are not logged in!');
-      return;
-    }
+    
 
     async function fetchFlashcards() {
       try {
@@ -53,7 +54,7 @@ function ViewFlashcardsPage() {
 
   return (
     <div style={styles.container}>
-      <h2>Flashcard Set: {setName}</h2>
+      <h2 className="text-white">Flashcard Set Name:<br></br> {setName}</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {flashcards.length === 0 && !error ? (
         <p>No flashcards found.</p>

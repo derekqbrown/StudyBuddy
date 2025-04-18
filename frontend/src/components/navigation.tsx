@@ -9,6 +9,14 @@ const LoggedInNavbar = () => {
     return (
       <nav className="bg-gray-100 py-2">
         <ul className="list-none p-0 m-0 flex justify-around items-center">
+        <li className="mx-4">
+            <Link
+              to="/"
+              className="text-gray-700 hover:text-blue-500 text-lg"
+            >
+              Home
+            </Link>
+          </li>
           <li className="mx-4">
             <Link
               to="/chat"
@@ -27,7 +35,7 @@ const LoggedInNavbar = () => {
           </li>
           <li className="mx-4">
             <Link
-              to="/assign-exam"
+              to="/generateExam"
               className="text-gray-700 hover:text-blue-500 text-lg"
             >
               Exams

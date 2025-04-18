@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom";
 import axios from "axios";
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -28,8 +28,12 @@ const TakeExam: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState<number>(60 * 60); // 60 minutes default
-  const token = localStorage.getItem("token");
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const token = localStorage.getItem('token');
+  if(!token) {
+      return <Navigate to="/login"/>;
+  }
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -338,7 +342,10 @@ const TakeExam: React.FC = () => {
                       onClick={() => window.location.reload()}
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg font-medium transition-colors"
                     >
-                      Retake Exam
+                      <Link to={`/exams/take/${examId}/${examSetName}`}>
+                        Retake Exam: {examId}
+                      </Link>
+                       Exam
                     </button>
                   </div>
                 </>

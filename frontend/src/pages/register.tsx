@@ -72,8 +72,9 @@ function RegisterPage() {
               id="role" 
               value={role}
               onChange={(e) => setRole(e.target.value)}>
-              <option value="Teacher">Teacher</option>
               <option value="Student">Student</option>
+              <option value="Teacher">Teacher</option>
+              
             </select>
           </div>
           <button
