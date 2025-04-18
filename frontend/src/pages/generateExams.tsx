@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const GENERATE_EXAM_URL = 'http://localhost:3000/exams/create-exam';
-const SAVE_EXAM_URL = 'http://localhost:3000/exams/save';
+const GENERATE_EXAM_URL = 'http://34.217.210.224:3000/exams/create-exam';
+const SAVE_EXAM_URL = 'http://34.217.210.224:3000/exams/save';
 
 type ExamQuestion = {
     question: string;

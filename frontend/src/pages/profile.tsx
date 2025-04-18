@@ -218,8 +218,8 @@ function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-purple-500">
-      <div className="top-0 left-0 w-full p-4 bg-purple-500 z-10 flex justify-between items-center shadow-md">
+    <div className="min-h-screen bg-blue-500">
+      <div className="top-0 left-0 w-full p-4 bg-blue-500 z-10 flex justify-between items-center shadow-md">
         <h2 className="text-2xl font-bold text-white">Profile</h2>
       </div>
 
@@ -253,6 +253,7 @@ function ProfilePage() {
           {isEditing ? "Cancel Editing" : "Edit Profile"}
         </button>
       </div>
+
       {isEditing && (
         <div
           className={`overflow-hidden transition-all duration-300 ease-in-out ${

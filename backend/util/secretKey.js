@@ -3,10 +3,10 @@ require("dotenv").config();
 
 const ssmClient = new SSMClient({ 
     region: process.env.AWS_REGION || "us-west-2",
-    credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-    }
+    // credentials: {
+    //     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    //     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+    // }
 });
 
 let cachedKey = null;
@@ -30,4 +30,24 @@ async function getJwtSecret() {
     }
 }
 
-module.exports = { getJwtSecret };
+async function getGeminiKey() {
+    if (cachedKey) {
+        return cachedKey;
+    }
+
+    const command = new GetParameterCommand({
+        Name: "gemini-api-key",
+        WithDecryption: true,
+    });
+
+    try {
+        const response = await ssmClient.send(command);
+        cachedKey = response.Parameter.Value;
+        return cachedKey;
+    } 
+    catch (error) {
+        console.error(error);
+    }
+}
+
+module.exports = { getJwtSecret, getGeminiKey };

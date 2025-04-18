@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import viewDetailedSet from './viewDetailedFlashcardSet';
 
-const VIEW_FLASHCARD_SET_URL = 'http://localhost:3000/flashcards/all-flashcards';
+const VIEW_FLASHCARD_SET_URL = 'http://34.217.210.224:3000/flashcards/all-flashcards';
 
 function ViewFlashcardSet(){
     // interface FlashcardSet {

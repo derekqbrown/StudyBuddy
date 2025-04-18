@@ -2,7 +2,7 @@ import React, { useState, FormEvent } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const LOGIN_URL = 'http://localhost:3000/users/login';
+const LOGIN_URL = 'http://34.217.210.224:3000/users/login';
 
 interface LoginPageProps {
   // Add any props if needed (in this case, none are directly passed)

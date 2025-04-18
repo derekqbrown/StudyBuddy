@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18  
+    commands:
+      - cd backend
+      - echo "Installing dependencies..."
+      - npm install
+  
+artifacts:
+  files:
+    - 'backend/**/*'
+  exclude-paths:
+    - 'backend/__tests__/**/*'
