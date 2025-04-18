@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const GENERATE_URL = 'http://34.217.210.224:3000/flashcards';
-const SAVE_URL = 'http://34.217.210.224:3000/flashcards/save';
+const GENERATE_URL = `${BASE_URL}/flashcards`;
+const SAVE_URL = `${BASE_URL}/flashcards/save`;
 
 function GenerateFlashcardsPage(){
     const [prompt, setPrompt] = useState<string>('');

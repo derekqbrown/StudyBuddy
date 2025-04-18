@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 // import '../index.css';
 
-const PROFILE_URL = "http://localhost:3000/users"; // the endpoint to retrieve the user profile
-const PROFILE_PIC_URL = "http://localhost:3000/users/profile-pic";
-const CREATE_SET_URL = "http://localhost:3000/users/create-set";
-const UPLOAD_PROFILE_PIC_URL = "http://localhost:3000/users/upload-profile-pic"; // endpoint for profile pic upload
-const UPDATE_PROFILE_URL = "http://localhost:3000/users/update"; // endpoint for updating user profile
+const PROFILE_URL = `${BASE_URL}/users`; // the endpoint to retrieve the user profile
+const PROFILE_PIC_URL = `${BASE_URL}/users/profile-pic`;
+const CREATE_SET_URL = `${BASE_URL}/users/create-set`;
+const UPLOAD_PROFILE_PIC_URL = `${BASE_URL}/users/upload-profile-pic`; // endpoint for profile pic upload
+const UPDATE_PROFILE_URL = `${BASE_URL}/users/update`; // endpoint for updating user profile
 
 interface Profile {
   profilePicture: string;

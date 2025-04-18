@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const GENERATE_EXAM_URL = 'http://34.217.210.224:3000/exams/create-exam';
-const SAVE_EXAM_URL = 'http://34.217.210.224:3000/exams/save';
+const GENERATE_EXAM_URL = `${BASE_URL}/exams/create-exam`;
+const SAVE_EXAM_URL = `${BASE_URL}/exams/save`;
 
 type ExamQuestion = {
     question: string;

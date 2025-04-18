@@ -2,8 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const CHAT_URL = 'http://34.217.210.224:3000/chat';
+const CHAT_URL = `${BASE_URL}/chat`;
 
 function ChatPage(){
     const [prompt, setPrompt] = useState<string>('');

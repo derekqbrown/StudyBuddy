@@ -1,8 +1,9 @@
 import React, { useState, FormEvent } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { useNavigate } from 'react-router-dom';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const LOGIN_URL = 'http://34.217.210.224:3000/users/login';
+const LOGIN_URL = `${BASE_URL}/users/login`;
 
 interface LoginPageProps {
   // Add any props if needed (in this case, none are directly passed)

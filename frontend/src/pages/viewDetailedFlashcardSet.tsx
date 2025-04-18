@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const VIEW_DETAILED_SET_URL = 'http://34.217.210.224:3000/flashcards';
+const VIEW_DETAILED_SET_URL = `${BASE_URL}/flashcards`;
 
 interface Flashcard {
   question: string;
