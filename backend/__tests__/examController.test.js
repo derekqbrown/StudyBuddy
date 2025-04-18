@@ -75,7 +75,9 @@ describe('Exam Controller Tests', () => {
       });
     });
 
-    it('should return 400 if saveExams fails', async () => {
+    describe('POST /exams/save', () => {
+      
+      it('should return 400 if saveExams fails', async () => {
         const mockUser = { id: 'USER#123' };
       
         authenticateToken.mockImplementation((req, res, next) => {
@@ -127,5 +129,100 @@ describe('Exam Controller Tests', () => {
       
         expect(examsService.saveExams).toHaveBeenCalledWith(mockUser.id, examSetName, examData);
       });
-      
+    })
+
+
+    describe('POST /exams/assign/:examset/:examid', () => {
+      const mockExamSet = 'SET456';
+      const mockExamId = 'EXAM789';
+      const studentId = 'STUDENT123'; 
+      const teacherId = 'USER123';
+      const assignUrl = `/exams/assign/${mockExamSet}/${mockExamId}`;
+  
+      beforeEach(() => {
+          jest.clearAllMocks();
+          authenticateToken.mockImplementation((req, res, next) => {
+            req.user = { id: teacherId }; 
+            next();
+          });
+          global.console.log = jest.fn();
+      });
+  
+      test('should return 404 and a string message if examsService returns false', async () => {
+
+          examsService.assignExam.mockResolvedValue(false);
+  
+          const response = await request(app)
+              .post(assignUrl)
+              .send({ studentId: studentId }) 
+              .set('Authorization', 'Bearer valid-token'); 
+
+          expect(response.statusCode).toBe(404);
+
+          expect(response.body).toEqual({ Message: "Failed to assign exam!" });
+  
+          expect(examsService.assignExam).toHaveBeenCalledWith(mockExamSet, mockExamId, teacherId, studentId);
+      });
+  
+
+      test('should return 400 and a string message if examsService throws an error', async () => {
+          const mockError = new Error('Service assignment failed due to some issue');
+
+          examsService.assignExam.mockRejectedValue(mockError);
+  
+          const response = await request(app)
+              .post(assignUrl)
+              .send({ studentId: studentId })
+              .set('Authorization', 'Bearer valid-token');
+  
+          expect(response.statusCode).toBe(400);
+          expect(response.body).toEqual({ Message: "Failed to assign exam!" });
+  
+          expect(examsService.assignExam).toHaveBeenCalledWith(mockExamSet, mockExamId, teacherId, studentId);
+
+          expect(console.log).toHaveBeenCalledWith(mockError);
+      });
+  
+
+      test('should return 200 and the assigned exam object on successful assignment', async () => {
+          const mockAssignedExam = { id: 'assigned#123', examSet: mockExamSet, examId: mockExamId, studentId: studentId, teacherId: teacherId, status: 'assigned' };
+
+          examsService.assignExam.mockResolvedValue(mockAssignedExam);
+  
+          const response = await request(app)
+              .post(assignUrl)
+              .send({ studentId: studentId })
+              .set('Authorization', 'Bearer valid-token');
+  
+
+          expect(response.statusCode).toBe(200);
+
+          expect(response.body).toEqual(mockAssignedExam);
+  
+          expect(examsService.assignExam).toHaveBeenCalledWith(mockExamSet, mockExamId, teacherId, studentId);
+      });
+  
+
+      test('should return 400 and a string message if studentId is missing', async () => {
+         
+          const mockError = new Error('studentId is required by service');
+         
+          examsService.assignExam.mockRejectedValue(mockError);
+  
+
+          const response = await request(app)
+              .post(assignUrl)
+              .send({}) 
+              .set('Authorization', 'Bearer valid-token');
+  
+          expect(response.statusCode).toBe(400);
+
+          expect(response.body).toEqual({ Message: "Failed to assign exam!" });
+  
+          expect(examsService.assignExam).toHaveBeenCalledWith(mockExamSet, mockExamId, teacherId, undefined);
+
+          expect(console.log).toHaveBeenCalledWith(mockError);
+      });
+    });
+
 })

@@ -120,10 +120,11 @@ async function assignExam(examSet, examId, teacherId, studentId) {
       }
 
       const result = await s3Client.copyObject(copyParams).promise();
+
       return result;
     } catch (err) {
       logger.error(`Failed to assign exam set from S3 at ${getParams.Key}`, err);
-      throw err;
+      return false;
     }
 }
 

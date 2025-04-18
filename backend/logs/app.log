@@ -1129,3 +1129,129 @@
 [2025-04-17T23:23:29.674Z] INFO: User fetched: teacher1
 [2025-04-17T23:23:29.849Z] INFO: Extracted set names: 
 [2025-04-17T23:23:29.849Z] INFO: All Sets: Space 2,Space 3
+[2025-04-18T16:42:54.177Z] INFO: Examss generated for user: USER#123
+[2025-04-18T16:42:54.187Z] WARN: Prompt is required for exam generation.
+[2025-04-18T16:47:35.922Z] INFO: Examss generated for user: USER#123
+[2025-04-18T16:47:35.931Z] WARN: Prompt is required for exam generation.
+[2025-04-18T16:49:20.598Z] INFO: Examss generated for user: USER#123
+[2025-04-18T16:49:20.607Z] WARN: Prompt is required for exam generation.
+[2025-04-18T16:52:16.313Z] INFO: Examss generated for user: USER#123
+[2025-04-18T16:52:16.321Z] WARN: Prompt is required for exam generation.
+[2025-04-18T16:52:38.717Z] INFO: Examss generated for user: USER#123
+[2025-04-18T16:52:38.728Z] WARN: Prompt is required for exam generation.
+[2025-04-18T17:53:23.807Z] INFO: Examss generated for user: USER#123
+[2025-04-18T17:53:23.815Z] WARN: Prompt is required for exam generation.
+[2025-04-18T18:12:32.963Z] INFO: Examss generated for user: USER#123
+[2025-04-18T18:12:32.973Z] WARN: Prompt is required for exam generation.
+[2025-04-18T18:18:33.932Z] INFO: Examss generated for user: USER#123
+[2025-04-18T18:18:33.942Z] WARN: Prompt is required for exam generation.
+[2025-04-18T18:19:34.701Z] INFO: Examss generated for user: USER#123
+[2025-04-18T18:19:34.709Z] WARN: Prompt is required for exam generation.
+[2025-04-18T18:21:26.482Z] INFO: Examss generated for user: USER#123
+[2025-04-18T18:21:26.492Z] WARN: Prompt is required for exam generation.
+[2025-04-18T18:22:36.944Z] INFO: Examss generated for user: USER#123
+[2025-04-18T18:22:36.955Z] WARN: Prompt is required for exam generation.
+[2025-04-18T20:31:47.248Z] INFO: student Id: 
+[2025-04-18T20:31:47.261Z] INFO: student Id: 
+[2025-04-18T20:31:47.264Z] INFO: student Id: 
+[2025-04-18T20:31:47.266Z] INFO: student Id: 
+[2025-04-18T20:33:13.086Z] INFO: student Id: 
+[2025-04-18T20:33:13.095Z] INFO: student Id: 
+[2025-04-18T20:33:13.103Z] INFO: student Id: 
+[2025-04-18T20:33:13.104Z] INFO: student Id: 
+[2025-04-18T20:33:34.051Z] INFO: student Id: 
+[2025-04-18T20:33:34.064Z] INFO: student Id: 
+[2025-04-18T20:33:34.067Z] INFO: student Id: 
+[2025-04-18T20:33:34.068Z] INFO: student Id: 
+[2025-04-18T20:35:43.346Z] INFO: student Id: 
+[2025-04-18T20:35:43.360Z] INFO: student Id: 
+[2025-04-18T20:35:43.362Z] INFO: student Id: 
+[2025-04-18T20:35:43.364Z] INFO: student Id: 
+[2025-04-18T20:36:30.756Z] INFO: student Id: 
+[2025-04-18T20:36:30.769Z] INFO: student Id: 
+[2025-04-18T20:36:30.771Z] INFO: student Id: 
+[2025-04-18T20:36:30.773Z] INFO: student Id: 
+[2025-04-18T20:38:13.362Z] INFO: student Id: 
+[2025-04-18T20:38:13.372Z] INFO: student Id: 
+[2025-04-18T20:38:13.380Z] INFO: student Id: 
+[2025-04-18T20:38:13.382Z] INFO: student Id: 
+[2025-04-18T20:38:47.520Z] INFO: student Id: 
+[2025-04-18T20:38:47.527Z] INFO: student Id: 
+[2025-04-18T20:38:47.529Z] INFO: student Id: 
+[2025-04-18T20:38:47.531Z] INFO: student Id: 
+[2025-04-18T20:38:57.315Z] INFO: Examss generated for user: USER#123
+[2025-04-18T20:38:57.322Z] WARN: Prompt is required for exam generation.
+[2025-04-18T20:38:57.327Z] INFO: student Id: 
+[2025-04-18T20:38:57.330Z] INFO: student Id: 
+[2025-04-18T20:38:57.331Z] INFO: student Id: 
+[2025-04-18T20:38:57.333Z] INFO: student Id: 
+[2025-04-18T20:40:32.718Z] WARN: Prompt is required for flashcard generation.
+[2025-04-18T20:40:33.158Z] INFO: Flashcard set saved for user: USER#123, set name: History Flashcards
+[2025-04-18T20:40:33.207Z] WARN: Set name or flashcards are missing.
+[2025-04-18T20:40:33.258Z] ERROR: Error saving flashcards: Database error
+[2025-04-18T20:40:33.262Z] INFO: Retrieved all flashcard sets for user: USER#123
+[2025-04-18T20:40:33.267Z] WARN: Failed to retrieve all flashcard sets for user: USER#123
+[2025-04-18T20:40:33.271Z] INFO: Flashcards retrieved successfully for user: USER#123, set: set123
+[2025-04-18T20:40:33.276Z] WARN: Failed to retrieve flashcards for user: USER#123, set: set123
+[2025-04-18T20:40:33.508Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-18T20:40:33.509Z] INFO: Flashcard set 'Spanish Vocabulary' saved successfully for user USER#123.
+[2025-04-18T20:40:33.511Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-18T20:40:33.515Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-18T20:40:33.517Z] WARN: No flashcard sets found for user USER#123.
+[2025-04-18T20:40:33.518Z] WARN: Flashcard set not found: user USER#123, selectedSet my-sets.
+[2025-04-18T20:40:33.837Z] INFO: User logged in: testuser
+[2025-04-18T20:40:33.843Z] INFO: User registered successfully: newuser
+[2025-04-18T20:40:33.848Z] WARN: Registration attempt failed: username already taken - existinguser
+[2025-04-18T20:40:33.850Z] INFO: User logged out: testuser
+[2025-04-18T20:40:34.000Z] INFO: Fetching user with username: testUser
+[2025-04-18T20:40:34.003Z] INFO: Fetching user with username: testUser
+[2025-04-18T20:40:34.003Z] WARN: User not found: testUser
+[2025-04-18T20:40:34.003Z] INFO: Creating user: testUser
+[2025-04-18T20:40:34.004Z] INFO: User created successfully: testUser
+[2025-04-18T20:40:34.007Z] INFO: Updating user with ID: USER#1
+[2025-04-18T20:40:34.007Z] INFO: User with ID USER#1 updated successfully
+[2025-04-18T20:40:34.008Z] INFO: Updating user with ID: USER#1
+[2025-04-18T20:40:34.009Z] INFO: User with ID USER#1 updated successfully
+[2025-04-18T20:40:34.009Z] INFO: Deleting user with ID: USER#1
+[2025-04-18T20:40:34.009Z] INFO: User with ID USER#1 deleted
+[2025-04-18T20:40:34.538Z] INFO: Examss generated for user: USER#123
+[2025-04-18T20:40:34.544Z] WARN: Prompt is required for exam generation.
+[2025-04-18T20:40:34.549Z] INFO: student Id: 
+[2025-04-18T20:40:34.551Z] INFO: student Id: 
+[2025-04-18T20:40:34.552Z] INFO: student Id: 
+[2025-04-18T20:40:34.554Z] INFO: student Id: 
+[2025-04-18T20:41:10.397Z] INFO: Fetching user with username: testUser
+[2025-04-18T20:41:10.406Z] INFO: Fetching user with username: testUser
+[2025-04-18T20:41:10.408Z] WARN: User not found: testUser
+[2025-04-18T20:41:10.409Z] INFO: Creating user: testUser
+[2025-04-18T20:41:10.410Z] INFO: User created successfully: testUser
+[2025-04-18T20:41:10.421Z] INFO: Updating user with ID: USER#1
+[2025-04-18T20:41:10.422Z] INFO: User with ID USER#1 updated successfully
+[2025-04-18T20:41:10.423Z] INFO: Updating user with ID: USER#1
+[2025-04-18T20:41:10.427Z] INFO: User with ID USER#1 updated successfully
+[2025-04-18T20:41:10.429Z] INFO: Deleting user with ID: USER#1
+[2025-04-18T20:41:10.430Z] INFO: User with ID USER#1 deleted
+[2025-04-18T20:41:10.486Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-18T20:41:10.491Z] INFO: Flashcard set 'Spanish Vocabulary' saved successfully for user USER#123.
+[2025-04-18T20:41:10.493Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-18T20:41:10.513Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-18T20:41:10.515Z] WARN: No flashcard sets found for user USER#123.
+[2025-04-18T20:41:10.518Z] WARN: Flashcard set not found: user USER#123, selectedSet my-sets.
+[2025-04-18T20:41:10.784Z] INFO: User logged in: testuser
+[2025-04-18T20:41:10.794Z] INFO: User registered successfully: newuser
+[2025-04-18T20:41:10.801Z] WARN: Registration attempt failed: username already taken - existinguser
+[2025-04-18T20:41:10.804Z] INFO: User logged out: testuser
+[2025-04-18T20:41:10.814Z] INFO: Examss generated for user: USER#123
+[2025-04-18T20:41:10.823Z] WARN: Prompt is required for exam generation.
+[2025-04-18T20:41:10.830Z] INFO: student Id: 
+[2025-04-18T20:41:10.833Z] INFO: student Id: 
+[2025-04-18T20:41:10.835Z] INFO: student Id: 
+[2025-04-18T20:41:10.837Z] INFO: student Id: 
+[2025-04-18T20:41:10.902Z] WARN: Prompt is required for flashcard generation.
+[2025-04-18T20:41:11.321Z] INFO: Flashcard set saved for user: USER#123, set name: History Flashcards
+[2025-04-18T20:41:11.375Z] WARN: Set name or flashcards are missing.
+[2025-04-18T20:41:11.448Z] ERROR: Error saving flashcards: Database error
+[2025-04-18T20:41:11.452Z] INFO: Retrieved all flashcard sets for user: USER#123
+[2025-04-18T20:41:11.460Z] WARN: Failed to retrieve all flashcard sets for user: USER#123
+[2025-04-18T20:41:11.464Z] INFO: Flashcards retrieved successfully for user: USER#123, set: set123
+[2025-04-18T20:41:11.467Z] WARN: Failed to retrieve flashcards for user: USER#123, set: set123
