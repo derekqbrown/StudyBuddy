@@ -88,15 +88,7 @@ function GenerateExamPage() {
             <div className="top-0 left-0 w-full p-4  z-10 text-center shadow-md">
                 <h2 className="text-2xl font-bold text-white">Exams</h2>
             </div>
-            <div className="p-6 items-center">
-                <button
-                    className="px-4 py-2 bg-white text-purple-600 rounded shadow hover:bg-blue-300 transition"
-                >
-                    <Link to="/view-exam-set">
-                        View Saved Exams 
-                    </Link>
-                </button>
-            </div>
+
             <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-md space-y-6">
                 
             
