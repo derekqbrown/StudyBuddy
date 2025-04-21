@@ -1515,3 +1515,449 @@
 [2025-04-21T15:45:46.116Z] INFO: Extracted set names: 
 [2025-04-21T15:45:46.117Z] INFO: All Sets: Space 2,Space 3
 [2025-04-21T15:46:05.702Z] INFO: student Id: 
+[2025-04-21T16:01:39.032Z] INFO: Examss generated for user: USER#123
+[2025-04-21T16:01:39.060Z] WARN: Prompt is required for exam generation.
+[2025-04-21T16:01:39.112Z] INFO: student Id: 
+[2025-04-21T16:01:39.123Z] INFO: student Id: 
+[2025-04-21T16:01:39.136Z] INFO: student Id: 
+[2025-04-21T16:01:39.146Z] INFO: student Id: 
+[2025-04-21T16:01:40.293Z] WARN: Prompt is required for flashcard generation.
+[2025-04-21T16:01:40.413Z] INFO: Retrieved all flashcard sets for user: USER#123
+[2025-04-21T16:01:40.420Z] WARN: Failed to retrieve all flashcard sets for user: USER#123
+[2025-04-21T16:01:40.428Z] INFO: Flashcards retrieved successfully for user: USER#123, set: set123
+[2025-04-21T16:01:40.444Z] WARN: Failed to retrieve flashcards for user: USER#123, set: set123
+[2025-04-21T16:01:40.947Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:01:40.952Z] INFO: Flashcard set 'Spanish Vocabulary' saved successfully for user USER#123.
+[2025-04-21T16:01:40.957Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:01:40.987Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:01:40.992Z] WARN: No flashcard sets found for user USER#123.
+[2025-04-21T16:01:40.999Z] WARN: Flashcard set not found: user USER#123, selectedSet my-sets.
+[2025-04-21T16:01:41.934Z] INFO: User logged in: testuser
+[2025-04-21T16:01:41.956Z] INFO: User registered successfully: newuser
+[2025-04-21T16:01:41.976Z] WARN: Registration attempt failed: username already taken - existinguser
+[2025-04-21T16:01:41.994Z] INFO: User logged out: testuser
+[2025-04-21T16:01:42.254Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:01:42.260Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:01:42.261Z] WARN: User not found: testUser
+[2025-04-21T16:01:42.263Z] INFO: Creating user: testUser
+[2025-04-21T16:01:42.264Z] INFO: User created successfully: testUser
+[2025-04-21T16:01:42.273Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:01:42.274Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:01:42.277Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:01:42.279Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:01:42.281Z] INFO: Deleting user with ID: USER#1
+[2025-04-21T16:01:42.283Z] INFO: User with ID USER#1 deleted
+[2025-04-21T16:02:13.130Z] WARN: Prompt is required for flashcard generation.
+[2025-04-21T16:02:13.394Z] INFO: Retrieved all flashcard sets for user: USER#123
+[2025-04-21T16:02:13.414Z] WARN: Failed to retrieve all flashcard sets for user: USER#123
+[2025-04-21T16:02:13.434Z] INFO: Flashcards retrieved successfully for user: USER#123, set: set123
+[2025-04-21T16:02:13.454Z] WARN: Failed to retrieve flashcards for user: USER#123, set: set123
+[2025-04-21T16:02:14.676Z] INFO: User logged in: testuser
+[2025-04-21T16:02:14.732Z] INFO: User registered successfully: newuser
+[2025-04-21T16:02:14.790Z] WARN: Registration attempt failed: username already taken - existinguser
+[2025-04-21T16:02:14.827Z] INFO: User logged out: testuser
+[2025-04-21T16:02:15.759Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:02:15.763Z] INFO: Flashcard set 'Spanish Vocabulary' saved successfully for user USER#123.
+[2025-04-21T16:02:15.768Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:02:15.800Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:02:15.806Z] WARN: No flashcard sets found for user USER#123.
+[2025-04-21T16:02:15.812Z] WARN: Flashcard set not found: user USER#123, selectedSet my-sets.
+[2025-04-21T16:02:16.363Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:02:16.401Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:02:16.403Z] WARN: User not found: testUser
+[2025-04-21T16:02:16.405Z] INFO: Creating user: testUser
+[2025-04-21T16:02:16.407Z] INFO: User created successfully: testUser
+[2025-04-21T16:02:16.422Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:02:16.426Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:02:16.430Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:02:16.431Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:02:16.434Z] INFO: Deleting user with ID: USER#1
+[2025-04-21T16:02:16.435Z] INFO: User with ID USER#1 deleted
+[2025-04-21T16:02:17.348Z] INFO: Examss generated for user: USER#123
+[2025-04-21T16:02:17.363Z] WARN: Prompt is required for exam generation.
+[2025-04-21T16:02:17.386Z] INFO: student Id: 
+[2025-04-21T16:02:17.403Z] INFO: student Id: 
+[2025-04-21T16:02:17.415Z] INFO: student Id: 
+[2025-04-21T16:02:17.424Z] INFO: student Id: 
+[2025-04-21T16:03:41.105Z] WARN: Prompt is required for flashcard generation.
+[2025-04-21T16:03:41.595Z] INFO: Flashcard set saved for user: USER#123, set name: History Flashcards
+[2025-04-21T16:03:41.646Z] WARN: Set name or flashcards are missing.
+[2025-04-21T16:03:41.718Z] ERROR: Error saving flashcards: Database error
+[2025-04-21T16:03:41.772Z] INFO: Retrieved all flashcard sets for user: USER#123
+[2025-04-21T16:03:41.806Z] WARN: Failed to retrieve all flashcard sets for user: USER#123
+[2025-04-21T16:03:41.830Z] INFO: Flashcards retrieved successfully for user: USER#123, set: set123
+[2025-04-21T16:03:41.849Z] WARN: Failed to retrieve flashcards for user: USER#123, set: set123
+[2025-04-21T16:03:43.074Z] INFO: User logged in: testuser
+[2025-04-21T16:03:43.131Z] INFO: User registered successfully: newuser
+[2025-04-21T16:03:43.198Z] WARN: Registration attempt failed: username already taken - existinguser
+[2025-04-21T16:03:43.213Z] INFO: User logged out: testuser
+[2025-04-21T16:03:44.274Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:03:44.283Z] INFO: Flashcard set 'Spanish Vocabulary' saved successfully for user USER#123.
+[2025-04-21T16:03:44.293Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:03:44.327Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:03:44.341Z] WARN: No flashcard sets found for user USER#123.
+[2025-04-21T16:03:44.354Z] WARN: Flashcard set not found: user USER#123, selectedSet my-sets.
+[2025-04-21T16:03:44.814Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:03:44.824Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:03:44.826Z] WARN: User not found: testUser
+[2025-04-21T16:03:44.828Z] INFO: Creating user: testUser
+[2025-04-21T16:03:44.830Z] INFO: User created successfully: testUser
+[2025-04-21T16:03:44.849Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:03:44.852Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:03:44.855Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:03:44.856Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:03:44.859Z] INFO: Deleting user with ID: USER#1
+[2025-04-21T16:03:44.860Z] INFO: User with ID USER#1 deleted
+[2025-04-21T16:03:45.776Z] INFO: Examss generated for user: USER#123
+[2025-04-21T16:03:45.791Z] WARN: Prompt is required for exam generation.
+[2025-04-21T16:03:45.814Z] INFO: student Id: 
+[2025-04-21T16:03:45.825Z] INFO: student Id: 
+[2025-04-21T16:03:45.835Z] INFO: student Id: 
+[2025-04-21T16:03:45.845Z] INFO: student Id: 
+[2025-04-21T16:03:46.451Z] INFO: User newuser created successfully.
+[2025-04-21T16:03:48.669Z] INFO: Metadata for flashcard set 'Math Set' (ID: set456) saved for user user123.
+[2025-04-21T16:03:48.812Z] ERROR: Failed to save flashcard set to S3 at flashcards/user123/testFlashcardSet/set456.json Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:03:48.835Z] ERROR: Failed to retrieve flashcard sets for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:03:48.853Z] ERROR: Failed to retrieve flashcard sets for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:03:48.883Z] ERROR: Failed to retrieve flashcard set (math) for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:03:48.903Z] ERROR: Failed to retrieve flashcard set (science) for user user789 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:05:38.863Z] INFO: Flashcards generated for user: USER#123
+[2025-04-21T16:05:39.042Z] WARN: Prompt is required for flashcard generation.
+[2025-04-21T16:05:39.118Z] ERROR: Gemini error: Cannot read properties of undefined (reading 'response')
+[2025-04-21T16:05:39.720Z] INFO: Flashcard set saved for user: USER#123, set name: History Flashcards
+[2025-04-21T16:05:39.834Z] WARN: Set name or flashcards are missing.
+[2025-04-21T16:05:39.944Z] ERROR: Error saving flashcards: Database error
+[2025-04-21T16:05:39.978Z] INFO: Retrieved all flashcard sets for user: USER#123
+[2025-04-21T16:05:40.009Z] WARN: Failed to retrieve all flashcard sets for user: USER#123
+[2025-04-21T16:05:40.045Z] INFO: Flashcards retrieved successfully for user: USER#123, set: set123
+[2025-04-21T16:05:40.076Z] WARN: Failed to retrieve flashcards for user: USER#123, set: set123
+[2025-04-21T16:05:42.074Z] INFO: User logged in: testuser
+[2025-04-21T16:05:42.126Z] INFO: User registered successfully: newuser
+[2025-04-21T16:05:42.189Z] WARN: Registration attempt failed: username already taken - existinguser
+[2025-04-21T16:05:42.223Z] INFO: User logged out: testuser
+[2025-04-21T16:05:43.878Z] INFO: Metadata for flashcard set 'Math Set' (ID: set456) saved for user user123.
+[2025-04-21T16:05:43.992Z] ERROR: Failed to save flashcard set to S3 at flashcards/user123/testFlashcardSet/set456.json Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:05:44.071Z] ERROR: Failed to retrieve flashcard sets for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:05:44.113Z] ERROR: Failed to retrieve flashcard sets for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:05:44.169Z] ERROR: Failed to retrieve flashcard set (math) for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:05:44.222Z] ERROR: Failed to retrieve flashcard set (science) for user user789 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:05:45.064Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:05:45.094Z] INFO: Flashcard set 'Spanish Vocabulary' saved successfully for user USER#123.
+[2025-04-21T16:05:45.109Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:05:45.160Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:05:45.166Z] WARN: No flashcard sets found for user USER#123.
+[2025-04-21T16:05:45.171Z] WARN: Flashcard set not found: user USER#123, selectedSet my-sets.
+[2025-04-21T16:05:46.018Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:05:46.040Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:05:46.044Z] WARN: User not found: testUser
+[2025-04-21T16:05:46.053Z] INFO: Creating user: testUser
+[2025-04-21T16:05:46.058Z] INFO: User created successfully: testUser
+[2025-04-21T16:05:46.095Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:05:46.103Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:05:46.163Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:05:46.175Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:05:46.187Z] INFO: Deleting user with ID: USER#1
+[2025-04-21T16:05:46.188Z] INFO: User with ID USER#1 deleted
+[2025-04-21T16:05:47.799Z] INFO: Examss generated for user: USER#123
+[2025-04-21T16:05:47.845Z] WARN: Prompt is required for exam generation.
+[2025-04-21T16:05:47.949Z] INFO: student Id: 
+[2025-04-21T16:05:47.989Z] INFO: student Id: 
+[2025-04-21T16:05:48.028Z] INFO: student Id: 
+[2025-04-21T16:05:48.067Z] INFO: student Id: 
+[2025-04-21T16:05:48.720Z] INFO: User newuser created successfully.
+[2025-04-21T16:05:50.357Z] ERROR: Gemini error: Gemini API error
+[2025-04-21T16:07:21.230Z] INFO: Flashcards generated for user: USER#123
+[2025-04-21T16:07:21.424Z] WARN: Prompt is required for flashcard generation.
+[2025-04-21T16:07:21.494Z] INFO: Flashcards generated for user: USER#123
+[2025-04-21T16:07:21.965Z] INFO: Flashcard set saved for user: USER#123, set name: History Flashcards
+[2025-04-21T16:07:22.059Z] WARN: Set name or flashcards are missing.
+[2025-04-21T16:07:22.154Z] ERROR: Error saving flashcards: Database error
+[2025-04-21T16:07:22.200Z] INFO: Retrieved all flashcard sets for user: USER#123
+[2025-04-21T16:07:22.248Z] WARN: Failed to retrieve all flashcard sets for user: USER#123
+[2025-04-21T16:07:22.296Z] INFO: Flashcards retrieved successfully for user: USER#123, set: set123
+[2025-04-21T16:07:22.356Z] WARN: Failed to retrieve flashcards for user: USER#123, set: set123
+[2025-04-21T16:07:24.142Z] INFO: User logged in: testuser
+[2025-04-21T16:07:24.164Z] INFO: User registered successfully: newuser
+[2025-04-21T16:07:24.199Z] WARN: Registration attempt failed: username already taken - existinguser
+[2025-04-21T16:07:24.215Z] INFO: User logged out: testuser
+[2025-04-21T16:07:26.030Z] INFO: Metadata for flashcard set 'Math Set' (ID: set456) saved for user user123.
+[2025-04-21T16:07:26.133Z] ERROR: Failed to save flashcard set to S3 at flashcards/user123/testFlashcardSet/set456.json Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:07:26.205Z] ERROR: Failed to retrieve flashcard sets for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:07:26.323Z] ERROR: Failed to retrieve flashcard sets for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:07:26.374Z] ERROR: Failed to retrieve flashcard set (math) for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:07:26.411Z] ERROR: Failed to retrieve flashcard set (science) for user user789 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:07:27.073Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:07:27.121Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:07:27.123Z] WARN: User not found: testUser
+[2025-04-21T16:07:27.130Z] INFO: Creating user: testUser
+[2025-04-21T16:07:27.134Z] INFO: User created successfully: testUser
+[2025-04-21T16:07:27.168Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:07:27.172Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:07:27.179Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:07:27.180Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:07:27.188Z] INFO: Deleting user with ID: USER#1
+[2025-04-21T16:07:27.189Z] INFO: User with ID USER#1 deleted
+[2025-04-21T16:07:28.503Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:07:28.507Z] INFO: Flashcard set 'Spanish Vocabulary' saved successfully for user USER#123.
+[2025-04-21T16:07:28.511Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:07:28.532Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:07:28.537Z] WARN: No flashcard sets found for user USER#123.
+[2025-04-21T16:07:28.544Z] WARN: Flashcard set not found: user USER#123, selectedSet mock-uuid-456.
+[2025-04-21T16:07:30.471Z] INFO: Examss generated for user: USER#123
+[2025-04-21T16:07:30.491Z] WARN: Prompt is required for exam generation.
+[2025-04-21T16:07:30.598Z] INFO: student Id: 
+[2025-04-21T16:07:30.632Z] INFO: student Id: 
+[2025-04-21T16:07:30.660Z] INFO: student Id: 
+[2025-04-21T16:07:30.690Z] INFO: student Id: 
+[2025-04-21T16:07:32.071Z] ERROR: Gemini error: Gemini API error
+[2025-04-21T16:07:32.721Z] INFO: User newuser created successfully.
+[2025-04-21T16:09:05.323Z] INFO: Flashcards generated for user: USER#123
+[2025-04-21T16:09:05.502Z] WARN: Prompt is required for flashcard generation.
+[2025-04-21T16:09:05.535Z] INFO: Flashcards generated for user: USER#123
+[2025-04-21T16:09:06.174Z] INFO: Flashcard set saved for user: USER#123, set name: History Flashcards
+[2025-04-21T16:09:06.271Z] WARN: Set name or flashcards are missing.
+[2025-04-21T16:09:06.379Z] ERROR: Error saving flashcards: Database error
+[2025-04-21T16:09:06.445Z] INFO: Retrieved all flashcard sets for user: USER#123
+[2025-04-21T16:09:06.466Z] WARN: Failed to retrieve all flashcard sets for user: USER#123
+[2025-04-21T16:09:06.503Z] INFO: Flashcards retrieved successfully for user: USER#123, set: set123
+[2025-04-21T16:09:06.525Z] WARN: Failed to retrieve flashcards for user: USER#123, set: set123
+[2025-04-21T16:09:09.151Z] INFO: User logged in: testuser
+[2025-04-21T16:09:09.204Z] INFO: User registered successfully: newuser
+[2025-04-21T16:09:09.250Z] WARN: Registration attempt failed: username already taken - existinguser
+[2025-04-21T16:09:09.290Z] INFO: User logged out: testuser
+[2025-04-21T16:09:10.823Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:09:10.836Z] INFO: Flashcard set 'Spanish Vocabulary' saved successfully for user USER#123.
+[2025-04-21T16:09:10.854Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:09:10.921Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:09:10.939Z] WARN: No flashcard sets found for user USER#123.
+[2025-04-21T16:09:10.957Z] WARN: Flashcard set not found: user USER#123, selectedSet mock-uuid-456.
+[2025-04-21T16:09:12.047Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:09:12.065Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:09:12.068Z] WARN: User not found: testUser
+[2025-04-21T16:09:12.076Z] INFO: Creating user: testUser
+[2025-04-21T16:09:12.091Z] INFO: User created successfully: testUser
+[2025-04-21T16:09:12.194Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:09:12.203Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:09:12.208Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:09:12.212Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:09:12.218Z] INFO: Deleting user with ID: USER#1
+[2025-04-21T16:09:12.222Z] INFO: User with ID USER#1 deleted
+[2025-04-21T16:09:14.118Z] INFO: Examss generated for user: USER#123
+[2025-04-21T16:09:14.176Z] WARN: Prompt is required for exam generation.
+[2025-04-21T16:09:14.215Z] INFO: student Id: 
+[2025-04-21T16:09:14.231Z] INFO: student Id: 
+[2025-04-21T16:09:14.248Z] INFO: student Id: 
+[2025-04-21T16:09:14.271Z] INFO: student Id: 
+[2025-04-21T16:09:16.229Z] ERROR: Gemini error: Gemini API error
+[2025-04-21T16:09:16.909Z] INFO: User newuser created successfully.
+[2025-04-21T16:10:41.856Z] INFO: Flashcards generated for user: USER#123
+[2025-04-21T16:10:41.970Z] WARN: Prompt is required for flashcard generation.
+[2025-04-21T16:10:41.996Z] INFO: Flashcards generated for user: USER#123
+[2025-04-21T16:10:42.644Z] INFO: Flashcard set saved for user: USER#123, set name: History Flashcards
+[2025-04-21T16:10:42.753Z] WARN: Set name or flashcards are missing.
+[2025-04-21T16:10:42.843Z] ERROR: Error saving flashcards: Database error
+[2025-04-21T16:10:42.873Z] INFO: Retrieved all flashcard sets for user: USER#123
+[2025-04-21T16:10:42.935Z] WARN: Failed to retrieve all flashcard sets for user: USER#123
+[2025-04-21T16:10:42.960Z] INFO: Flashcards retrieved successfully for user: USER#123, set: set123
+[2025-04-21T16:10:42.989Z] WARN: Failed to retrieve flashcards for user: USER#123, set: set123
+[2025-04-21T16:10:44.570Z] INFO: User logged in: testuser
+[2025-04-21T16:10:44.626Z] INFO: User registered successfully: newuser
+[2025-04-21T16:10:44.679Z] WARN: Registration attempt failed: username already taken - existinguser
+[2025-04-21T16:10:44.719Z] INFO: User logged out: testuser
+[2025-04-21T16:10:45.587Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:10:45.596Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:10:45.598Z] WARN: User not found: testUser
+[2025-04-21T16:10:45.600Z] INFO: Creating user: testUser
+[2025-04-21T16:10:45.602Z] INFO: User created successfully: testUser
+[2025-04-21T16:10:45.619Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:10:45.621Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:10:45.655Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:10:45.657Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:10:45.659Z] INFO: Deleting user with ID: USER#1
+[2025-04-21T16:10:45.661Z] INFO: User with ID USER#1 deleted
+[2025-04-21T16:10:47.011Z] INFO: Examss generated for user: USER#123
+[2025-04-21T16:10:47.035Z] WARN: Prompt is required for exam generation.
+[2025-04-21T16:10:47.149Z] INFO: student Id: 
+[2025-04-21T16:10:47.192Z] INFO: student Id: 
+[2025-04-21T16:10:47.228Z] INFO: student Id: 
+[2025-04-21T16:10:47.274Z] INFO: student Id: 
+[2025-04-21T16:10:49.207Z] ERROR: Gemini error: Gemini API error
+[2025-04-21T16:10:50.232Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:10:50.242Z] INFO: Flashcard set 'Spanish Vocabulary' saved successfully for user USER#123.
+[2025-04-21T16:10:50.255Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:10:50.306Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:10:50.320Z] WARN: No flashcard sets found for user USER#123.
+[2025-04-21T16:10:50.339Z] WARN: Flashcard set not found: user USER#123, selectedSet mock-uuid-456.
+[2025-04-21T16:10:50.957Z] INFO: User newuser created successfully.
+[2025-04-21T16:10:52.311Z] INFO: Metadata for flashcard set 'Math Set' (ID: set456) saved for user user123.
+[2025-04-21T16:10:52.444Z] ERROR: Failed to save flashcard set to S3 at flashcards/user123/testFlashcardSet/set456.json Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:10:52.519Z] ERROR: Failed to retrieve flashcard sets for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:10:52.557Z] ERROR: Failed to retrieve flashcard sets for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:10:52.603Z] ERROR: Failed to retrieve flashcard set (math) for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:10:52.639Z] ERROR: Failed to retrieve flashcard set (science) for user user789 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:13:34.663Z] INFO: Metadata for flashcard set 'Math Set' (ID: set456) saved for user user123.
+[2025-04-21T16:13:34.829Z] ERROR: Failed to retrieve flashcard sets for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:13:34.859Z] ERROR: Failed to retrieve flashcard set (math) for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:13:34.902Z] ERROR: Failed to retrieve flashcard set (science) for user user789 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:13:37.742Z] INFO: User logged in: testuser
+[2025-04-21T16:13:37.847Z] INFO: User registered successfully: newuser
+[2025-04-21T16:13:37.963Z] WARN: Registration attempt failed: username already taken - existinguser
+[2025-04-21T16:13:38.031Z] INFO: User logged out: testuser
+[2025-04-21T16:13:39.428Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:13:39.451Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:13:39.456Z] WARN: User not found: testUser
+[2025-04-21T16:13:39.541Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:13:39.790Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:13:39.796Z] INFO: Deleting user with ID: USER#1
+[2025-04-21T16:13:39.804Z] INFO: User with ID USER#1 deleted
+[2025-04-21T16:13:42.150Z] ERROR: Gemini error: Gemini API error
+[2025-04-21T16:13:43.582Z] INFO: Examss generated for user: USER#123
+[2025-04-21T16:13:43.612Z] WARN: Prompt is required for exam generation.
+[2025-04-21T16:13:43.692Z] INFO: student Id: 
+[2025-04-21T16:13:43.724Z] INFO: student Id: 
+[2025-04-21T16:13:43.759Z] INFO: student Id: 
+[2025-04-21T16:13:43.793Z] INFO: student Id: 
+[2025-04-21T16:13:45.041Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:13:45.061Z] INFO: Flashcard set 'Spanish Vocabulary' saved successfully for user USER#123.
+[2025-04-21T16:13:45.082Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:13:45.147Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:13:45.159Z] WARN: No flashcard sets found for user USER#123.
+[2025-04-21T16:13:45.172Z] WARN: Flashcard set not found: user USER#123, selectedSet mock-uuid-456.
+[2025-04-21T16:13:45.711Z] INFO: User newuser created successfully.
+[2025-04-21T16:18:26.879Z] INFO: Metadata for flashcard set 'Math Set' (ID: set456) saved for user user123.
+[2025-04-21T16:18:26.973Z] ERROR: Failed to retrieve flashcard sets for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:18:26.990Z] ERROR: Failed to retrieve flashcard set (math) for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:18:27.005Z] ERROR: Failed to retrieve flashcard set (science) for user user789 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:18:27.871Z] INFO: User logged in: testuser
+[2025-04-21T16:18:27.895Z] INFO: User registered successfully: newuser
+[2025-04-21T16:18:27.920Z] WARN: Registration attempt failed: username already taken - existinguser
+[2025-04-21T16:18:27.932Z] INFO: User logged out: testuser
+[2025-04-21T16:18:28.314Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:18:28.948Z] ERROR: Gemini error: Gemini API error
+[2025-04-21T16:18:28.319Z] INFO: Fetching user with username: testUser
+[2025-04-21T16:18:28.320Z] WARN: User not found: testUser
+[2025-04-21T16:18:28.322Z] INFO: Creating user: testUser
+[2025-04-21T16:18:28.323Z] INFO: User created successfully: testUser
+[2025-04-21T16:18:28.332Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:18:28.333Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:18:28.336Z] INFO: Updating user with ID: USER#1
+[2025-04-21T16:18:28.337Z] INFO: User with ID USER#1 updated successfully
+[2025-04-21T16:18:28.339Z] INFO: Deleting user with ID: USER#1
+[2025-04-21T16:18:28.340Z] INFO: User with ID USER#1 deleted
+[2025-04-21T16:18:29.508Z] INFO: Examss generated for user: USER#123
+[2025-04-21T16:18:29.537Z] WARN: Prompt is required for exam generation.
+[2025-04-21T16:18:29.603Z] INFO: student Id: 
+[2025-04-21T16:18:29.637Z] INFO: student Id: 
+[2025-04-21T16:18:29.696Z] INFO: student Id: 
+[2025-04-21T16:18:29.728Z] INFO: student Id: 
+[2025-04-21T16:18:30.054Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:18:30.284Z] INFO: User newuser created successfully.
+[2025-04-21T16:18:30.071Z] INFO: Flashcard set 'Spanish Vocabulary' saved successfully for user USER#123.
+[2025-04-21T16:18:30.074Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:18:30.088Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:18:30.091Z] WARN: No flashcard sets found for user USER#123.
+[2025-04-21T16:18:30.095Z] WARN: Flashcard set not found: user USER#123, selectedSet mock-uuid-456.
+[2025-04-21T16:18:30.909Z] WARN: Prompt is required for flashcard generation.
+[2025-04-21T16:18:31.155Z] INFO: Flashcard set saved for user: USER#123, set name: History Flashcards
+[2025-04-21T16:18:31.195Z] WARN: Set name or flashcards are missing.
+[2025-04-21T16:18:31.235Z] ERROR: Error saving flashcards: Database error
+[2025-04-21T16:18:31.243Z] INFO: Retrieved all flashcard sets for user: USER#123
+[2025-04-21T16:18:31.251Z] WARN: Failed to retrieve all flashcard sets for user: USER#123
+[2025-04-21T16:18:31.258Z] INFO: Flashcards retrieved successfully for user: USER#123, set: set123
+[2025-04-21T16:18:31.265Z] WARN: Failed to retrieve flashcards for user: USER#123, set: set123
+[2025-04-21T16:41:46.104Z] ERROR: Gemini error: Cannot read properties of undefined (reading 'contents')
+[2025-04-21T16:41:46.184Z] WARN: Prompt is required for flashcard generation.
+[2025-04-21T16:41:46.212Z] ERROR: Gemini error: Cannot read properties of undefined (reading 'contents')
+[2025-04-21T16:41:46.445Z] INFO: Flashcard set saved for user: USER#123, set name: History Flashcards
+[2025-04-21T16:41:46.487Z] WARN: Set name or flashcards are missing.
+[2025-04-21T16:41:46.529Z] ERROR: Error saving flashcards: Database error
+[2025-04-21T16:41:46.537Z] INFO: Retrieved all flashcard sets for user: USER#123
+[2025-04-21T16:41:46.546Z] WARN: Failed to retrieve all flashcard sets for user: USER#123
+[2025-04-21T16:41:46.554Z] INFO: Flashcards retrieved successfully for user: USER#123, set: set123
+[2025-04-21T16:41:46.563Z] WARN: Failed to retrieve flashcards for user: USER#123, set: set123
+[2025-04-21T16:41:47.146Z] INFO: User logged in: testuser
+[2025-04-21T16:41:47.163Z] INFO: User registered successfully: newuser
+[2025-04-21T16:41:47.176Z] WARN: Registration attempt failed: username already taken - existinguser
+[2025-04-21T16:41:47.188Z] INFO: User logged out: testuser
+[2025-04-21T16:41:47.939Z] INFO: Examss generated for user: USER#123
+[2025-04-21T16:41:47.951Z] WARN: Prompt is required for exam generation.
+[2025-04-21T16:41:47.978Z] INFO: student Id: 
+[2025-04-21T16:41:48.017Z] INFO: student Id: 
+[2025-04-21T16:41:48.053Z] INFO: student Id: 
+[2025-04-21T16:41:48.087Z] INFO: student Id: 
+[2025-04-21T16:41:48.716Z] ERROR: Gemini error: Gemini API error
+[2025-04-21T16:41:49.043Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:41:49.424Z] INFO: User newuser created successfully.
+[2025-04-21T16:41:49.046Z] INFO: Flashcard set 'Spanish Vocabulary' saved successfully for user USER#123.
+[2025-04-21T16:41:49.065Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:41:49.080Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:41:49.084Z] WARN: No flashcard sets found for user USER#123.
+[2025-04-21T16:41:49.087Z] WARN: Flashcard set not found: user USER#123, selectedSet mock-uuid-456.
+[2025-04-21T16:42:56.235Z] ERROR: Gemini error: Cannot read properties of undefined (reading 'contents')
+[2025-04-21T16:42:56.348Z] WARN: Prompt is required for flashcard generation.
+[2025-04-21T16:42:56.377Z] ERROR: Gemini error: Cannot read properties of undefined (reading 'contents')
+[2025-04-21T16:42:56.777Z] INFO: Flashcard set saved for user: USER#123, set name: History Flashcards
+[2025-04-21T16:42:56.869Z] WARN: Set name or flashcards are missing.
+[2025-04-21T16:42:56.979Z] ERROR: Error saving flashcards: Database error
+[2025-04-21T16:42:57.007Z] INFO: Retrieved all flashcard sets for user: USER#123
+[2025-04-21T16:42:57.028Z] WARN: Failed to retrieve all flashcard sets for user: USER#123
+[2025-04-21T16:42:57.049Z] INFO: Flashcards retrieved successfully for user: USER#123, set: set123
+[2025-04-21T16:42:57.070Z] WARN: Failed to retrieve flashcards for user: USER#123, set: set123
+[2025-04-21T16:42:58.513Z] INFO: Examss generated for user: USER#123
+[2025-04-21T16:42:58.553Z] WARN: Prompt is required for exam generation.
+[2025-04-21T16:42:58.590Z] INFO: student Id: 
+[2025-04-21T16:42:58.609Z] INFO: student Id: 
+[2025-04-21T16:42:58.628Z] INFO: student Id: 
+[2025-04-21T16:42:58.647Z] INFO: student Id: 
+[2025-04-21T16:42:59.863Z] ERROR: Gemini error: Gemini API error
+[2025-04-21T16:43:00.622Z] INFO: User logged in: testuser
+[2025-04-21T16:43:00.642Z] INFO: User registered successfully: newuser
+[2025-04-21T16:43:00.656Z] WARN: Registration attempt failed: username already taken - existinguser
+[2025-04-21T16:43:00.671Z] INFO: User logged out: testuser
+[2025-04-21T16:43:01.592Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:43:01.603Z] INFO: Flashcard set 'Spanish Vocabulary' saved successfully for user USER#123.
+[2025-04-21T16:43:01.609Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:43:01.656Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:43:01.661Z] WARN: No flashcard sets found for user USER#123.
+[2025-04-21T16:43:01.667Z] WARN: Flashcard set not found: user USER#123, selectedSet mock-uuid-456.
+[2025-04-21T16:43:02.430Z] INFO: User newuser created successfully.
+[2025-04-21T16:43:04.667Z] INFO: Metadata for flashcard set 'Math Set' (ID: set456) saved for user user123.
+[2025-04-21T16:43:04.753Z] ERROR: Failed to save flashcard set to S3 at flashcards/user123/testFlashcardSet/set456.json Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:43:04.805Z] ERROR: Failed to retrieve flashcard sets for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:43:04.824Z] ERROR: Failed to retrieve flashcard sets for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:43:04.841Z] ERROR: Failed to retrieve flashcard set (math) for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:43:04.859Z] ERROR: Failed to retrieve flashcard set (science) for user user789 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:44:05.634Z] ERROR: Gemini error: Cannot read properties of undefined (reading 'contents')
+[2025-04-21T16:44:05.773Z] WARN: Prompt is required for flashcard generation.
+[2025-04-21T16:44:05.811Z] ERROR: Gemini error: Cannot read properties of undefined (reading 'contents')
+[2025-04-21T16:44:06.330Z] INFO: Flashcard set saved for user: USER#123, set name: History Flashcards
+[2025-04-21T16:44:06.407Z] WARN: Set name or flashcards are missing.
+[2025-04-21T16:44:06.506Z] ERROR: Error saving flashcards: Database error
+[2025-04-21T16:44:06.516Z] INFO: Retrieved all flashcard sets for user: USER#123
+[2025-04-21T16:44:06.529Z] WARN: Failed to retrieve all flashcard sets for user: USER#123
+[2025-04-21T16:44:06.541Z] INFO: Flashcards retrieved successfully for user: USER#123, set: set123
+[2025-04-21T16:44:06.566Z] WARN: Failed to retrieve flashcards for user: USER#123, set: set123
+[2025-04-21T16:44:08.320Z] INFO: Metadata for flashcard set 'Math Set' (ID: set456) saved for user user123.
+[2025-04-21T16:44:08.437Z] ERROR: Failed to save flashcard set to S3 at flashcards/user123/testFlashcardSet/set456.json Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:44:08.568Z] ERROR: Failed to retrieve flashcard sets for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:44:08.632Z] ERROR: Failed to retrieve flashcard sets for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:44:08.667Z] ERROR: Failed to retrieve flashcard set (math) for user user123 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:44:08.701Z] ERROR: Failed to retrieve flashcard set (science) for user user789 Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
+[2025-04-21T16:44:09.815Z] INFO: Examss generated for user: USER#123
+[2025-04-21T16:44:09.828Z] WARN: Prompt is required for exam generation.
+[2025-04-21T16:44:09.864Z] INFO: student Id: 
+[2025-04-21T16:44:09.878Z] INFO: student Id: 
+[2025-04-21T16:44:09.888Z] INFO: student Id: 
+[2025-04-21T16:44:09.903Z] INFO: student Id: 
+[2025-04-21T16:44:11.113Z] ERROR: Gemini error: Gemini API error
+[2025-04-21T16:44:12.158Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:44:12.170Z] INFO: Flashcard set 'Spanish Vocabulary' saved successfully for user USER#123.
+[2025-04-21T16:44:12.190Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:44:12.232Z] INFO: Saving flashcard set 'Spanish Vocabulary' for user USER#123.
+[2025-04-21T16:44:12.262Z] WARN: No flashcard sets found for user USER#123.
+[2025-04-21T16:44:12.289Z] WARN: Flashcard set not found: user USER#123, selectedSet mock-uuid-456.
+[2025-04-21T16:44:12.965Z] INFO: User logged in: testuser
+[2025-04-21T16:44:13.022Z] INFO: User registered successfully: newuser
+[2025-04-21T16:44:13.033Z] WARN: Registration attempt failed: username already taken - existinguser
+[2025-04-21T16:44:13.050Z] INFO: User logged out: testuser
+[2025-04-21T16:44:13.431Z] INFO: User newuser created successfully.

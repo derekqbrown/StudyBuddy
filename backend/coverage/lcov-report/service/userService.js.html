@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.36% </span>
+                <span class="strong">11.36% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/44</span>
+                <span class='fraction'>5/44</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/8</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.36% </span>
+                <span class="strong">11.36% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>27/44</span>
+                <span class='fraction'>5/44</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -153,25 +153,25 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -179,20 +179,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -235,47 +235,47 @@ const logger = require("../util/logger");
 &nbsp;
 const saltNumber = 10;
 &nbsp;
-async function getUser(username){
-    logger.info(`Fetching user with username: ${username}`);
-    const result = await userDAO.getUser(username);
+async function <span class="fstat-no" title="function not covered" >getUser(</span>username){
+<span class="cstat-no" title="statement not covered" >    logger.info(`Fetching user with username: ${username}`);</span>
+    const result = <span class="cstat-no" title="statement not covered" >await userDAO.getUser(username);</span>
 &nbsp;
-    if(!result){
-        logger.warn(`User not found: ${username}`);
-        return null;
+<span class="cstat-no" title="statement not covered" >    if(!result){</span>
+<span class="cstat-no" title="statement not covered" >        logger.warn(`User not found: ${username}`);</span>
+<span class="cstat-no" title="statement not covered" >        return null;</span>
     }
 &nbsp;
-    return result;
+<span class="cstat-no" title="statement not covered" >    return result;</span>
 }
 &nbsp;
-async function createUser(username, password, role) {
-    logger.info(`Creating user: ${username}`);
-    const hashedPassword = await bcrypt.hash(password, saltNumber);
+async function <span class="fstat-no" title="function not covered" >createUser(</span>username, password, role) {
+<span class="cstat-no" title="statement not covered" >    logger.info(`Creating user: ${username}`);</span>
+    const hashedPassword = <span class="cstat-no" title="statement not covered" >await bcrypt.hash(password, saltNumber);</span>
 &nbsp;
-    try {
-        const result = await userDAO.createUser(username, hashedPassword, role);
-        logger.info(`User created successfully: ${username}`);
-        return result;
+<span class="cstat-no" title="statement not covered" >    try {</span>
+        const result = <span class="cstat-no" title="statement not covered" >await userDAO.createUser(username, hashedPassword, role);</span>
+<span class="cstat-no" title="statement not covered" >        logger.info(`User created successfully: ${username}`);</span>
+<span class="cstat-no" title="statement not covered" >        return result;</span>
     } catch (err) {
 <span class="cstat-no" title="statement not covered" >        logger.error(`Error creating user ${username}: ${err.message}`);</span>
 <span class="cstat-no" title="statement not covered" >        throw err;</span>
     }
 }
 &nbsp;
-async function updateUser(userId, username, password){
-    logger.info(`Updating user with ID: ${userId}`);
-    const hashedPassword = await bcrypt.hash(password, saltNumber);
-    const result = await userDAO.updateUser(userId, username, hashedPassword);
+async function <span class="fstat-no" title="function not covered" >updateUser(</span>userId, username, password){
+<span class="cstat-no" title="statement not covered" >    logger.info(`Updating user with ID: ${userId}`);</span>
+    const hashedPassword = <span class="cstat-no" title="statement not covered" >await bcrypt.hash(password, saltNumber);</span>
+    const result = <span class="cstat-no" title="statement not covered" >await userDAO.updateUser(userId, username, hashedPassword);</span>
 &nbsp;
-    logger.info(`User with ID ${userId} updated successfully`);
-    return result;
+<span class="cstat-no" title="statement not covered" >    logger.info(`User with ID ${userId} updated successfully`);</span>
+<span class="cstat-no" title="statement not covered" >    return result;</span>
 }
 &nbsp;
-async function deleteUser(userId) {
-    logger.info(`Deleting user with ID: ${userId}`);
-    try {
-        const result = await userDAO.deleteUser(userId);
-        logger.info(`User with ID ${userId} deleted`);
-        return result;
+async function <span class="fstat-no" title="function not covered" >deleteUser(</span>userId) {
+<span class="cstat-no" title="statement not covered" >    logger.info(`Deleting user with ID: ${userId}`);</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+        const result = <span class="cstat-no" title="statement not covered" >await userDAO.deleteUser(userId);</span>
+<span class="cstat-no" title="statement not covered" >        logger.info(`User with ID ${userId} deleted`);</span>
+<span class="cstat-no" title="statement not covered" >        return result;</span>
     } catch (err) {
 <span class="cstat-no" title="statement not covered" >        logger.error(`Error deleting user ${userId}: ${err.message}`);</span>
 <span class="cstat-no" title="statement not covered" >        throw err;</span>
@@ -319,7 +319,7 @@ module.exports = { getUser, createUser, updateUser, deleteUser, getProfilePictur
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-04-18T20:41:11.529Z
+                at 2025-04-21T16:44:14.211Z
             </div>
         <script src="../prettify.js"></script>
         <script>

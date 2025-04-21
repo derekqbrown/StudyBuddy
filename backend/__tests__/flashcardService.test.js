@@ -116,18 +116,18 @@ describe("Flashcard Service", () => {
     it("should return the flashcard set when found", async () => {
       flashcardDAO.getSetById.mockResolvedValueOnce(singleFlashcardSetData);
 
-      const result = await flashcardService.getSetById(userId, selectedSet, setId);
+      const result = await flashcardService.getSetById(userId, setId);
 
-      expect(flashcardDAO.getSetById).toHaveBeenCalledWith(userId, selectedSet, setId);
+      expect(flashcardDAO.getSetById).toHaveBeenCalledWith(userId, setId);
       expect(result).toEqual(singleFlashcardSetData);
     });
 
     it("should return false when the flashcard set is not found", async () => {
       flashcardDAO.getSetById.mockResolvedValueOnce(null);
 
-      const result = await flashcardService.getSetById(userId, selectedSet, setId);
+      const result = await flashcardService.getSetById(userId, setId);
 
-      expect(flashcardDAO.getSetById).toHaveBeenCalledWith(userId, selectedSet, setId);
+      expect(flashcardDAO.getSetById).toHaveBeenCalledWith(userId, setId);
       expect(result).toBe(false);
     });
 
@@ -135,10 +135,10 @@ describe("Flashcard Service", () => {
       const errorMessage = "Failed to get flashcard set by ID";
       flashcardDAO.getSetById.mockRejectedValueOnce(new Error(errorMessage));
 
-      await expect(flashcardService.getSetById(userId, selectedSet, setId)).rejects.toThrow(
+      await expect(flashcardService.getSetById(userId, setId)).rejects.toThrow(
         errorMessage
       );
-      expect(flashcardDAO.getSetById).toHaveBeenCalledWith(userId, selectedSet, setId);
+      expect(flashcardDAO.getSetById).toHaveBeenCalledWith(userId, setId);
     });
   });
 });

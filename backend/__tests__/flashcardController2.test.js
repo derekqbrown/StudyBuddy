@@ -4,6 +4,7 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 const flashcardService = require('../service/flashcardService');
 const authenticateToken = require('../util/jwt');
 const promptifyFlashCards = require('../util/geminiPrompt');
+const geminiPrompt = require('../util/geminiPrompt');
 
 // Mock dependencies
 jest.mock('@google/generative-ai');
@@ -19,7 +20,7 @@ authenticateToken.mockImplementation((req, res, next) => {
   next();
 });
 
-promptifyFlashCards.mockResolvedValue(mockPrompt);
+jest.spyOn(geminiPrompt, 'promptifyFlashCards').mockResolvedValueOnce(mockPrompt);
 
 const mockGenerateContent = jest.fn().mockRejectedValue(new Error('Gemini API error'));
 const mockModel = { generateContent: mockGenerateContent };

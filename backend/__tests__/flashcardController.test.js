@@ -4,24 +4,14 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 const flashcardService = require('../service/flashcardService');
 const authenticateToken = require('../util/jwt');
 const promptifyFlashCards = require('../util/geminiPrompt');
-
+const geminiPrompt = require('../util/geminiPrompt')
 // Mock dependencies
-jest.mock('@google/generative-ai');
+jest.mock('../util/geminiPrompt');
 jest.mock('../service/flashcardService');
 jest.mock('../util/jwt');
-jest.mock('../util/geminiPrompt');
 
-const mockResponse = { text: 'Paris' };
-const mockGenerateContent = jest.fn().mockResolvedValue({
-  response: {
-    text: jest.fn().mockReturnValue(mockResponse.text),
-  },
-});
-const mockModel = { generateContent: mockGenerateContent };
 
-GoogleGenerativeAI.mockImplementation(() => ({
-  getGenerativeModel: jest.fn().mockReturnValue(mockModel),
-}));
+
 
 const app = express();
 app.use(express.json());
@@ -36,26 +26,24 @@ describe('Flashcard Controller Tests', () => {
     it('should generate flashcards content with valid prompt', async () => {
       const mockUser = { id: 'USER#123' };
       const mockPrompt = 'What is the capital of France?';
-
+    
       authenticateToken.mockImplementation((req, res, next) => {
         req.user = mockUser;
         next();
       });
+    
+      geminiPrompt.generateContent = jest.fn().mockResolvedValue(JSON.stringify([{ "question": "What is the capital of France?", "answer": "Paris" }]));
 
-      // Mock the promptifyFlashCards utility function
-      promptifyFlashCards.mockResolvedValue(mockPrompt);
-
-      // Perform the request
       const response = await request(app)
         .post('/flashcards')
-        .send({ prompt: 'What is the capital of France?' })
+        .send({ prompt: mockPrompt })
         .set('Authorization', 'Bearer valid-token');
-
       expect(response.statusCode).toBe(200);
       expect(response.body).toHaveProperty('reply');
-      expect(response.body.reply).toBe('Paris');
-      expect(mockGenerateContent).toHaveBeenCalledWith(mockPrompt);
-    });
+      const reply = JSON.parse(response.body.reply);
+      expect(reply[0].answer).toBe('Paris');
+
+    console.log(mockPrompt)    });
 
     it('should return 400 if no prompt is provided', async () => {
       const response = await request(app)
@@ -67,11 +55,25 @@ describe('Flashcard Controller Tests', () => {
       expect(response.body.error).toBe('Prompt is required.');
     });
 
-    it('should return 500 if there is an error from Gemini API', async () => {
-      // this is implemented in a separate file becfause of conflicts 
-      // with the GoogleGenerativeAI 
-      // 
-    });
+    it('should return 500 if there is an error from Gemini API', async () => {    
+      const mockUser = { id: 'USER#123' };
+      const mockError = 'Gemini API error';
+      
+            authenticateToken.mockImplementation((req, res, next) => {
+              req.user = mockUser;
+              next();
+            });
+      
+      geminiPrompt.generateContent = jest.fn().mockRejectedValueOnce(mockError);
+
+      
+      const response = await request(app)
+        .post('/flashcards')
+        .send({ prompt: 'What is the capital of France?' })
+        .set('Authorization', 'Bearer valid-token');
+    
+      expect(response.statusCode).toBe(500);
+    });    
   });
 
   // Test for /flashcards/save endpoint (save flashcards)
