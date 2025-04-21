@@ -1,8 +1,9 @@
 import React, { FormEvent, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const REGISTER_URL = 'http://34.217.210.224:3000/users/register';
+const REGISTER_URL = `${BASE_URL}/users/register`;
 
 function RegisterPage() {
   const [username, setUsername] = useState('');
@@ -71,8 +72,9 @@ function RegisterPage() {
               id="role" 
               value={role}
               onChange={(e) => setRole(e.target.value)}>
-              <option value="Teacher">Teacher</option>
               <option value="Student">Student</option>
+              <option value="Teacher">Teacher</option>
+              
             </select>
           </div>
           <button

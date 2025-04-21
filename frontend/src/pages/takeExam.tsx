@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom";
 import axios from "axios";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 interface Question {
   id: string;
@@ -14,7 +15,7 @@ interface Exam {
   examSetName: string;
 }
 
-const BASE_URL = "http://localhost:3000/exams";
+const EXAM_BASE_URL = `${BASE_URL}/exams`;
 
 const TakeExam: React.FC = () => {
   const { examId, examSetName } = useParams<{
@@ -27,8 +28,12 @@ const TakeExam: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState<number>(60 * 60); // 60 minutes default
-  const token = localStorage.getItem("token");
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const token = localStorage.getItem('token');
+  if(!token) {
+      return <Navigate to="/login"/>;
+  }
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -58,7 +63,7 @@ const TakeExam: React.FC = () => {
     const fetchExam = async () => {
       try {
         const res = await axios.post(
-          `${BASE_URL}/take/${examId}`,
+          `${EXAM_BASE_URL}/take/${examId}`,
           { examSetName },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -88,7 +93,7 @@ const TakeExam: React.FC = () => {
     setIsSubmitting(true);
     try {
       const res = await axios.post(
-        `${BASE_URL}/score`,
+        `${EXAM_BASE_URL}/score`,
         { setId: exam.examId, examSetName, answers },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -337,7 +342,10 @@ const TakeExam: React.FC = () => {
                       onClick={() => window.location.reload()}
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg font-medium transition-colors"
                     >
-                      Retake Exam
+                      <Link to={`/exams/take/${examId}/${examSetName}`}>
+                        Retake Exam: {examId}
+                      </Link>
+                       Exam
                     </button>
                   </div>
                 </>
