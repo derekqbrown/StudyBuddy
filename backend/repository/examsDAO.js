@@ -116,7 +116,7 @@ async function assignExam(examSet, examId, teacherId, studentId) {
       const copyParams = {
         Bucket: BUCKET_NAME,
         CopySource: `${BUCKET_NAME}/exams/${teacherId}/${examSet}/${examId}.json`,
-        Key: `assigned-exams/${studentId}/${examSet}/${examId}.json`
+        Key: `exams/${studentId}/${examSet}/${examId}.json`
       }
 
       const result = await s3Client.copyObject(copyParams).promise();
