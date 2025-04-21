@@ -171,7 +171,7 @@ function ProfilePage() {
       "Profile updated successfully. Please log in again with your new credentials."
     );
     localStorage.removeItem("token");
-    window.location.href = "/login";
+    navigate("/");
   };
 
   const handleCreateFlashcardSet = async () => {

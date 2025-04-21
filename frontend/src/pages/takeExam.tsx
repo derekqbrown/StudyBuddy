@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useParams, useNavigate, Navigate, Link } from "react-router-dom";
 import axios from "axios";
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -29,6 +29,8 @@ const TakeExam: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState<number>(60 * 60); // 60 minutes default
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const navigate = useNavigate();
 
   const token = localStorage.getItem('token');
   if(!token) {
@@ -339,12 +341,11 @@ const TakeExam: React.FC = () => {
                         : "You can retake the exam to improve your score."}
                     </p>
                     <button
-                      onClick={() => window.location.reload()}
+                      onClick={() => navigate(`/view-exam-set`)}
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg font-medium transition-colors"
                     >
-                      <Link to={`/exams/take/${examId}/${examSetName}`}>
-                        Retake Exam: {examSetName}
-                      </Link>
+                      Back to Exams
+                      
                     </button>
                   </div>
                 </>
