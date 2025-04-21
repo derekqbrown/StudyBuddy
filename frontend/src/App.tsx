@@ -12,6 +12,8 @@ import LoggedInNavbar from './components/navigation.tsx';
 import AssignExamSetPage from './pages/assignExamSet.tsx';
 import AssignExamPage from './pages/assignExam.tsx';
 import TakeExam from './pages/takeExam.tsx';
+import ViewExamSet from './pages/viewExamSet.tsx';
+import ViewIndividualExamSet from './pages/viewIndividualExam.tsx';
 
 function AppRoutes() {
   const location = useLocation();
@@ -45,6 +47,8 @@ function AppRoutes() {
         <Route path="/assign-exam" element={<AssignExamSetPage />}/>
         <Route path="/exams/take/:examId/:examSetName" element={<TakeExam />} />
         <Route path="/assign-exam/:setName" element={<AssignExamPage />} />
+        <Route path="/view-exam-set" element={<ViewExamSet />} />
+        <Route path="/view-individual-exams/:setName" element={<ViewIndividualExamSet />} />
       </Routes>
     </>
   );

@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const PROFILE_URL = `${BASE_URL}/users`;
 
 function Homepage() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [userRole, setRole] = useState('');
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const buttonStyle: React.CSSProperties = {
@@ -43,6 +49,22 @@ function Homepage() {
 
       return () => clearTimeout(timer);
     }
+
+    const fetchProfile = async () => {
+      try {
+        const response = await axios.get(PROFILE_URL, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        console.log("profile data: ", response.data);
+
+        // setProfile(response.data);
+        setRole(response.data.role);
+      } catch (err) {
+        console.log(err);
+        setError("Failed to fetch profile");
+      }
+    };
   }, []);
 
   return (
@@ -105,7 +127,13 @@ function Homepage() {
               style={buttonStyle}
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
-              onClick={() => navigate("/assign-exam")}
+              onClick={() => {
+                if (userRole === 'Teacher') {
+                  navigate("/assign-exam");
+                } else {
+                  navigate("/view-exam-set");
+                }
+              }}
             >
               Exams
             </button>
