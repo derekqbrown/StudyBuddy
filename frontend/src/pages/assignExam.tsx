@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams, Navigate } from "react-router-dom";
-// const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const ALL_EXAM_SETS_URL = `http://localhost:3000/exams`;
-const ASSIGN_EXAM_URL = 'http://localhost:3000/exams/assign';
+const ALL_EXAM_SETS_URL = `${BASE_URL}/exams`;
+const ASSIGN_EXAM_URL = `${BASE_URL}/exams/assign`;
 
 interface Exam {
   Key: string;

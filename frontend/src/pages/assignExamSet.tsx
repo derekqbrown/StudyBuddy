@@ -3,9 +3,10 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import AssignExamPage from './assignExam';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const ALL_EXAM_SETS_URL = 'http://localhost:3000/exams/all-sets';
-const PROFILE_URL = "http://localhost:3000/users";
+const ALL_EXAM_SETS_URL = `${BASE_URL}/exams/all-sets`;
+const PROFILE_URL = `${BASE_URL}/users`;
 
 
 function AssignExamSetPage(){

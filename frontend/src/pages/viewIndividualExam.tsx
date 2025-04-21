@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useParams, Navigate } from "react-router-dom";
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const ALL_EXAM_SETS_URL = `http://localhost:3000/exams`;
+const ALL_EXAM_SETS_URL = `${BASE_URL}/exams`;
 
 interface Exam {
   Key: string;
@@ -66,7 +66,7 @@ function ViewIndividualExamPage() {
 
             return (
               <li key={index} className="flex items-center justify-center space-x-4 mb-2 bg-white py-2 px-4 ">
-                <Link to={`/exams/take/${examId}/${examSetName}`} className="block">{examId}</Link>
+                <Link to={`/exams/take/${examId}/${examSetName}`} className="block"> {examSetName} - ID: {examId}</Link>
               </li>
             );
           })}
