@@ -64,7 +64,7 @@ async function updateUser(userId, newUsername, newPassword) {
     if (!userId) {
         throw new Error("User ID is required for updating.");
     }
-
+    console.log("USERNAME ==", newUsername );
     const updates = {};
     let updateExpression = "SET";
     const expressionAttributeValues = {};

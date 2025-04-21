@@ -32,7 +32,12 @@ async function createUser(username, password, role) {
 
 async function updateUser(userId, username, password){
     logger.info(`Updating user with ID: ${userId}`);
-    const hashedPassword = await bcrypt.hash(password, saltNumber);
+    let hashedPassword = "";
+    if(password != null){
+        hashedPassword = await bcrypt.hash(password, saltNumber);
+    }
+
+     
     const result = await userDAO.updateUser(userId, username, hashedPassword);
 
     logger.info(`User with ID ${userId} updated successfully`);

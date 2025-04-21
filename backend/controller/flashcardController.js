@@ -3,16 +3,18 @@ const router = express.Router();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const authenticateToken = require("../util/jwt");
 const { promptifyFlashCards } = require("../util/geminiPrompt");
+const { getGeminiKey } = require("../util/secretKey");
 const flashcardService = require('../service/flashcardService');
 const validateSetMiddleware = require('../middleware/flashcardSetMiddleware');
 const logger = require("../util/logger");
 
 router.post("/", authenticateToken, async (req, res) => {
+    const geminiAPIKey = await getGeminiKey(); //process.env.GOOGLE_GEMINI_API_KEY;
+    const ai = new GoogleGenerativeAI(geminiAPIKey);
     try {
-        const geminiAPIKey = getGeminiKey(); //process.env.GOOGLE_GEMINI_API_KEY;
-        const ai = new GoogleGenerativeAI(geminiAPIKey);
-        const model = ai.getGenerativeModel({ model: "gemini-2.0-flash" });
         
+        const model = ai.getGenerativeModel({ model: "gemini-2.0-flash" });
+
         const userId = req.user.id;
         const userPrompt = req.body.prompt;
         const flashcardSetName = req.body.name;

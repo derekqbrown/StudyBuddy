@@ -3,15 +3,15 @@ const router = express.Router();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const authenticateToken = require("../util/jwt");
 const { promptifyExams } = require("../util/geminiPrompt");
+const { getGeminiKey } = require("../util/secretKey");
 const examsService = require('../service/examsService');
 const logger = require("../util/logger");
-
 
 // creating the exam
 router.post('/create-exam', authenticateToken, async (req, res) => {
     // logger.info("calling create exam");
     try{
-        const geminiAPIKey = getGeminiKey(); //process.env.GOOGLE_GEMINI_API_KEY;
+        const geminiAPIKey = await getGeminiKey(); //process.env.GOOGLE_GEMINI_API_KEY;
         const ai = new GoogleGenerativeAI(geminiAPIKey);
 
         const userId = req.user.id;
