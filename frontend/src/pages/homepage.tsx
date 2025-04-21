@@ -65,6 +65,8 @@ function Homepage() {
         setError("Failed to fetch profile");
       }
     };
+
+    fetchProfile();
   }, []);
 
   return (

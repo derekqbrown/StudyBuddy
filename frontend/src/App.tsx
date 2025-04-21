@@ -48,7 +48,7 @@ function AppRoutes() {
         <Route path="/exams/take/:examId/:examSetName" element={<TakeExam />} />
         <Route path="/assign-exam/:setName" element={<AssignExamPage />} />
         <Route path="/view-exam-set" element={<ViewExamSet />} />
-        <Route path="/view-individual-exams/:setName" element={<ViewIndividualExamSet />} />
+        <Route path="/view-individual-exams/:examSetName" element={<ViewIndividualExamSet />} />
       </Routes>
     </>
   );
