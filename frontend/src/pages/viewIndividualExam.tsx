@@ -53,15 +53,19 @@ function ViewIndividualExamPage() {
         <p>No Exam Found</p>
       ) : (
         
-        <ul className="text-blue-600 text-center m-2 mt-10">
+        <ul className="text-blue-600 items-center">
           {exams.map((exam, index) => {
             const keyParts = exam.Key.split("/");
             const rawExamId = keyParts[3];
             const examId = rawExamId.replace(".json", "");
 
             return (
-              <li key={index} className="flex items-center justify-center space-x-4 mb-2 bg-white py-2 px-4 ">
-                <Link to={`/exams/take/${examId}/${setName}`} className="block">{examId}</Link>
+              <li key={index} className="">
+                <button className="py-2 px-4 m-2 bg-white hover:bg-blue-300 focus:ring-blue-500 focus:ring-offset-2 focus:ring-2  transition-colors duration-200 rounded-md"
+                >
+                  <Link to={`/exams/take/${examId}/${setName}`} className="block">{setName}</Link>
+
+                </button>
               </li>
             );
           })}

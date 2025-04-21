@@ -343,9 +343,8 @@ const TakeExam: React.FC = () => {
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg font-medium transition-colors"
                     >
                       <Link to={`/exams/take/${examId}/${examSetName}`}>
-                        Retake Exam: {examId}
+                        Retake Exam: {examSetName}
                       </Link>
-                       Exam
                     </button>
                   </div>
                 </>

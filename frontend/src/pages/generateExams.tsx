@@ -92,7 +92,7 @@ function GenerateExamPage() {
                 <button
                     className="px-4 py-2 bg-white text-purple-600 rounded shadow hover:bg-blue-300 transition"
                 >
-                    <Link to="/assign-exam">
+                    <Link to="/view-exam-set">
                         View Saved Exams 
                     </Link>
                 </button>
