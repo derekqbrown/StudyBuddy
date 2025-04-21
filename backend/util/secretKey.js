@@ -31,10 +31,7 @@ async function getJwtSecret() {
 }
 
 async function getGeminiKey() {
-    if (cachedKey) {
-        return cachedKey;
-    }
-
+    
     const command = new GetParameterCommand({
         Name: "gemini-api-key",
         WithDecryption: true,
@@ -42,8 +39,8 @@ async function getGeminiKey() {
 
     try {
         const response = await ssmClient.send(command);
-        cachedKey = response.Parameter.Value;
-        return cachedKey;
+        geminiKey = response.Parameter.Value;
+        return geminiKey;
     } 
     catch (error) {
         console.error(error);

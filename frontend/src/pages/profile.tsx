@@ -302,8 +302,7 @@ function ProfilePage() {
               <button
                 type="button"
                 onClick={handleUpdateProfile}
-                className="bg-white text-purple-600 rounded-md shadow hover:bg-blue-700 transition"
-                style={{ margin: "10px" }}
+                className="bg-white text-purple-600 rounded-md shadow m-3 hover:bg-blue-700 transition"
               >
                 Update Profile
               </button>
@@ -314,20 +313,18 @@ function ProfilePage() {
       
       {role ==='Teacher' &&
       <div
-        className="flex justify-center"
-        style={{ margin: "20px" }}
+        className="flex m-5 justify-center"
       >
         <button
           onClick={() => navigate("/assign-exam")}
-          className="bg-red-600 text-white rounded-md shadow hover:bg-red-700 transition"
-          style={{ margin: "10px", width: "200px" }}
+          className="bg-white text-purple-600 rounded-md m-3 w-52 py-2 shadow hover:bg-blue-700 transition"
         >
           Assign Exam
         </button>
       </div>
       }
 
-      <div className="flex justify-center mt-6">
+      <div className="flex justify-center mt-6 ">
         <label
           htmlFor="file-upload"
           className="cursor-pointer bg-white text-purple-600 px-4 py-2 rounded shadow hover:bg-blue-700 transition "
@@ -343,7 +340,7 @@ function ProfilePage() {
       </div>
       <div className="flex justify-center mt-6">
         <button
-          className="px-4 py-2 bg-white text-purple-600 rounded shadow hover:bg-blue-700 transition"
+          className="px-4 py-2 m-3 w-52 bg-white text-purple-600 rounded shadow hover:bg-blue-700 transition"
         >
           <Link
                     to="/flashcardSets"
@@ -360,8 +357,7 @@ function ProfilePage() {
         <button
           type="button"
           onClick={handleDeleteProfile}
-          className="bg-red-600 text-white rounded-md shadow hover:bg-red-700 transition"
-          style={{ margin: "10px", backgroundColor: "red", width: "200px" }}
+          className="bg-red-600 text-white rounded-md m-3 w-52 py-2 shadow hover:bg-red-700 transition"
         >
           Delete Profile
         </button>

@@ -7,11 +7,12 @@ const flashcardService = require('../service/flashcardService');
 const validateSetMiddleware = require('../middleware/flashcardSetMiddleware');
 const logger = require("../util/logger");
 
-const ai = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
-
 router.post("/", authenticateToken, async (req, res) => {
     try {
+        const geminiAPIKey = getGeminiKey(); //process.env.GOOGLE_GEMINI_API_KEY;
+        const ai = new GoogleGenerativeAI(geminiAPIKey);
         const model = ai.getGenerativeModel({ model: "gemini-2.0-flash" });
+        
         const userId = req.user.id;
         const userPrompt = req.body.prompt;
         const flashcardSetName = req.body.name;
