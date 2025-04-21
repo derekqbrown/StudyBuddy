@@ -53,7 +53,12 @@ async function takeExam(userId, examId, examSetName) {
 
 async function assignExam(examSet, examId, teacherId, studentId) {
     const assignedExam = await examDAO.assignExam(examSet, examId, teacherId, studentId);
-  
+
+
+    if(!assignExam){
+      return false;
+    }
+    
     return assignedExam;
 }
 

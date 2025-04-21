@@ -146,20 +146,20 @@ router.post('/assign/:examset/:examid', authenticateToken, async (req, res) => {
         const examId = req.params.examid;
         const studentId = req.body.studentId;
         const teacherId = req.user.id;
-        console.log("student Id: ", studentId);
+        logger.info("student Id: ", studentId);
 
         const exam = await examsService.assignExam(examSet, examId, teacherId, studentId);
 
         console.log("assigned exam: ", exam)
 
         if(!exam){
-            return res.status(400).json({Message: "Failed to assign exam!"})
+            return res.status(404).json({Message: "Failed to assign exam!"});
         }
 
-        res.status(200).json(exam);
+        return res.status(200).json(exam);
     }catch(err){
         console.log(err);
-        return res.status(400).json({err});
+        return res.status(400).json({Message: "Failed to assign exam!"});
     }
 })
 
