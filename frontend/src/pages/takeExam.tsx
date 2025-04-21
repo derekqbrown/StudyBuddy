@@ -40,7 +40,7 @@ const TakeExam: React.FC = () => {
       setTimeRemaining((prev) => {
         if (prev <= 1) {
           clearInterval(timer);
-          handleSubmit(); //auto-submit when time expires
+          handleSubmit(); 
           return 0;
         }
         return prev - 1;

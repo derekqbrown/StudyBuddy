@@ -196,10 +196,6 @@ function ProfilePage() {
     }
   };
 
-  const handleAssignExam = () => {
-    window.location.href = "/assign-exam";
-  };
-
   const handleDeleteProfile = async () => {
     const confirmed = window.confirm(
       "Are you sure you want to delete your profile? This action cannot be undone."
