@@ -6,7 +6,6 @@ async function validateLoginMiddleware(req, res, next){
     const jsonBody = req.body;
 
     const isValidLogin = await validateLogin(jsonBody);
-    console.log("validateLogin result:", isValidLogin);
 
     if (!isValidLogin) {
         logger.warn("Invalid login attempt: Missing username or password."); // invalid login attempt

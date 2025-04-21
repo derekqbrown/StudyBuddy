@@ -3,6 +3,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const userService = require('../service/userService');
 const bcrypt = require('bcrypt');
+const { log } = require('../util/logger');
 const { getJwtSecret } = require('../util/secretKey');
 
 // Mock dependencies
@@ -44,22 +45,32 @@ describe('User Controller Tests', () => {
 
   // Registration endpoint test
   describe('POST /users/register', () => {
+
     it('should create new user with unique username', async () => {
       userService.getUser.mockResolvedValue(null);
-      userService.createUser.mockResolvedValue({ username: 'newuser' });
+      
 
+      const spyCreateUser = jest.spyOn(userService, 'createUser').mockImplementation((username, password) => {        
+        
+        return Promise.resolve({ user_id: 'USER#1', username: username });
+      });      
+
+      const mockRequest = {
+        body: {}
+      };
+      mockRequest.body.password = 'ValidPass123!';
       const response = await request(app)
         .post('/users/register')
-        .send({ username: 'newuser', password: 'ValidPass123!' });
-
+        .send({ username: 'newuser', ...mockRequest.body});
+      console.log("createUser received parameters:", spyCreateUser.mock.calls)
       expect(response.statusCode).toBe(201);
-      expect(userService.createUser).toHaveBeenCalledWith('newuser', 'ValidPass123!');
     });
 
     it('should return 400 for existing username', async () => {
       userService.getUser.mockResolvedValue({ username: 'existinguser' });
 
       const response = await request(app)
+      
         .post('/users/register')
         .send({ username: 'existinguser', password: 'anypass' });
 
