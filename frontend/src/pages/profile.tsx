@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 //import { jwtDecode } from "jwt-decode";
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -35,6 +36,8 @@ function ProfilePage() {
   const [newUsername, setNewUsername] = useState<string>("");
   const [newPassword, setNewPassword] = useState<string>("");
   const [isEditing, setIsEditing] = useState(false);
+
+  const navigate = useNavigate();
 
   const token = localStorage.getItem('token');
   if(!token) {
@@ -193,6 +196,10 @@ function ProfilePage() {
     }
   };
 
+  const handleAssignExam = () => {
+    window.location.href = "/assign-exam";
+  };
+
   const handleDeleteProfile = async () => {
     const confirmed = window.confirm(
       "Are you sure you want to delete your profile? This action cannot be undone."
@@ -311,21 +318,19 @@ function ProfilePage() {
       
       {role ==='Teacher' &&
       <div
-        className="bg-red-600 flex justify-center"
+        className="flex justify-center"
+        style={{ margin: "20px" }}
       >
         <button
-          // onClick={handleAssignExam}
+          onClick={() => navigate("/assign-exam")}
           className="bg-red-600 text-white rounded-md shadow hover:bg-red-700 transition"
+          style={{ margin: "10px", width: "200px" }}
         >
-          <Link
-                    to="/flashcardSets"
-                >
-              Assign Exam
-          </Link>
-          
+          Assign Exam
         </button>
       </div>
       }
+
       <div className="flex justify-center mt-6">
         <label
           htmlFor="file-upload"

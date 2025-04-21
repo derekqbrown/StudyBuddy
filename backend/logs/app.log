@@ -1255,3 +1255,263 @@
 [2025-04-18T20:41:11.460Z] WARN: Failed to retrieve all flashcard sets for user: USER#123
 [2025-04-18T20:41:11.464Z] INFO: Flashcards retrieved successfully for user: USER#123, set: set123
 [2025-04-18T20:41:11.467Z] WARN: Failed to retrieve flashcards for user: USER#123, set: set123
+[2025-04-21T13:53:51.399Z] INFO: Fetching user with username: test5
+[2025-04-21T13:53:51.805Z] INFO: Fetching user with username: test5
+[2025-04-21T13:53:51.955Z] INFO: Fetching user with username: test5
+[2025-04-21T13:53:52.024Z] INFO: User logged in: test5
+[2025-04-21T13:53:53.149Z] INFO: User fetched: test5
+[2025-04-21T13:53:53.155Z] INFO: Fetching user with username: test5
+[2025-04-21T13:53:53.239Z] INFO: Fetching profile picture with key: profile-pictures/USER#e8fbb47f-0cae-4501-9196-eb8959dacbf0.jpg
+[2025-04-21T13:53:53.250Z] INFO: Profile picture retrieved successfully for user: test5
+[2025-04-21T13:54:12.918Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:54:13.029Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:54:13.195Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:54:13.288Z] INFO: User logged in: teacher1
+[2025-04-21T13:54:13.570Z] INFO: User fetched: teacher1
+[2025-04-21T13:54:14.230Z] INFO: Extracted set names: 
+[2025-04-21T13:54:14.230Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T13:54:29.206Z] INFO: User fetched: teacher1
+[2025-04-21T13:54:29.211Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:54:29.214Z] INFO: User fetched: teacher1
+[2025-04-21T13:54:29.294Z] INFO: Fetching profile picture with key: null
+[2025-04-21T13:54:29.298Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T13:54:36.122Z] INFO: Fetched flashcard set names for user USER#db224149-9124-4b90-a743-4a432b1dd940: 
+[2025-04-21T13:54:36.123Z] INFO: Retrieved all flashcard sets for user: USER#db224149-9124-4b90-a743-4a432b1dd940
+[2025-04-21T13:54:39.013Z] INFO: User fetched: teacher1
+[2025-04-21T13:54:39.017Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:54:39.027Z] INFO: User fetched: teacher1
+[2025-04-21T13:54:39.030Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:54:39.094Z] INFO: Fetching profile picture with key: null
+[2025-04-21T13:54:39.095Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T13:54:39.318Z] INFO: Fetching profile picture with key: null
+[2025-04-21T13:54:39.321Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T13:55:08.410Z] INFO: Fetched flashcard set names for user USER#db224149-9124-4b90-a743-4a432b1dd940: 
+[2025-04-21T13:55:08.411Z] INFO: Retrieved all flashcard sets for user: USER#db224149-9124-4b90-a743-4a432b1dd940
+[2025-04-21T13:55:08.413Z] INFO: Fetched flashcard set names for user USER#db224149-9124-4b90-a743-4a432b1dd940: 
+[2025-04-21T13:55:08.413Z] INFO: Retrieved all flashcard sets for user: USER#db224149-9124-4b90-a743-4a432b1dd940
+[2025-04-21T13:55:12.494Z] INFO: User fetched: teacher1
+[2025-04-21T13:55:12.499Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:55:12.504Z] INFO: User fetched: teacher1
+[2025-04-21T13:55:12.508Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:55:12.573Z] INFO: Fetching profile picture with key: null
+[2025-04-21T13:55:12.575Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T13:55:12.576Z] INFO: Fetching profile picture with key: null
+[2025-04-21T13:55:12.577Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T13:55:22.840Z] INFO: Fetched flashcard set names for user USER#db224149-9124-4b90-a743-4a432b1dd940: 
+[2025-04-21T13:55:22.840Z] INFO: Retrieved all flashcard sets for user: USER#db224149-9124-4b90-a743-4a432b1dd940
+[2025-04-21T13:55:22.844Z] INFO: Fetched flashcard set names for user USER#db224149-9124-4b90-a743-4a432b1dd940: 
+[2025-04-21T13:55:22.844Z] INFO: Retrieved all flashcard sets for user: USER#db224149-9124-4b90-a743-4a432b1dd940
+[2025-04-21T13:55:45.119Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:55:45.213Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:55:45.362Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:55:45.446Z] INFO: User logged in: teacher1
+[2025-04-21T13:55:46.703Z] INFO: User fetched: teacher1
+[2025-04-21T13:55:46.708Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:55:46.789Z] INFO: Fetching profile picture with key: null
+[2025-04-21T13:55:46.791Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T13:55:48.756Z] INFO: Fetched flashcard set names for user USER#db224149-9124-4b90-a743-4a432b1dd940: 
+[2025-04-21T13:55:48.756Z] INFO: Retrieved all flashcard sets for user: USER#db224149-9124-4b90-a743-4a432b1dd940
+[2025-04-21T13:55:57.516Z] INFO: User fetched: teacher1
+[2025-04-21T13:55:57.521Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:55:57.525Z] INFO: User fetched: teacher1
+[2025-04-21T13:55:57.528Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:55:57.589Z] INFO: Fetching profile picture with key: null
+[2025-04-21T13:55:57.591Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T13:55:57.601Z] INFO: Fetching profile picture with key: null
+[2025-04-21T13:55:57.603Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T13:57:49.621Z] INFO: Fetched flashcard set names for user USER#db224149-9124-4b90-a743-4a432b1dd940: 
+[2025-04-21T13:57:49.622Z] INFO: Retrieved all flashcard sets for user: USER#db224149-9124-4b90-a743-4a432b1dd940
+[2025-04-21T13:57:49.638Z] INFO: Fetched flashcard set names for user USER#db224149-9124-4b90-a743-4a432b1dd940: 
+[2025-04-21T13:57:49.639Z] INFO: Retrieved all flashcard sets for user: USER#db224149-9124-4b90-a743-4a432b1dd940
+[2025-04-21T13:59:21.620Z] INFO: User fetched: teacher1
+[2025-04-21T13:59:21.627Z] INFO: User fetched: teacher1
+[2025-04-21T13:59:21.633Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:59:21.640Z] INFO: Fetching user with username: teacher1
+[2025-04-21T13:59:21.910Z] INFO: Fetching profile picture with key: null
+[2025-04-21T13:59:21.913Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T13:59:21.921Z] INFO: Fetching profile picture with key: null
+[2025-04-21T13:59:21.923Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T13:59:25.413Z] INFO: User fetched: teacher1
+[2025-04-21T13:59:25.427Z] INFO: User fetched: teacher1
+[2025-04-21T13:59:25.756Z] INFO: Extracted set names: 
+[2025-04-21T13:59:25.756Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T14:00:18.697Z] INFO: User fetched: teacher1
+[2025-04-21T14:00:18.702Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:00:18.706Z] INFO: User fetched: teacher1
+[2025-04-21T14:00:18.710Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:00:18.757Z] INFO: Fetching profile picture with key: null
+[2025-04-21T14:00:18.759Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T14:00:18.762Z] INFO: Fetching profile picture with key: null
+[2025-04-21T14:00:18.765Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T14:01:46.967Z] INFO: Fetched flashcard set names for user USER#db224149-9124-4b90-a743-4a432b1dd940: 
+[2025-04-21T14:01:46.967Z] INFO: Retrieved all flashcard sets for user: USER#db224149-9124-4b90-a743-4a432b1dd940
+[2025-04-21T14:01:46.968Z] INFO: Fetched flashcard set names for user USER#db224149-9124-4b90-a743-4a432b1dd940: 
+[2025-04-21T14:01:46.969Z] INFO: Retrieved all flashcard sets for user: USER#db224149-9124-4b90-a743-4a432b1dd940
+[2025-04-21T14:03:39.089Z] INFO: User fetched: teacher1
+[2025-04-21T14:03:39.092Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:03:39.099Z] INFO: User fetched: teacher1
+[2025-04-21T14:03:39.103Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:03:39.362Z] INFO: Fetching profile picture with key: null
+[2025-04-21T14:03:39.367Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T14:03:39.369Z] INFO: Fetching profile picture with key: null
+[2025-04-21T14:03:39.375Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T14:08:58.885Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:08:59.175Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:08:59.326Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:08:59.407Z] INFO: User logged in: teacher1
+[2025-04-21T14:09:02.301Z] INFO: User fetched: teacher1
+[2025-04-21T14:09:02.308Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:09:02.410Z] INFO: Fetching profile picture with key: null
+[2025-04-21T14:09:02.414Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T14:10:59.695Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:11:00.143Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:11:00.315Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:11:00.383Z] INFO: User logged in: teacher1
+[2025-04-21T14:11:01.362Z] INFO: User fetched: teacher1
+[2025-04-21T14:11:01.368Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:11:01.460Z] INFO: Fetching profile picture with key: null
+[2025-04-21T14:11:01.462Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T14:14:16.678Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:14:17.099Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:14:17.240Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:14:17.315Z] INFO: User logged in: teacher1
+[2025-04-21T14:14:18.504Z] INFO: User fetched: teacher1
+[2025-04-21T14:14:18.511Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:14:18.582Z] INFO: Fetching profile picture with key: null
+[2025-04-21T14:14:18.585Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T14:14:27.268Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:14:27.375Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:14:27.525Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:14:27.608Z] INFO: User logged in: teacher1
+[2025-04-21T14:14:29.716Z] INFO: User fetched: teacher1
+[2025-04-21T14:14:30.310Z] INFO: Extracted set names: 
+[2025-04-21T14:14:30.311Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T14:14:40.948Z] INFO: User fetched: teacher1
+[2025-04-21T14:14:40.952Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:14:40.956Z] INFO: User fetched: teacher1
+[2025-04-21T14:14:41.028Z] INFO: Fetching profile picture with key: null
+[2025-04-21T14:14:41.030Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T14:16:49.721Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:16:50.095Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:16:50.256Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:16:50.336Z] INFO: User logged in: teacher1
+[2025-04-21T14:16:51.191Z] INFO: User fetched: teacher1
+[2025-04-21T14:16:51.197Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:16:51.255Z] INFO: Fetching profile picture with key: null
+[2025-04-21T14:16:51.257Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T14:16:52.318Z] INFO: User fetched: teacher1
+[2025-04-21T14:16:52.336Z] INFO: User fetched: teacher1
+[2025-04-21T14:16:52.593Z] INFO: Extracted set names: 
+[2025-04-21T14:16:52.593Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T14:39:20.976Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:39:21.428Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:39:21.589Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:39:21.668Z] INFO: User logged in: teacher1
+[2025-04-21T14:39:22.520Z] INFO: User fetched: teacher1
+[2025-04-21T14:39:22.525Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:39:22.612Z] INFO: Fetching profile picture with key: null
+[2025-04-21T14:39:22.623Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T14:39:23.901Z] INFO: User fetched: teacher1
+[2025-04-21T14:39:23.921Z] INFO: User fetched: teacher1
+[2025-04-21T14:39:24.556Z] INFO: Extracted set names: 
+[2025-04-21T14:39:24.556Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T14:39:29.414Z] INFO: User fetched: teacher1
+[2025-04-21T14:39:29.421Z] INFO: User fetched: teacher1
+[2025-04-21T14:39:29.952Z] INFO: Extracted set names: 
+[2025-04-21T14:39:29.952Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T14:39:29.958Z] INFO: Extracted set names: 
+[2025-04-21T14:39:29.959Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T14:42:07.997Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:42:08.321Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:42:08.482Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:42:08.551Z] INFO: User logged in: teacher1
+[2025-04-21T14:42:12.519Z] INFO: User fetched: teacher1
+[2025-04-21T14:42:12.527Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:42:12.610Z] INFO: Fetching profile picture with key: null
+[2025-04-21T14:42:12.613Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T14:42:13.691Z] INFO: User fetched: teacher1
+[2025-04-21T14:42:13.701Z] INFO: User fetched: teacher1
+[2025-04-21T14:42:14.067Z] INFO: Extracted set names: 
+[2025-04-21T14:42:14.067Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T14:59:23.048Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:59:23.433Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:59:23.607Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:59:23.692Z] INFO: User logged in: teacher1
+[2025-04-21T14:59:24.765Z] INFO: User fetched: teacher1
+[2025-04-21T14:59:24.770Z] INFO: Fetching user with username: teacher1
+[2025-04-21T14:59:24.838Z] INFO: Fetching profile picture with key: null
+[2025-04-21T14:59:24.842Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T14:59:25.858Z] INFO: User fetched: teacher1
+[2025-04-21T14:59:25.876Z] INFO: User fetched: teacher1
+[2025-04-21T14:59:26.488Z] INFO: Extracted set names: 
+[2025-04-21T14:59:26.488Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T15:22:27.370Z] ERROR: Failed to retrieve exam set undefined Inaccessible host: `study-buddy-s3-bucket.s3.us-west-2.amazonaws.com' at port `443'. This service may not be available in the `us-west-2' region.
+[2025-04-21T15:22:27.528Z] ERROR: Failed to retrieve exam set undefined Inaccessible host: `study-buddy-s3-bucket.s3.us-west-2.amazonaws.com' at port `443'. This service may not be available in the `us-west-2' region.
+[2025-04-21T15:24:38.677Z] ERROR: Failed to retrieve exam set undefined Inaccessible host: `study-buddy-s3-bucket.s3.us-west-2.amazonaws.com' at port `443'. This service may not be available in the `us-west-2' region.
+[2025-04-21T15:24:38.886Z] ERROR: Failed to retrieve exam set undefined Inaccessible host: `study-buddy-s3-bucket.s3.us-west-2.amazonaws.com' at port `443'. This service may not be available in the `us-west-2' region.
+[2025-04-21T15:24:56.312Z] ERROR: Failed to retrieve exam set undefined Inaccessible host: `study-buddy-s3-bucket.s3.us-west-2.amazonaws.com' at port `443'. This service may not be available in the `us-west-2' region.
+[2025-04-21T15:25:22.947Z] ERROR: Failed to retrieve exam set undefined Inaccessible host: `study-buddy-s3-bucket.s3.us-west-2.amazonaws.com' at port `443'. This service may not be available in the `us-west-2' region.
+[2025-04-21T15:34:38.858Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:34:39.310Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:34:39.483Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:34:39.587Z] INFO: User logged in: teacher1
+[2025-04-21T15:34:40.676Z] INFO: User fetched: teacher1
+[2025-04-21T15:34:40.682Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:34:40.766Z] INFO: Fetching profile picture with key: null
+[2025-04-21T15:34:40.772Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T15:34:42.695Z] INFO: User fetched: teacher1
+[2025-04-21T15:34:42.715Z] INFO: User fetched: teacher1
+[2025-04-21T15:34:43.363Z] INFO: Extracted set names: 
+[2025-04-21T15:34:43.363Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T15:36:46.966Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:36:47.323Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:36:47.503Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:36:47.585Z] INFO: User logged in: teacher1
+[2025-04-21T15:36:48.778Z] INFO: User fetched: teacher1
+[2025-04-21T15:36:48.784Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:36:48.884Z] INFO: Fetching profile picture with key: null
+[2025-04-21T15:36:48.886Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T15:36:50.349Z] INFO: User fetched: teacher1
+[2025-04-21T15:36:50.361Z] INFO: User fetched: teacher1
+[2025-04-21T15:36:50.743Z] INFO: Extracted set names: 
+[2025-04-21T15:36:50.743Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T15:37:33.264Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:37:33.350Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:37:33.514Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:37:33.602Z] INFO: User logged in: teacher1
+[2025-04-21T15:39:27.543Z] INFO: User fetched: teacher1
+[2025-04-21T15:39:27.546Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:39:27.556Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:39:27.559Z] INFO: User fetched: teacher1
+[2025-04-21T15:39:27.627Z] INFO: Fetching profile picture with key: null
+[2025-04-21T15:39:27.630Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T15:39:27.865Z] INFO: Fetching profile picture with key: null
+[2025-04-21T15:39:27.869Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T15:39:29.078Z] INFO: User fetched: teacher1
+[2025-04-21T15:39:29.088Z] INFO: User fetched: teacher1
+[2025-04-21T15:39:29.567Z] INFO: Extracted set names: 
+[2025-04-21T15:39:29.567Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T15:39:29.568Z] INFO: Extracted set names: 
+[2025-04-21T15:39:29.569Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T15:39:41.221Z] INFO: student Id: 
+[2025-04-21T15:45:41.249Z] INFO: User fetched: teacher1
+[2025-04-21T15:45:41.252Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:45:41.262Z] INFO: Fetching user with username: teacher1
+[2025-04-21T15:45:41.277Z] INFO: User fetched: teacher1
+[2025-04-21T15:45:41.566Z] INFO: Fetching profile picture with key: null
+[2025-04-21T15:45:41.573Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T15:45:41.579Z] INFO: Fetching profile picture with key: null
+[2025-04-21T15:45:41.581Z] INFO: Profile picture retrieved successfully for user: teacher1
+[2025-04-21T15:45:42.618Z] INFO: User fetched: teacher1
+[2025-04-21T15:45:42.630Z] INFO: User fetched: teacher1
+[2025-04-21T15:45:43.202Z] INFO: Extracted set names: 
+[2025-04-21T15:45:43.203Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T15:45:43.205Z] INFO: Extracted set names: 
+[2025-04-21T15:45:43.205Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T15:45:45.841Z] INFO: User fetched: teacher1
+[2025-04-21T15:45:45.851Z] INFO: User fetched: teacher1
+[2025-04-21T15:45:46.090Z] INFO: Extracted set names: 
+[2025-04-21T15:45:46.091Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T15:45:46.116Z] INFO: Extracted set names: 
+[2025-04-21T15:45:46.117Z] INFO: All Sets: Space 2,Space 3
+[2025-04-21T15:46:05.702Z] INFO: student Id: 
