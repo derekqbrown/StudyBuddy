@@ -19,18 +19,18 @@ import ViewIndividualExamSet from './pages/viewIndividualExam.tsx';
 function AppRoutes() {
   const location = useLocation();
 
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      console.log('Window is closing or navigating away - removing token...');
-      localStorage.removeItem('token');
-    };
+  // useEffect(() => {
+  //   const handleBeforeUnload = () => {
+  //     console.log('Window is closing or navigating away - removing token...');
+  //     localStorage.removeItem('token');
+  //   };
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
+  //   window.addEventListener('beforeunload', handleBeforeUnload);
 
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, []); 
+  //   return () => {
+  //     window.removeEventListener('beforeunload', handleBeforeUnload);
+  //   };
+  // }, []); 
 
   return (
     <>
@@ -49,7 +49,7 @@ function AppRoutes() {
         <Route path="/exams/take/:examId/:examSetName" element={<TakeExam />} />
         <Route path="/assign-exam/:setName" element={<AssignExamPage />} />
         <Route path="/view-exam-set" element={<ViewExamSet />} />
-        <Route path="/view-individual-exams/:setName" element={<ViewIndividualExamSet />} />
+        <Route path="/view-individual-exams/:examSetName" element={<ViewIndividualExamSet />} />
       </Routes>
     </>
   );

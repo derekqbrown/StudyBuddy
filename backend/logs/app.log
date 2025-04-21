@@ -98,3 +98,72 @@
 [2025-04-21T18:45:35.416Z] INFO: All Sets: Space 1,Space 2,biology 1
 [2025-04-21T18:45:35.419Z] INFO: Extracted set names: 
 [2025-04-21T18:45:35.420Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:47:44.869Z] INFO: Fetching user with username: test5
+[2025-04-21T18:47:45.141Z] INFO: Fetching user with username: test5
+[2025-04-21T18:47:45.581Z] INFO: Fetching user with username: test5
+[2025-04-21T18:47:45.623Z] INFO: User logged in: test5
+[2025-04-21T18:47:46.777Z] INFO: User fetched: test5
+[2025-04-21T18:47:47.209Z] INFO: Extracted set names: 
+[2025-04-21T18:47:47.209Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:49:03.076Z] INFO: Fetching user with username: test5
+[2025-04-21T18:49:03.127Z] INFO: Fetching user with username: test5
+[2025-04-21T18:49:03.247Z] INFO: Fetching user with username: test5
+[2025-04-21T18:49:03.304Z] INFO: User logged in: test5
+[2025-04-21T18:49:04.223Z] INFO: User fetched: test5
+[2025-04-21T18:49:04.503Z] INFO: Extracted set names: 
+[2025-04-21T18:49:04.504Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:51:45.460Z] INFO: User fetched: test5
+[2025-04-21T18:51:45.469Z] INFO: User fetched: test5
+[2025-04-21T18:51:45.606Z] INFO: Extracted set names: 
+[2025-04-21T18:51:45.606Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:51:45.609Z] INFO: Extracted set names: 
+[2025-04-21T18:51:45.609Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:51:50.250Z] INFO: User fetched: test5
+[2025-04-21T18:51:50.260Z] INFO: User fetched: test5
+[2025-04-21T18:51:50.396Z] INFO: Extracted set names: 
+[2025-04-21T18:51:50.396Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:51:50.399Z] INFO: Extracted set names: 
+[2025-04-21T18:51:50.399Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:52:10.953Z] INFO: User fetched: test5
+[2025-04-21T18:52:10.957Z] INFO: User fetched: test5
+[2025-04-21T18:52:11.230Z] INFO: Extracted set names: 
+[2025-04-21T18:52:11.230Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:52:11.231Z] INFO: Extracted set names: 
+[2025-04-21T18:52:11.232Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:52:18.148Z] INFO: User fetched: test5
+[2025-04-21T18:52:18.154Z] INFO: User fetched: test5
+[2025-04-21T18:52:18.280Z] INFO: Extracted set names: 
+[2025-04-21T18:52:18.280Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:52:18.295Z] INFO: Extracted set names: 
+[2025-04-21T18:52:18.295Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:52:21.991Z] INFO: User fetched: test5
+[2025-04-21T18:52:22.001Z] INFO: User fetched: test5
+[2025-04-21T18:52:22.127Z] INFO: Extracted set names: 
+[2025-04-21T18:52:22.128Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:52:22.133Z] INFO: Extracted set names: 
+[2025-04-21T18:52:22.133Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:52:43.152Z] INFO: User fetched: test5
+[2025-04-21T18:52:43.163Z] INFO: User fetched: test5
+[2025-04-21T18:52:43.470Z] INFO: Extracted set names: 
+[2025-04-21T18:52:43.471Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:52:43.477Z] INFO: Extracted set names: 
+[2025-04-21T18:52:43.478Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:52:46.499Z] INFO: User fetched: test5
+[2025-04-21T18:52:46.508Z] INFO: User fetched: test5
+[2025-04-21T18:52:46.633Z] INFO: Extracted set names: 
+[2025-04-21T18:52:46.633Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:52:46.643Z] INFO: Extracted set names: 
+[2025-04-21T18:52:46.643Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:52:48.261Z] INFO: User fetched: test5
+[2025-04-21T18:52:48.269Z] INFO: User fetched: test5
+[2025-04-21T18:52:48.391Z] INFO: Extracted set names: 
+[2025-04-21T18:52:48.391Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:52:48.403Z] INFO: Extracted set names: 
+[2025-04-21T18:52:48.404Z] INFO: All Sets: Space 1,Space 2,biology 1
+[2025-04-21T18:59:34.686Z] INFO: Fetching user with username: test5
+[2025-04-21T18:59:34.989Z] INFO: Fetching user with username: test5
+[2025-04-21T18:59:35.419Z] INFO: Fetching user with username: test5
+[2025-04-21T18:59:35.462Z] INFO: User logged in: test5
+[2025-04-21T18:59:36.625Z] INFO: User fetched: test5
+[2025-04-21T18:59:37.160Z] INFO: Extracted set names: 
+[2025-04-21T18:59:37.161Z] INFO: All Sets: Space 1,Space 2,biology 1

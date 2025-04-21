@@ -73,11 +73,11 @@ function ViewExamSetPage(){
                     <p className="text-center">No Exam Set Found</p>
                 ) : (
                     <ul className="">
-                        {examSet.map((set, index) => (
+                        {examSet.map((examSetName, index) => (
                             <li key={index} 
                             className="bg-white hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-md shadow-sm transition duration-150 ease-in-out mb-2 text-center"
                             style={{width: '15vw', margin: '20px'}}>
-                                <Link to={`/view-individual-exams/${set}`} className="block w-full h-full">{set}</Link>
+                                <Link to={`/view-individual-exams/${examSetName}`} className="block w-full h-full">{examSetName}</Link>
                             </li>
                         ))}
                     </ul>
