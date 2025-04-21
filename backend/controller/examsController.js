@@ -6,13 +6,14 @@ const { promptifyExams } = require("../util/geminiPrompt");
 const examsService = require('../service/examsService');
 const logger = require("../util/logger");
 
-const ai = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
-
 
 // creating the exam
 router.post('/create-exam', authenticateToken, async (req, res) => {
     // logger.info("calling create exam");
     try{
+        const geminiAPIKey = getGeminiKey(); //process.env.GOOGLE_GEMINI_API_KEY;
+        const ai = new GoogleGenerativeAI(geminiAPIKey);
+
         const userId = req.user.id;
         const model = ai.getGenerativeModel({ model: "gemini-2.0-flash" });
         const userPrompt = req.body.prompt;

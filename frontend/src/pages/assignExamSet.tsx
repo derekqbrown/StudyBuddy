@@ -58,25 +58,25 @@ function AssignExamSetPage(){
 
 
     return(
-        <div>
-            <div className="flex flex-col justify-center"
-                style={{
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    height: '100vh', 
-                  }}>
-                <h1 className="text-white text-2xl mb-2"
-                    style={{marginTop: "50px"}}>
+        <div className="flex flex-col justify-center items-center">
+            
+                <h1 className="text-white text-2xl mt-60"
+                    >
                     Your Exam Sets
                 </h1>
+
+                
+            <div className="flex flex-col justify-center items-center"
+                >
+                
                 {examSet.length == 0 ? (
                     <p className="text-center">No Exam Set Found</p>
                 ) : (
-                    <ul className="w-1/2">
+                    <ul className="mt-10">
                         {examSet.map((set, index) => (
                             <li key={index} 
-                            className="bg-white hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-md shadow-sm transition duration-150 ease-in-out mb-2 text-center"
-                            style={{width: '15vw', margin: '20px'}}>
+                            className="bg-white hover:bg-gray-400 text-gray-800 py-2 px-4 w-50 rounded-md shadow-sm transition mb-2 text-center"
+                            >
                                 <Link to={`/assign-exam/${set}`} className="block w-full h-full">{set}</Link>
                             </li>
                         ))}

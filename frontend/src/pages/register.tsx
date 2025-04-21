@@ -24,6 +24,7 @@ function RegisterPage() {
       await axios.post(REGISTER_URL, {
         username,
         password,
+        role
       });
       navigate('/');
     } catch (err) {

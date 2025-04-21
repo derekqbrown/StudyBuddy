@@ -6,11 +6,11 @@ const { getGeminiKey } = require("../util/secretKey");
 const logger = require("../util/logger");
 require('dotenv').config();
 
-const geminiAPIKey = getGeminiKey(); //process.env.GOOGLE_GEMINI_API_KEY;
-const ai = new GoogleGenerativeAI(geminiAPIKey);
 
 router.post("/", authenticateToken, async (req, res) => {
     try {
+        const geminiAPIKey = await getGeminiKey(); //process.env.GOOGLE_GEMINI_API_KEY;
+        const ai = new GoogleGenerativeAI(geminiAPIKey);
         const model = ai.getGenerativeModel({ model: "gemini-2.0-flash" });
 
         const userPrompt = req.body.prompt;

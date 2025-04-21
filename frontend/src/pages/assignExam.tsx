@@ -94,7 +94,9 @@ function AssignExamPage() {
           {exams.map((exam, index) => {
             const keyParts = exam.Key.split("/");
             const rawExamId = keyParts[3];
+            const examName = keyParts[2];
             const examId = rawExamId.replace(".json", "");
+            //console.log(keyParts);
 
             return (
               <li key={index} className="flex items-center justify-center space-x-4 mb-2">
@@ -102,7 +104,7 @@ function AssignExamPage() {
                   className="py-2 px-4 text-purple-800 bg-white hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-2 focus:ring-2 transition-colors duration-200 rounded-md"
                   onClick={() => handleExamClick(examId)}
                 >
-                  {examId}
+                  {examName}
                 </button>
                 {selectedExamId === examId && (
                   <>
@@ -111,7 +113,7 @@ function AssignExamPage() {
                       placeholder="Enter Student ID"
                       value={studentId}
                       onChange={(e) => setStudentId(e.target.value)}
-                      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md w-48 bg-white"
+                      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2 border-gray-300 rounded-md w-48 bg-white"
                     />
                     <button
                       className="py-2 px-4 text-white bg-green-500 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-2 focus:ring-2 transition-colors duration-200 rounded-md"
